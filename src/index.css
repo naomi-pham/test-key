@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "graphik-bold";
+    src: url("https://fonts.cozy-cost.just.engineer/GraphikBlack.otf");
+  }
+
+  @font-face {
+    font-family: "graphik-semibold";
+    src: url("https://fonts.cozy-cost.just.engineer/GraphikSemibold.otf");
+  }
+
+  @font-face {
+    font-family: "graphik-medium";
+    src: url("https://fonts.cozy-cost.just.engineer/GraphikMedium.otf");
+  }
+
+  @font-face {
+    font-family: "graphik-regular";
+    src: url("https://fonts.cozy-cost.just.engineer/GraphikRegular.otf");
+  }
+}
+
+
+body {
+  font-size: 0.9375rem;
+}
+
+a {
+  color: #E94C89
+}
+
+/* font sizes */
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label {
+  color: #121212
+}
+
+p {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  font-family: "graphik-regular";
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1.125rem;
+}
+
+/* scrollbar */
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+  /* Chrome */
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
