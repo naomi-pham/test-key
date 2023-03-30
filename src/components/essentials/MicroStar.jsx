@@ -3,14 +3,16 @@ import CozyStatsSmall from '../common/CozyStatsSmall';
 
 const MicroStar = () => {
 	return (
-		<div className="cozy-flex cozy-items-center cozy-p-2 cozy-py-4">
+		<div className="cozy-flex cozy-items-center cozy-gap-2 cozy-p-2 cozy-py-4">
 			<CozyStatsSmall />
-			<a
-				href="/"
-				className="cozy-font-graphik-semibold cozy-text-body-1 cozy-font-extrabold cozy-text-branding-primary-500"
-			>
-				CozyCot
-			</a>
+			<div>
+				<a
+					href="/"
+					className="cozy-outline cozy-font-graphik-semibold cozy-text-body-1 cozy-font-extrabold cozy-text-branding-primary-500"
+				>
+					CozyCot
+				</a>
+			</div>
 		</div>
 	);
 };
