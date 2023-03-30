@@ -19,13 +19,13 @@ const ReviewCard = ({ item, responsive }) => {
 				className="cozy-absolute cozy-inset-0 cozy-h-full cozy-w-full"
 			/>
 			<div
-				className={`cozy-flex cozy-flex-col cozy-gap-2 cozy-p-4 ${
+				className={`cozy-flex cozy-flex-col cozy-gap-3 cozy-p-4 ${
 					responsive
 						? 'cozy-mx-auto cozy-w-11/12 cozy-rounded-md sm:cozy-bg-light'
 						: ''
 				}`}
 			>
-				<div className="cozy-flex cozy-p-3">
+				<div className="cozy-flex cozy-gap-3">
 					<RatingGroupSmall withoutMessage rating={handleNullData(item.star)} />
 					{item?.created_by.is_verified && (
 						<div className="cozy-flex cozy-gap-0.5 cozy-opacity-60">
@@ -38,7 +38,7 @@ const ReviewCard = ({ item, responsive }) => {
 					{handleNullData(item.title)}
 				</h4>
 				<p>{handleNullData(item.content)}</p>
-				<div className="cozy-flex cozy-items-end cozy-p-2">
+				<div className="cozy-flex cozy-items-end cozy-gap-2">
 					<p className="cozy-font-500">
 						{handleNullData(item.created_by.name)},{' '}
 						<span className="cozy-text-sm cozy-opacity-60">
