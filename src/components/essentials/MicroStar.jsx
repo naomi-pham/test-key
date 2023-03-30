@@ -8,7 +8,7 @@ const MicroStar = () => {
 			<div>
 				<a
 					href="/"
-					className="cozy-outline cozy-font-graphik-semibold cozy-text-body-1 cozy-font-extrabold cozy-text-branding-primary-500"
+					className="cozy-font-graphik-semibold cozy-text-body-1 cozy-font-extrabold cozy-text-branding-primary-500"
 				>
 					CozyCot
 				</a>
