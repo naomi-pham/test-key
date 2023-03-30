@@ -8,7 +8,7 @@ const CozyStatsSmall = ({ withScore }) => {
 	const { data } = useAxios('/api/v1/business/widgets/stats');
 
 	return (
-		<div className="cozy-flex cozy-flex-wrap cozy-items-center cozy-p-2">
+		<div className="cozy-flex cozy-flex-wrap cozy-items-center cozy-gap-2">
 			<RatingGroupSmall
 				rating={handleNullData(data?.data?.total_trust_score, 0)}
 				numberOfReviews={handleNullData(data?.data?.total_review, 0)}

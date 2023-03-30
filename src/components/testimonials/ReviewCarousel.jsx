@@ -16,7 +16,7 @@ const ReviewCarousel = () => {
 					rating={handleNullData(data?.data?.total_trust_score)}
 					numberOfReviews={handleNullData(data?.data?.total_review, 0)}
 				/>
-				<h3 className="font-font-graphik-semibold cozy-text-xl cozy-text-heading-3 cozy-text-branding-primary-500">
+				<h3 className="cozy-text-xl cozy-font-graphik-semibold cozy-text-heading-3 cozy-text-branding-primary-500">
 					CozyCot
 				</h3>
 			</div>
