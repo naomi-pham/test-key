@@ -12,10 +12,12 @@ import styles from './index.css';
 			let renderIn = container[i].attachShadow({ mode: 'open' });
 			container[i].classList.add('root-rendered');
 
-			let styleTag = document.createElement('style');
-			styleTag.id = 'cozy-widget-style';
-			styleTag.innerHTML = styles;
-			renderIn.appendChild(styleTag);
+			if (!window.document.getElementById('cozy-widget-style')) {
+				let styleTag = document.createElement('style');
+				styleTag.setAttribute('id', 'cozy-widget-style');
+				styleTag.innerHTML = styles;
+				renderIn.appendChild(styleTag);
+			}
 
 			const rootContent = createRoot(renderIn);
 
