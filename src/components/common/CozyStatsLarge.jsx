@@ -17,7 +17,7 @@ const CozyStatsLarge = ({ intent }) => {
 				} cozy-p-3 `}
 			>
 				<h4 className="cozy-font-primary cozy-text-2xl cozy-text-brand">
-					Cozy Cot
+					CozyCot
 				</h4>
 
 				{error && <p className="cozy-opacity-60 "> Rating not found</p>}
