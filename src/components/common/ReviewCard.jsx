@@ -41,7 +41,7 @@ const ReviewCard = ({ item, responsive }) => {
 				<div className="cozy-flex cozy-items-end cozy-gap-2">
 					<p className="cozy-font-graphik-medium">
 						{handleNullData(item.created_by.name)},{' '}
-						<span className="cozy-text-body-2 cozy-opacity-60">
+						<span className="cozy-text-body-1 cozy-opacity-60">
 							{dayjs(item?.created_at).fromNow()}
 						</span>
 					</p>

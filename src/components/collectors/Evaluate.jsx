@@ -80,7 +80,7 @@ const Evaluate = () => {
 
 	return (
 		<>
-			<div className="cozy-space-y-5 cozy-bg-white cozy-py-6 cozy-px-4 cozy-shadow-md">
+			<div className="cozy-bg-white cozy-rounded-xl cozy-p-6 cozy-shadow-md">
 				<div className="cozy-space-y-2">
 					<h4 className="cozy-font-graphik-medium cozy-text-title-2">
 						Rate your recent experience
@@ -89,9 +89,9 @@ const Evaluate = () => {
 				</div>
 
 				{isShown && (
-					<div className="cozy-space-y-2">
+					<div className="cozy-mt-5">
 						{isSubmitted ? (
-							<p className="cozy-pt-2">Thank you for your feedback!</p>
+							<p>Thank you for your feedback!</p>
 						) : (
 							<form
 								onSubmit={handleSubmit}
@@ -99,7 +99,7 @@ const Evaluate = () => {
 							>
 								<label
 									htmlFor="review"
-									className="cozy-text-body-2 cozy-font-graphik-medium cozy-text-light-neutral-700"
+									className="cozy-font-graphik-medium cozy-text-body-2 cozy-text-light-neutral-700"
 								>
 									Share your review
 									<textarea
@@ -107,7 +107,7 @@ const Evaluate = () => {
 										type="text"
 										onChange={handleInput('INPUT_REVIEW')}
 										value={review}
-										className="cozy-text-body-1 cozy-mt-1 cozy-w-full cozy-rounded cozy-border cozy-border-light-neutral-300 cozy-p-4 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2"
+										className="cozy-mt-1 cozy-w-full cozy-rounded-xl cozy-border cozy-border-light-neutral-300 cozy-p-4 cozy-text-body-2 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2"
 										rows={5}
 										placeholder="This is where you write your reviews."
 										required
@@ -117,7 +117,7 @@ const Evaluate = () => {
 								{formFields.map((field) => (
 									<label
 										key={field.id}
-										className="cozy-text-body-2 cozy-font-graphik-medium cozy-text-light-neutral-700"
+										className="cozy-font-graphik-medium cozy-text-body-2 cozy-text-light-neutral-700"
 										htmlFor={field.name}
 									>
 										{field.label}
@@ -128,7 +128,7 @@ const Evaluate = () => {
 											onChange={handleInput(field.action)}
 											value={field.value}
 											placeholder={field.placeholder}
-											className="cozy-text-body-1 cozy-mt-1 cozy-w-full cozy-rounded cozy-border cozy-border-light-neutral-300 cozy-p-4 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2"
+											className="cozy-mt-1 cozy-w-full cozy-rounded cozy-border cozy-border-light-neutral-300 cozy-p-4 cozy-text-body-2 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2"
 										/>
 									</label>
 								))}
@@ -136,7 +136,7 @@ const Evaluate = () => {
 								<input
 									type="submit"
 									value="Submit review"
-									className="cozy-mt-2 cozy-cursor-pointer cozy-rounded-md cozy-bg-branding-primary-500 cozy-p-2 cozy-font-graphik-medium cozy-text-light-neutral-25 hover:cozy-bg-black-500 hover:cozy-ring-light-neutral-300"
+									className="hover:cozy-bg-black-500 cozy-mt-2 cozy-cursor-pointer cozy-rounded-md cozy-bg-branding-primary-500 cozy-p-2 cozy-font-graphik-medium cozy-text-light-neutral-25 hover:cozy-ring-light-neutral-300"
 								/>
 							</form>
 						)}

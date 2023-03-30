@@ -32,7 +32,7 @@ const RatingGroupLarge = ({
 			{messageLarge && (
 				<a
 					href="/"
-					className="cozy-text-body-2 cozy-underline cozy-underline-offset-2"
+					className="cozy-text-body-1 cozy-underline cozy-underline-offset-2"
 				>
 					{numberOfReviews} reviews
 				</a>

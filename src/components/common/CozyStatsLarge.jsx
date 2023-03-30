@@ -16,7 +16,7 @@ const CozyStatsLarge = ({ intent }) => {
 						: ''
 				} cozy-p-3 `}
 			>
-				<h4 className="cozy-font-primary cozy-text-2xl cozy-text-branding-primary-500">
+				<h4 className="font-font-graphik-semibold cozy-text-2xl cozy-text-heading-3 cozy-text-branding-primary-500">
 					CozyCot
 				</h4>
 

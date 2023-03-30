@@ -11,6 +11,7 @@ module.exports = {
 			},
 		},
 		fontSize: {
+			'heading-3': ['2rem', { letterSpacing: '0.01em', lineHeight: '2.5rem' }],
 			'body-1': ['1rem', { letterSpacing: '0.01em', lineHeight: '1.5rem' }],
 			'body-2': [
 				'0.875rem',
@@ -22,17 +23,6 @@ module.exports = {
 			],
 		},
 		colors: {
-			brand: '#E94C89',
-			dark: '#121212',
-			black: {
-				400: '#DFE1E6',
-				500: '#B3BAC5',
-				700: '#6B778C',
-			},
-			rose: {
-				200: '#FDF2F7',
-				gradient: '#FAD8E5',
-			},
 			light: {
 				neutral: {
 					25: '#FFFFFF',
