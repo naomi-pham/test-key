@@ -10,32 +10,38 @@ dayjs.extend(relativeTime);
 const ReviewCard = ({ item, responsive }) => {
 	return (
 		<div
-			className={`relative min-w-full ${responsive ? 'sm:min-w-[50%]' : ''}`}
+			className={`cozy-relative cozy-min-w-full ${
+				responsive ? 'sm:cozy-min-w-[50%]' : ''
+			}`}
 		>
-			<a href="/" className="absolute inset-0 h-full w-full" />
+			<a
+				href="/"
+				className="cozy-absolute cozy-inset-0 cozy-h-full cozy-w-full"
+			/>
 			<div
-				className={`flex flex-col gap-2 p-4 ${
-					responsive ? 'mx-auto w-11/12 rounded-md sm:bg-light' : ''
+				className={`cozy-flex cozy-flex-col cozy-gap-2 cozy-p-4 ${
+					responsive
+						? 'cozy-mx-auto cozy-w-11/12 cozy-rounded-md sm:cozy-bg-light'
+						: ''
 				}`}
 			>
-				<div className="flex gap-3">
-					<RatingGroupSmall
-						withoutMessage
-						rating={handleNullData(item.star)}
-					/>
+				<div className="cozy-flex cozy-p-3">
+					<RatingGroupSmall withoutMessage rating={handleNullData(item.star)} />
 					{item?.created_by.is_verified && (
-						<div className="flex gap-0.5 opacity-60">
-							<Check className="h-5 w-5" />
+						<div className="cozy-flex cozy-gap-0.5 cozy-opacity-60">
+							<Check className="cozy-h-5 cozy-w-5" />
 							<p>Verified</p>
 						</div>
 					)}
 				</div>
-				<h4 className="font-500 text-lg">{handleNullData(item.title)}</h4>
+				<h4 className="cozy-font-500 cozy-text-lg">
+					{handleNullData(item.title)}
+				</h4>
 				<p>{handleNullData(item.content)}</p>
-				<div className="flex items-end gap-2">
-					<p className="font-500">
+				<div className="cozy-flex cozy-items-end cozy-p-2">
+					<p className="cozy-font-500">
 						{handleNullData(item.created_by.name)},{' '}
-						<span className="text-sm opacity-60">
+						<span className="cozy-text-sm cozy-opacity-60">
 							{dayjs(item?.created_at).fromNow()}
 						</span>
 					</p>

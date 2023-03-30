@@ -23,19 +23,19 @@ const Slider = ({ slides }) => {
 	};
 
 	return (
-		<div className="group relative mx-auto w-full max-w-3xl">
+		<div className="cozy-group cozy-relative cozy-mx-auto cozy-w-full cozy-max-w-3xl">
 			<button
-				className={`absolute top-1/2 bottom-0 left-0 h-full w-8 -translate-y-1/2 cursor-pointer opacity-0 transition-all duration-200 hover:scale-125 disabled:cursor-not-allowed disabled:opacity-20 group-hover:opacity-50 sm:-left-8 ${
-					!isMoved ? 'hidden' : ''
+				className={`cozy-absolute cozy-top-1/2 cozy-left-0 cozy-bottom-0 cozy-h-full cozy-w-8 -cozy-translate-y-1/2 cozy-cursor-pointer cozy-opacity-0 cozy-transition-all cozy-duration-200 hover:cozy-scale-125 disabled:cozy-cursor-not-allowed disabled:cozy-opacity-20 group-hover:cozy-opacity-50 sm:-cozy-left-8 ${
+					!isMoved ? 'cozy-hidden' : ''
 				}`}
 				onClick={handleClick('left')}
 			>
-				<ArrowLeft className="h-5 w-5" />
+				<ArrowLeft className="cozy-h-5 cozy-w-5" />
 			</button>
 
 			<div
 				ref={ref}
-				className="scrollbar-hide flex items-center overflow-x-scroll"
+				className="scrollbar-hide cozy-flex cozy-items-center cozy-overflow-x-scroll"
 			>
 				{slides?.map((item) => (
 					<ReviewCard key={item.id} item={item} responsive />
@@ -43,10 +43,10 @@ const Slider = ({ slides }) => {
 			</div>
 
 			<button
-				className="absolute top-1/2 bottom-0 right-0 h-full w-8 -translate-y-1/2 cursor-pointer opacity-0 transition-all duration-200 hover:scale-125 disabled:cursor-not-allowed disabled:opacity-20 group-hover:opacity-50 sm:-right-8"
+				className="cozy-absolute cozy-top-1/2 cozy-right-0 cozy-bottom-0 cozy-h-full cozy-w-8 -cozy-translate-y-1/2 cozy-cursor-pointer cozy-opacity-0 cozy-transition-all cozy-duration-200 hover:cozy-scale-125 disabled:cozy-cursor-not-allowed disabled:cozy-opacity-20 group-hover:cozy-opacity-50 sm:-cozy-right-8"
 				onClick={handleClick('right')}
 			>
-				<ArrowRight className="h-5 w-5" />
+				<ArrowRight className="cozy-h-5 cozy-w-5" />
 			</button>
 		</div>
 	);

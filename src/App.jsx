@@ -6,7 +6,7 @@ const App = ({ intent }) => {
 	return (
 		<>
 			{Widgets.filter((widget) => widget.intent === intent).map((widget) => (
-				<div key={widget.id} className="w-full">
+				<div key={widget.id} className="cozy-w-full">
 					{widget.component}
 				</div>
 			))}

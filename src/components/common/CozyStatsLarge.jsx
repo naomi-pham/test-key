@@ -10,13 +10,17 @@ const CozyStatsLarge = ({ intent }) => {
 	return (
 		<>
 			<div
-				className={`flex flex-col ${
-					intent === 'center' ? 'items-center justify-center text-center' : ''
-				} gap-3 `}
+				className={`cozy-flex cozy-flex-col  cozy-gap-3 ${
+					intent === 'center'
+						? 'cozy-items-center cozy-justify-center cozy-text-center'
+						: ''
+				} cozy-p-3 `}
 			>
-				<h4 className="font-primary text-2xl text-brand">Cozy Cot</h4>
+				<h4 className="cozy-font-primary cozy-text-2xl cozy-text-brand">
+					Cozy Cot
+				</h4>
 
-				{error && <p className="opacity-60 "> Rating not found</p>}
+				{error && <p className="cozy-opacity-60 "> Rating not found</p>}
 
 				<>
 					<RatingGroupLarge
@@ -24,13 +28,13 @@ const CozyStatsLarge = ({ intent }) => {
 						rating={handleNullData(data?.data?.total_trust_score)}
 						numberOfReviews={handleNullData(data?.data?.total_review, 0)}
 					/>
-					<p className="flex gap-1.5">
+					<p className="cozy-flex cozy-gap-1.5">
 						Cozy score:
-						<span className="font-500">
+						<span className="cozy-font-500">
 							{handleNullData(data?.data?.total_trust_score)}
 						</span>
 						•
-						<a href="/" className="underline underline-offset-2">
+						<a href="/" className="cozy-underline cozy-underline-offset-2">
 							{handleNullData(data?.data?.total_review, 0)} reviews
 						</a>
 					</p>

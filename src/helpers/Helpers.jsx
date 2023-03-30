@@ -1,11 +1,11 @@
 export const stars = [1, 2, 3, 4, 5];
 
 export const colors = [
-	'bg-red-500',
-	'bg-orange-500',
-	'bg-yellow-500',
-	'bg-green-500',
-	'bg-brand',
+	'cozy-bg-red-500',
+	'cozy-bg-orange-500',
+	'cozy-bg-yellow-500',
+	'cozy-bg-green-500',
+	'cozy-bg-brand',
 ];
 
 export function handleMessage(rating, setMessage) {

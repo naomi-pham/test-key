@@ -7,7 +7,7 @@ const CozyReviews = () => {
 
 	return (
 		<>
-			{error && <p className="opacity-60 "> Reviews not found</p>}
+			{error && <p className="cozy-opacity-60"> Reviews not found</p>}
 			{data && <Carousel slides={data?.data?.items} />}
 		</>
 	);

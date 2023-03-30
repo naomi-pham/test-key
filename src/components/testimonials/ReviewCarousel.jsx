@@ -8,18 +8,20 @@ const ReviewCarousel = () => {
 	const { data, error } = useAxios('/api/v1/business/widgets/stats');
 
 	return (
-		<div className="flex flex-col items-center gap-16 sm:flex-row">
-			<div className="flex flex-col items-center justify-center gap-3 self-stretch px-3">
-				{error && <p className="opacity-60"> Stats not found</p>}
+		<div className="cozy-flex cozy-flex-col  cozy-items-center cozy-gap-3 cozy-gap-16 sm:cozy-flex-row">
+			<div className="cozy-flex cozy-flex-col  cozy-items-center cozy-justify-center cozy-gap-3 cozy-gap-3 cozy-self-stretch cozy-p-3 cozy-px-3">
+				{error && <p className="cozy-opacity-60"> Stats not found</p>}
 				<RatingGroupLarge
 					messageLarge
 					rating={handleNullData(data?.data?.total_trust_score)}
 					numberOfReviews={handleNullData(data?.data?.total_review, 0)}
 				/>
-				<h3 className="font-primary text-xl text-brand">Cozy Cot</h3>
+				<h3 className="cozy-font-primary cozy-text-xl cozy-text-brand">
+					Cozy Cot
+				</h3>
 			</div>
 
-			<div className="mx-auto w-full max-w-xs sm:max-w-sm">
+			<div className="cozy-mx-auto cozy-w-full cozy-max-w-xs sm:cozy-max-w-sm">
 				<CozyReviews />
 			</div>
 		</div>

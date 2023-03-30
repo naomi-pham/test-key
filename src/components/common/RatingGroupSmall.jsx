@@ -11,9 +11,11 @@ const RatingGroupSmall = ({ withoutMessage, rating }) => {
 	}, [rating]);
 
 	return (
-		<div className="flex w-full items-center gap-2 md:w-auto">
-			{!withoutMessage && <p className="hidden font-500 md:block">{message}</p>}
-			<div className="flex gap-1">
+		<div className="cozy-flex cozy-w-full cozy-items-center cozy-p-2 md:cozy-w-auto">
+			{!withoutMessage && (
+				<p className="cozy-hidden cozy-font-500 md:cozy-block">{message}</p>
+			)}
+			<div className="cozy-flex cozy-gap-1">
 				<RatingFixed rating={rating} small />
 			</div>
 		</div>

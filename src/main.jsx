@@ -13,6 +13,7 @@ import styles from './index.css';
 			container[i].classList.add('root-rendered');
 
 			let styleTag = document.createElement('style');
+			styleTag.id = 'cozy-widget-style';
 			styleTag.innerHTML = styles;
 			renderIn.appendChild(styleTag);
 

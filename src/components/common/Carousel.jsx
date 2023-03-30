@@ -34,10 +34,10 @@ const Carousel = ({ slides }) => {
 	}
 
 	return (
-		<div className="relative mx-auto w-full">
-			<div className="mx-auto w-10/12 overflow-hidden">
+		<div className="cozy-relative cozy-mx-auto cozy-w-full">
+			<div className="cozy-mx-auto cozy-w-10/12 cozy-overflow-hidden">
 				<div
-					className="mx-auto flex transition-transform duration-500 ease-in-out"
+					className="cozy-mx-auto cozy-flex cozy-transition-transform cozy-duration-500 cozy-ease-in-out"
 					ref={ref}
 					style={{
 						transform: `translate3d(-${translateX}px, 0px, 0px)`,
@@ -50,19 +50,19 @@ const Carousel = ({ slides }) => {
 			</div>
 
 			<button
-				className="absolute top-0 bottom-0 left-0 h-full disabled:cursor-not-allowed disabled:opacity-40 "
+				className="cozy-absolute cozy-left-0 cozy-bottom-0 cozy-top-0 cozy-h-full disabled:cozy-cursor-not-allowed disabled:cozy-opacity-40"
 				onClick={moveToLeft}
 				disabled={slidePosition === 0}
 			>
-				<ArrowLeft className="h-5 w-8 fill-black-700" />
+				<ArrowLeft className="cozy-h-5 cozy-w-8 cozy-fill-black-700" />
 			</button>
 
 			<button
-				className="absolute top-0 bottom-0 right-0 h-full disabled:cursor-not-allowed disabled:opacity-40 "
+				className="cozy-absolute cozy-right-0 cozy-bottom-0 cozy-top-0 cozy-h-full disabled:cozy-cursor-not-allowed disabled:cozy-opacity-40"
 				onClick={moveToRight}
 				disabled={slidePosition === totalSlide - 1}
 			>
-				<ArrowRight className="h-5 w-8 fill-black-700" />
+				<ArrowRight className="cozy-h-5 cozy-w-8 cozy-fill-black-700" />
 			</button>
 		</div>
 	);

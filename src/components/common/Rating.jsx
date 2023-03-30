@@ -4,11 +4,11 @@ import Star from '../icon/Star';
 
 const stars = [1, 2, 3, 4, 5];
 const colors = [
-	'bg-red-500',
-	'bg-orange-500',
-	'bg-yellow-500',
-	'bg-green-500',
-	'bg-brand',
+	'cozy-bg-red-500',
+	'cozy-bg-orange-500',
+	'cozy-bg-yellow-500',
+	'cozy-bg-green-500',
+	'cozy-bg-brand',
 ];
 
 const Rating = ({ rating, handleClick, message }) => {
@@ -22,12 +22,12 @@ const Rating = ({ rating, handleClick, message }) => {
 	const defaultBackgroundColor = useCallback(
 		(index) => {
 			if (firstTimeRef.current) {
-				return 'bg-zinc-200';
+				return 'cozy-bg-zinc-200';
 			}
 			if (index <= selectedStar) {
 				return colors[selectedStar];
 			}
-			return 'bg-zinc-200';
+			return 'cozy-bg-zinc-200';
 		},
 		[selectedStar, firstTimeRef],
 	);
@@ -35,7 +35,7 @@ const Rating = ({ rating, handleClick, message }) => {
 	const hoverBackgroundColor = useCallback(
 		(index) => {
 			if (index <= selectedStar) {
-				return `group-hover:${colors[selectedStar]}`;
+				return `cozy-group-hover:${colors[selectedStar]}`;
 			}
 			return '';
 		},
@@ -58,7 +58,7 @@ const Rating = ({ rating, handleClick, message }) => {
 	};
 
 	return (
-		<div className="group flex w-fit items-center">
+		<div className="cozy-group cozy-flex cozy-w-fit cozy-items-center cozy-gap-2">
 			{stars.map((arr, index) => {
 				return (
 					<button
@@ -66,19 +66,21 @@ const Rating = ({ rating, handleClick, message }) => {
 						onClick={handleSetStar(index)}
 						onMouseOver={handleMouseOver(index)}
 						onMouseOut={handleMouseOut(index)}
-						className="pr-1.5 last-of-type:pr-0"
+						className="cozy-cozy-pr-1.5 last-of-type:cozy-pr-0"
 					>
 						<div
-							className={`hover:before: h-8 w-8 rounded-md ${defaultBackgroundColor(
+							className={`cozy-h-8 cozy-w-8 cozy-rounded-md ${defaultBackgroundColor(
 								index,
-							)} duration-75 hover:scale-105 ${hoverBackgroundColor(index)}`}
+							)} cozy-duration-75 hover:cozy-scale-105 ${hoverBackgroundColor(
+								index,
+							)}`}
 						>
-							<Star className="h-8 w-8 fill-none" />
+							<Star className="cozy-h-8 cozy-w-8 cozy-fill-none" />
 						</div>
 					</button>
 				);
 			})}
-			<p className="ml-2 opacity-80">{message}</p>
+			<p className="cozy-ml-2 cozy-opacity-80">{message}</p>
 		</div>
 	);
 };

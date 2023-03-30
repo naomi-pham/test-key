@@ -18,13 +18,18 @@ const RatingGroupLarge = ({
 	return (
 		<>
 			{!withoutMessage && (
-				<p className={`${messageLarge ? 'text-xl' : ''} font-500`}>{message}</p>
+				<p className={`${messageLarge ? 'cozy-text-xl' : ''} cozy-font-500`}>
+					{message}
+				</p>
 			)}
-			<div className="flex gap-1.5">
+			<div className="cozy-flex cozy-gap-1.5">
 				<RatingFixed rating={rating} />
 			</div>
 			{messageLarge && (
-				<a href="/" className="text-sm underline underline-offset-2">
+				<a
+					href="/"
+					className="cozy-text-sm cozy-underline cozy-underline-offset-2"
+				>
 					{numberOfReviews} reviews
 				</a>
 			)}
@@ -44,7 +49,7 @@ export const RatingFixed = ({ rating, small }) => {
 			if (index < selectedStar) {
 				return colors[Math.round(selectedStar) - 1];
 			}
-			return 'bg-zinc-200';
+			return 'cozy-bg-zinc-200';
 		},
 		[selectedStar],
 	);
@@ -55,11 +60,15 @@ export const RatingFixed = ({ rating, small }) => {
 				return (
 					<button key={index}>
 						<div
-							className={`rounded-md ${defaultBackgroundColor(
+							className={`cozy-rounded-md ${defaultBackgroundColor(
 								index,
-							)} duration-75 hover:scale-105`}
+							)} cozy-duration-75 hover:cozy-scale-105`}
 						>
-							<Star className={`${small ? 'h-5 w-5' : 'h-8 w-8'} fill-none`} />
+							<Star
+								className={`${
+									small ? 'cozy-cozy-w-5 cozy-h-5' : 'cozy-h-8 cozy-w-8'
+								} cozy-fill-none`}
+							/>
 						</div>
 					</button>
 				);

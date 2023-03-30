@@ -6,8 +6,8 @@ const ReviewSlider = () => {
 	const { data, error } = useAxios('/api/v1/business/reviews');
 
 	return (
-		<div className="mx-auto w-full max-w-xs sm:max-w-xl lg:max-w-3xl">
-			{error && <p className="opacity-60 "> Reviews not found</p>}
+		<div className="cozy-mx-auto cozy-w-full cozy-max-w-xs sm:cozy-max-w-xl lg:cozy-max-w-3xl">
+			{error && <p className="cozy-opacity-60 "> Reviews not found</p>}
 			{data && <Slider slides={data?.data?.items} />}
 		</div>
 	);

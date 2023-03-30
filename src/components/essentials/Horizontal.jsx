@@ -3,9 +3,9 @@ import CozyStatsSmall from '../common/CozyStatsSmall';
 
 const Horizontal = () => {
 	return (
-		<div className="flex w-full flex-wrap items-center gap-2 py-4">
+		<div className="cozy-flex cozy-w-full cozy-flex-wrap cozy-items-center cozy-p-2 cozy-py-4">
 			<CozyStatsSmall withScore />
-			<a href="/" className="font-primary text-brand">
+			<a href="/" className="cozy-font-primary cozy-text-brand">
 				Cozy Cot
 			</a>
 		</div>
