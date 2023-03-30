@@ -8,7 +8,7 @@ const Horizontal = () => {
 
 			<a
 				href="/"
-				className="cozy-font-primary cozy-font-extrabold cozy-text-brand"
+				className="cozy-font-primary cozy-font-extrabold cozy-text-branding-primary-500"
 			>
 				CozyCot
 			</a>

@@ -16,7 +16,7 @@ const CozyStatsLarge = ({ intent }) => {
 						: ''
 				} cozy-p-3 `}
 			>
-				<h4 className="cozy-font-primary cozy-text-2xl cozy-text-brand">
+				<h4 className="cozy-font-primary cozy-text-2xl cozy-text-branding-primary-500">
 					CozyCot
 				</h4>
 
@@ -30,7 +30,7 @@ const CozyStatsLarge = ({ intent }) => {
 					/>
 					<p className="cozy-flex cozy-gap-1.5">
 						Cozy score:
-						<span className="cozy-font-500">
+						<span className="cozy-font-graphik-medium">
 							{handleNullData(data?.data?.total_trust_score)}
 						</span>
 						•

@@ -54,7 +54,7 @@ const Carousel = ({ slides }) => {
 				onClick={moveToLeft}
 				disabled={slidePosition === 0}
 			>
-				<ArrowLeft className="cozy-h-5 cozy-w-8 cozy-fill-black-700" />
+				<ArrowLeft className="cozy-h-5 cozy-w-8 cozy-fill-light-neutral-700" />
 			</button>
 
 			<button
@@ -62,7 +62,7 @@ const Carousel = ({ slides }) => {
 				onClick={moveToRight}
 				disabled={slidePosition === totalSlide - 1}
 			>
-				<ArrowRight className="cozy-h-5 cozy-w-8 cozy-fill-black-700" />
+				<ArrowRight className="cozy-h-5 cozy-w-8 cozy-fill-light-neutral-700" />
 			</button>
 		</div>
 	);

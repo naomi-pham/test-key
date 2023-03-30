@@ -8,7 +8,7 @@ const colors = [
 	'cozy-bg-orange-500',
 	'cozy-bg-yellow-500',
 	'cozy-bg-green-500',
-	'cozy-bg-brand',
+	'cozy-bg-branding-primary-500',
 ];
 
 const Rating = ({ rating, handleClick, message }) => {

@@ -21,7 +21,7 @@ const ReviewCard = ({ item, responsive }) => {
 			<div
 				className={`cozy-flex cozy-flex-col cozy-gap-3 cozy-p-4 ${
 					responsive
-						? 'cozy-mx-auto cozy-w-11/12 cozy-rounded-md sm:cozy-bg-light'
+						? 'sm:cozy-bg-light cozy-mx-auto cozy-w-11/12 cozy-rounded-md'
 						: ''
 				}`}
 			>
@@ -34,14 +34,14 @@ const ReviewCard = ({ item, responsive }) => {
 						</div>
 					)}
 				</div>
-				<h4 className="cozy-font-500 cozy-text-lg">
+				<h4 className="cozy-font-graphik-medium cozy-text-title-2">
 					{handleNullData(item.title)}
 				</h4>
 				<p>{handleNullData(item.content)}</p>
 				<div className="cozy-flex cozy-items-end cozy-gap-2">
-					<p className="cozy-font-500">
+					<p className="cozy-font-graphik-medium">
 						{handleNullData(item.created_by.name)},{' '}
-						<span className="cozy-text-sm cozy-opacity-60">
+						<span className="cozy-text-body-2 cozy-opacity-60">
 							{dayjs(item?.created_at).fromNow()}
 						</span>
 					</p>

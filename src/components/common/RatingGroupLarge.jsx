@@ -18,7 +18,11 @@ const RatingGroupLarge = ({
 	return (
 		<>
 			{!withoutMessage && (
-				<p className={`${messageLarge ? 'cozy-text-xl' : ''} cozy-font-500`}>
+				<p
+					className={`${
+						messageLarge ? 'cozy-text-xl' : ''
+					} cozy-font-graphik-medium`}
+				>
 					{message}
 				</p>
 			)}
@@ -28,7 +32,7 @@ const RatingGroupLarge = ({
 			{messageLarge && (
 				<a
 					href="/"
-					className="cozy-text-sm cozy-underline cozy-underline-offset-2"
+					className="cozy-text-body-2 cozy-underline cozy-underline-offset-2"
 				>
 					{numberOfReviews} reviews
 				</a>
