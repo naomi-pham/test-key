@@ -15,7 +15,7 @@ import { createRoot } from 'react-dom/client';
 			if (!document.getElementById('cozy-widget-style')) {
 				let styleTag = document.createElement('style');
 				styleTag.setAttribute('id', 'cozy-widget-style');
-				styleTag.innerHTML = `
+				styleTag.textContent = `
 				@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@800&display=swap');
 
 				*,
