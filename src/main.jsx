@@ -9,17 +9,17 @@ import styles from './index.css';
 	for (let i = 0; i < container.length; i++) {
 		let intent = container[i].dataset.review;
 		if (!container[i].classList.contains('root-rendered')) {
-			let renderIn = container[i].attachShadow({ mode: 'open' });
+			let shadowDom = container[i].attachShadow({ mode: 'open' });
 			container[i].classList.add('root-rendered');
 
-			if (!window.document.getElementById('cozy-widget-style')) {
-				let styleTag = document.createElement('style');
-				styleTag.setAttribute('id', 'cozy-widget-style');
-				styleTag.innerHTML = styles;
-				renderIn.appendChild(styleTag);
-			}
+			// if (!document.getElementById('cozy-widget-style')) {
+			// 	let styleTag = document.createElement('style');
+			// 	styleTag.setAttribute('id', 'cozy-widget-style');
+			// 	styleTag.innerHTML = styles;
+			// 	shadowDom.appendChild(styleTag);
+			// }
 
-			const rootContent = createRoot(renderIn);
+			const rootContent = createRoot(shadowDom);
 
 			rootContent.render(
 				<React.StrictMode>
