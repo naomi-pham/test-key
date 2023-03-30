@@ -407,7 +407,7 @@ import { createRoot } from 'react-dom/client';
 					top: 0px;
 				}
 				
-				.cozy-top-1\/2{
+				.cozy-top-1\\/2{
 					top: 50%;
 				}
 				
@@ -452,7 +452,7 @@ import { createRoot } from 'react-dom/client';
 					height: 100%;
 				}
 				
-				.cozy-min-h-\[200px\]{
+				.cozy-min-h-\\[200px\\]{
 					min-height: 200px;
 				}
 				
@@ -460,11 +460,11 @@ import { createRoot } from 'react-dom/client';
 					min-height: 100vh;
 				}
 				
-				.cozy-w-10\/12{
+				.cozy-w-10\\/12{
 					width: 83.333333%;
 				}
 				
-				.cozy-w-11\/12{
+				.cozy-w-11\\/12{
 					width: 91.666667%;
 				}
 				
@@ -502,7 +502,7 @@ import { createRoot } from 'react-dom/client';
 					max-width: 20rem;
 				}
 				
-				.-cozy-translate-y-1\/2{
+				.-cozy-translate-y-1\\/2{
 					--tw-translate-y: -50%;
 					transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 				}
@@ -539,7 +539,7 @@ import { createRoot } from 'react-dom/client';
 					gap: 0px;
 				}
 				
-				.cozy-gap-0\.5{
+				.cozy-gap-0\\.5{
 					gap: 0.125rem;
 				}
 				
@@ -547,7 +547,7 @@ import { createRoot } from 'react-dom/client';
 					gap: 0.25rem;
 				}
 				
-				.cozy-gap-1\.5{
+				.cozy-gap-1\\.5{
 					gap: 0.375rem;
 				}
 				
@@ -870,126 +870,126 @@ import { createRoot } from 'react-dom/client';
 					transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 				}
 				
-				.last-of-type\:cozy-pr-0:last-of-type{
+				.last-of-type\\:cozy-pr-0:last-of-type{
 					padding-right: 0px;
 				}
 				
-				.hover\:cozy-scale-105:hover{
+				.hover\\:cozy-scale-105:hover{
 					--tw-scale-x: 1.05;
 					--tw-scale-y: 1.05;
 					transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 				}
 				
-				.hover\:cozy-scale-125:hover{
+				.hover\\:cozy-scale-125:hover{
 					--tw-scale-x: 1.25;
 					--tw-scale-y: 1.25;
 					transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 				}
 				
-				.hover\:cozy-cursor-pointer:hover{
+				.hover\\:cozy-cursor-pointer:hover{
 					cursor: pointer;
 				}
 				
-				.hover\:cozy-bg-black-500:hover{
+				.hover\\:cozy-bg-black-500:hover{
 					--tw-bg-opacity: 1;
 					background-color: rgb(179 186 197 / var(--tw-bg-opacity));
 				}
 				
-				.hover\:cozy-bg-brand:hover{
+				.hover\\:cozy-bg-brand:hover{
 					--tw-bg-opacity: 1;
 					background-color: rgb(233 76 137 / var(--tw-bg-opacity));
 				}
 				
-				.hover\:cozy-bg-rose-200:hover{
+				.hover\\:cozy-bg-rose-200:hover{
 					--tw-bg-opacity: 1;
 					background-color: rgb(253 242 247 / var(--tw-bg-opacity));
 				}
 				
-				.hover\:cozy-shadow-md:hover{
+				.hover\\:cozy-shadow-md:hover{
 					--tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 					--tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
 					box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 				}
 				
-				.hover\:cozy-shadow-sm:hover{
+				.hover\\:cozy-shadow-sm:hover{
 					--tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 					--tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
 					box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 				}
 				
-				.hover\:cozy-ring-black-400:hover{
+				.hover\\:cozy-ring-black-400:hover{
 					--tw-ring-opacity: 1;
 					--tw-ring-color: rgb(223 225 230 / var(--tw-ring-opacity));
 				}
 				
-				.focus\:cozy-bg-white:focus{
+				.focus\\:cozy-bg-white:focus{
 					--tw-bg-opacity: 1;
 					background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 				}
 				
-				.disabled\:cozy-cursor-not-allowed:disabled{
+				.disabled\\:cozy-cursor-not-allowed:disabled{
 					cursor: not-allowed;
 				}
 				
-				.disabled\:cozy-opacity-20:disabled{
+				.disabled\\:cozy-opacity-20:disabled{
 					opacity: 0.2;
 				}
 				
-				.disabled\:cozy-opacity-40:disabled{
+				.disabled\\:cozy-opacity-40:disabled{
 					opacity: 0.4;
 				}
 				
-				.cozy-group:hover .group-hover\:cozy-opacity-50{
+				.cozy-group:hover .group-hover\\:cozy-opacity-50{
 					opacity: 0.5;
 				}
 				
 				@media (min-width: 640px){
-					.sm\:-cozy-left-8{
+					.sm\\:-cozy-left-8{
 						left: -2rem;
 					}
 				
-					.sm\:-cozy-right-8{
+					.sm\\:-cozy-right-8{
 						right: -2rem;
 					}
 				
-					.sm\:cozy-min-w-\[50\%\]{
+					.sm\\:cozy-min-w-\\[50\\%\\]{
 						min-width: 50%;
 					}
 				
-					.sm\:cozy-max-w-sm{
+					.sm\\:cozy-max-w-sm{
 						max-width: 24rem;
 					}
 				
-					.sm\:cozy-max-w-xl{
+					.sm\\:cozy-max-w-xl{
 						max-width: 36rem;
 					}
 				
-					.sm\:cozy-grid-cols-2{
+					.sm\\:cozy-grid-cols-2{
 						grid-template-columns: repeat(2, minmax(0, 1fr));
 					}
 				
-					.sm\:cozy-flex-row{
+					.sm\\:cozy-flex-row{
 						flex-direction: row;
 					}
 				
-					.sm\:cozy-bg-light{
+					.sm\\:cozy-bg-light{
 						--tw-bg-opacity: 1;
 						background-color: rgb(247 247 248 / var(--tw-bg-opacity));
 					}
 				}
 				
 				@media (min-width: 768px){
-					.md\:cozy-block{
+					.md\\:cozy-block{
 						display: block;
 					}
 				
-					.md\:cozy-w-auto{
+					.md\\:cozy-w-auto{
 						width: auto;
 					}
 				}
 				
 				@media (min-width: 1024px){
-					.lg\:cozy-max-w-3xl{
+					.lg\\:cozy-max-w-3xl{
 						max-width: 48rem;
 					}
 				}`;
