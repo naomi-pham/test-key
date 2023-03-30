@@ -82,7 +82,7 @@ const Evaluate = () => {
 		<>
 			<div className="cozy-bg-white cozy-rounded-xl cozy-p-6 cozy-shadow-md">
 				<div className="cozy-space-y-2">
-					<h4 className="cozy-font-graphik-medium cozy-text-title-2">
+					<h4 className="cozy-font-graphik-medium cozy-text-title-2 cozy-text-light-neutral-800">
 						Rate your recent experience
 					</h4>
 					<Rating rating={rating} handleClick={handleClick} message={message} />
@@ -107,7 +107,7 @@ const Evaluate = () => {
 										type="text"
 										onChange={handleInput('INPUT_REVIEW')}
 										value={review}
-										className="cozy-mt-1 cozy-w-full cozy-rounded-xl cozy-border cozy-border-light-neutral-300 cozy-p-4 cozy-text-body-2 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2"
+										className="cozy-mt-1 cozy-w-full cozy-rounded cozy-border cozy-border-light-neutral-300 cozy-p-4 cozy-font-graphik cozy-text-body-2 placeholder:cozy-text-light-neutral-600 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2"
 										rows={5}
 										placeholder="This is where you write your reviews."
 										required
@@ -136,7 +136,7 @@ const Evaluate = () => {
 								<input
 									type="submit"
 									value="Submit review"
-									className="hover:cozy-bg-black-500 cozy-mt-2 cozy-cursor-pointer cozy-rounded-md cozy-bg-branding-primary-500 cozy-p-2 cozy-font-graphik-medium cozy-text-light-neutral-25 hover:cozy-ring-light-neutral-300"
+									className="cozy-rounded-xl cozy-border cozy-border-branding-primary-500 cozy-bg-branding-primary-500 cozy-p-4 cozy-text-light-neutral-25 hover:cozy-cursor-pointer hover:cozy-border-branding-primary-600 hover:cozy-bg-branding-primary-600 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2 active:cozy-bg-branding-primary-700 disabled:cozy-border-light-neutral-300 disabled:cozy-bg-light-neutral-300 disabled:cozy-text-light-neutral-500"
 								/>
 							</form>
 						)}

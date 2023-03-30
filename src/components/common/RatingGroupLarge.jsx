@@ -20,8 +20,8 @@ const RatingGroupLarge = ({
 			{!withoutMessage && (
 				<p
 					className={`${
-						messageLarge ? 'cozy-text-xl' : ''
-					} cozy-font-graphik-medium`}
+						messageLarge ? 'cozy-text-heading-3' : ''
+					} text-light-neutral-800 cozy-font-graphik-medium`}
 				>
 					{message}
 				</p>

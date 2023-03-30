@@ -14,7 +14,7 @@ const CozyStatsSmall = ({ withScore }) => {
 				numberOfReviews={handleNullData(data?.data?.total_review, 0)}
 			/>
 			{withScore && (
-				<p className="cozy-hidden cozy-w-fit cozy-min-w-fit cozy-text-dark md:cozy-block">
+				<p className="cozy-hidden cozy-w-fit cozy-min-w-fit cozy-text-light-neutral-800 md:cozy-block">
 					{handleNullData(data?.data?.total_trust_score, 0)} out of 5
 				</p>
 			)}
