@@ -17,7 +17,7 @@ const ReviewCard = ({ item, responsive }) => {
 			<div
 				className={`${
 					responsive
-						? 'cozy-mx-auto cozy-rounded-md cozy-bg-light-neutral-100'
+						? 'cozy-mx-auto cozy-w-11/12 cozy-rounded-md cozy-bg-light-neutral-100'
 						: ''
 				}`}
 			>
