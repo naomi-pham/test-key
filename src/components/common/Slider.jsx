@@ -1,15 +1,12 @@
 /* eslint-disable react/prop-types */
-import React, { useRef, useState } from 'react';
-import ReviewCard from './ReviewCard';
+import React, { useRef } from 'react';
 import { ArrowLeft, ArrowRight } from '../icon/Arrow';
+import ReviewCard from './ReviewCard';
 
 const Slider = ({ slides }) => {
 	const ref = useRef(null);
-	const [isMoved, setIsMoved] = useState(false);
 
 	const handleClick = (direction) => () => {
-		setIsMoved(true);
-
 		if (ref.current) {
 			const { scrollLeft, clientWidth } = ref.current;
 
@@ -23,11 +20,9 @@ const Slider = ({ slides }) => {
 	};
 
 	return (
-		<div className="cozy-group cozy-relative cozy-mx-auto cozy-w-full cozy-max-w-3xl">
+		<div className="cozy-group cozy-relative cozy-mx-auto cozy-flex cozy-w-full cozy-max-w-3xl cozy-items-center cozy-gap-6">
 			<button
-				className={`cozy-absolute cozy-top-1/2 cozy-left-0 cozy-bottom-0 cozy-h-full cozy-w-8 -cozy-translate-y-1/2 cozy-cursor-pointer cozy-opacity-0 cozy-transition-all cozy-duration-200 hover:cozy-scale-125 disabled:cozy-cursor-not-allowed disabled:cozy-opacity-20 group-hover:cozy-opacity-50 sm:-cozy-left-8 ${
-					!isMoved ? 'cozy-hidden' : ''
-				}`}
+				className="cozy-h-full cozy-w-8 -cozy-translate-y-1/2 cozy-cursor-pointer cozy-opacity-0 cozy-transition-all cozy-duration-200 hover:cozy-scale-125 disabled:cozy-cursor-not-allowed disabled:cozy-opacity-20 group-hover:cozy-opacity-50"
 				onClick={handleClick('left')}
 			>
 				<ArrowLeft className="cozy-h-5 cozy-w-5" />
@@ -43,7 +38,7 @@ const Slider = ({ slides }) => {
 			</div>
 
 			<button
-				className="cozy-absolute cozy-top-1/2 cozy-right-0 cozy-bottom-0 cozy-h-full cozy-w-8 -cozy-translate-y-1/2 cozy-cursor-pointer cozy-opacity-0 cozy-transition-all cozy-duration-200 hover:cozy-scale-125 disabled:cozy-cursor-not-allowed disabled:cozy-opacity-20 group-hover:cozy-opacity-50 sm:-cozy-right-8"
+				className="cozy-h-full cozy-w-8 -cozy-translate-y-1/2 cozy-cursor-pointer cozy-opacity-0 cozy-transition-all cozy-duration-200 hover:cozy-scale-125 disabled:cozy-cursor-not-allowed disabled:cozy-opacity-20 group-hover:cozy-opacity-50"
 				onClick={handleClick('right')}
 			>
 				<ArrowRight className="cozy-h-5 cozy-w-5" />
