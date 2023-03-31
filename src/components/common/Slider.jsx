@@ -35,7 +35,7 @@ const Slider = ({ slides }) => {
 
 			<div
 				ref={ref}
-				className="cozy-flex cozy-items-center cozy-overflow-x-hidden"
+				className="cozy-flex cozy-items-start cozy-overflow-x-hidden"
 			>
 				{slides?.map((item) => (
 					<ReviewCard key={item.id} item={item} responsive />

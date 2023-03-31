@@ -8,7 +8,7 @@ const ReviewCarousel = () => {
 	const { data, error } = useAxios('/api/v1/business/widgets/stats');
 
 	return (
-		<div className="cozy-flex cozy-flex-col cozy-items-center cozy-gap-8 sm:cozy-flex-row">
+		<div className="cozy-flex cozy-flex-col cozy-items-center cozy-gap-12 md:cozy-flex-row 2xl:cozy-gap-16">
 			<div className="cozy-flex cozy-flex-col cozy-items-center cozy-justify-center cozy-gap-3 cozy-self-stretch cozy-p-3 cozy-px-3">
 				{error && <p className="cozy-opacity-60"> Stats not found</p>}
 				<RatingGroupLarge
