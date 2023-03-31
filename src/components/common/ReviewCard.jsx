@@ -11,7 +11,7 @@ const ReviewCard = ({ item, responsive }) => {
 	return (
 		<div
 			className={`cozy-relative cozy-min-w-full ${
-				responsive ? 'md:cozy-min-w-[50%]' : ''
+				responsive ? 'sm:cozy-min-w-[50%]' : ''
 			}`}
 		>
 			<div
