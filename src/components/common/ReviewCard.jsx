@@ -35,10 +35,10 @@ const ReviewCard = ({ item, responsive }) => {
 								</div>
 							)}
 						</div>
-						<h4 className="cozy-font-graphik-medium cozy-text-title-2 cozy-text-light-neutral-800">
+						<h4 className="cozy-font-graphik-medium cozy-text-title-2 cozy-text-light-neutral-800 cozy-line-clamp-2">
 							{handleNullData(item.title)}
 						</h4>
-						<p>{handleNullData(item.content)}</p>
+						<p className="cozy-line-clamp-5">{handleNullData(item.content)}</p>
 						<div className="cozy-flex cozy-items-end cozy-gap-2">
 							<p className="cozy-font-graphik">
 								{handleNullData(item.created_by.name)},{' '}

@@ -24,3 +24,25 @@ export function handleNullData(data, display) {
 	}
 	return data;
 }
+
+export function debounce(func, timeout = 300) {
+	let timer;
+	return (...args) => {
+		clearTimeout(timer);
+		timer = setTimeout(() => {
+			func.apply(this, args);
+		}, timeout);
+	};
+}
+
+export function throttle(fn, delay = 300) {
+	return (args) => {
+		if (fn.id) return;
+
+		fn.id = setTimeout(() => {
+			fn.call(this, args);
+			clearTimeout(fn.id);
+			fn.id = null;
+		}, delay);
+	};
+}
