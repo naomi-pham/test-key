@@ -7,25 +7,34 @@ import ReviewCardMultiple from './ReviewCardMultiple';
 const Slider = ({ slides }) => {
 	const ref = useRef(null);
 	const totalSlide = slides?.length;
-	console.log('🚀 ~ file: Slider.jsx:10 ~ Slider ~ totalSlide:', totalSlide);
 	const [slidePosition, setSlidePosition] = useState(0);
 	const [translateX, setTranslateX] = useState(0);
 	const [postsPerSlide, setPostsPerSlide] = useState(2);
+	const [windowSize, setWindowSize] = useState({ width: undefined });
+
+	useEffect(() => {
+		function handleResize() {
+			setWindowSize({ width: window.innerWidth });
+		}
+		window.addEventListener('resize', handleResize);
+		handleResize();
+		return () => window.removeEventListener('resize', handleResize);
+	}, []);
 
 	useEffect(() => {
 		setTranslateX(ref.current.clientWidth * slidePosition);
 	}, []);
 
 	useEffect(() => {
-		if (window.innerWidth < 640) {
+		if (windowSize.width < 640) {
 			setPostsPerSlide(1);
 		} else {
 			setPostsPerSlide(2);
 		}
-	}, []);
+	}, [windowSize]);
 
 	async function moveToRight() {
-		if (slidePosition === totalSlide - 1) {
+		if (slidePosition === totalSlide - postsPerSlide) {
 			setSlidePosition(0);
 			setTranslateX(0);
 		} else {
@@ -36,8 +45,8 @@ const Slider = ({ slides }) => {
 
 	async function moveToLeft() {
 		if (slidePosition === 0) {
-			setSlidePosition(totalSlide - 1);
-			setTranslateX(ref.current.clientWidth * (totalSlide - 1));
+			setSlidePosition(totalSlide - postsPerSlide);
+			setTranslateX(ref.current.clientWidth * (totalSlide - postsPerSlide));
 		} else {
 			setSlidePosition((prevSlidePosition) => prevSlidePosition - 1);
 			setTranslateX(ref.current.clientWidth * (slidePosition - 1));
