@@ -9,15 +9,19 @@ const Slider = ({ slides }) => {
 	const totalSlide = slides?.length;
 	console.log('🚀 ~ file: Slider.jsx:10 ~ Slider ~ totalSlide:', totalSlide);
 	const [slidePosition, setSlidePosition] = useState(0);
-	console.log(
-		'🚀 ~ file: Slider.jsx:11 ~ Slider ~ slidePosition:',
-		slidePosition,
-	);
 	const [translateX, setTranslateX] = useState(0);
-	const postsPerSlide = 2;
+	const [postsPerSlide, setPostsPerSlide] = useState(2);
 
 	useEffect(() => {
 		setTranslateX(ref.current.clientWidth * slidePosition);
+	}, []);
+
+	useEffect(() => {
+		if (window.innerWidth < 640) {
+			setPostsPerSlide(1);
+		} else {
+			setPostsPerSlide(2);
+		}
 	}, []);
 
 	async function moveToRight() {
@@ -65,17 +69,9 @@ const Slider = ({ slides }) => {
 			</button>
 
 			<button
-				className="cozy-absolute cozy-right-0 cozy-bottom-0 cozy-top-0 cozy-hidden cozy-h-full disabled:cozy-cursor-not-allowed disabled:cozy-opacity-40 sm:cozy-block"
+				className="cozy-absolute cozy-right-0 cozy-bottom-0 cozy-top-0 cozy-h-full disabled:cozy-cursor-not-allowed disabled:cozy-opacity-40"
 				onClick={throttle(() => moveToRight(), 200)}
 				disabled={slidePosition === Math.ceil(totalSlide / postsPerSlide) - 1}
-			>
-				<ArrowRight className="cozy-h-5 cozy-w-8 cozy-fill-light-neutral-700" />
-			</button>
-
-			<button
-				className="cozy-absolute cozy-right-0 cozy-bottom-0 cozy-top-0 cozy-h-full disabled:cozy-cursor-not-allowed disabled:cozy-opacity-40 sm:cozy-hidden"
-				onClick={throttle(() => moveToRight(), 200)}
-				disabled={slidePosition === totalSlide - 1}
 			>
 				<ArrowRight className="cozy-h-5 cozy-w-8 cozy-fill-light-neutral-700" />
 			</button>
