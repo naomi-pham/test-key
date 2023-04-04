@@ -21,7 +21,7 @@ const ReviewCarousel = () => {
 				</h3>
 			</div>
 
-			<div className="cozy-w-full sm:cozy-max-w-sm lg:cozy-max-w-3xl" style={{flex: 1}}>
+			<div className="cozy-w-full sm:cozy-max-w-sm">
 				<CozyReviews />
 			</div>
 		</div>
