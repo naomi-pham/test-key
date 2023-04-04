@@ -10,15 +10,15 @@ const Carousel = ({ slides }) => {
 	const totalSlide = slides?.length;
 	const windowSize = useWindowResize();
 	const [slidePosition, setSlidePosition] = useState(0);
-	const [postsPerSlide, setPostsPerSlide] = useState(2);
+	const [postsPerSlide, setPostsPerSlide] = useState(1);
 
-	useEffect(() => {
-		if (windowSize.width > 1024) {
-			setPostsPerSlide(2);
-		} else {
-			setPostsPerSlide(1);
-		}
-	}, [windowSize]);
+	// useEffect(() => {
+	// 	if (windowSize.width > 1024) {
+	// 		setPostsPerSlide(2);
+	// 	} else {
+	// 		setPostsPerSlide(1);
+	// 	}
+	// }, [windowSize]);
 
 	async function moveToRight() {
 		if (slidePosition === totalSlide - postsPerSlide) {
