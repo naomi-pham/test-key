@@ -10,7 +10,7 @@ dayjs.extend(relativeTime);
 const ReviewCard = ({ item, postsPerSlide, hasBackground }) => {
 	return (
 		<div
-			className="cozy-relative cozy-px-3"
+			className="cozy-relative cozy-px-2"
 			style={{ minWidth: `calc(100% / ${postsPerSlide})` }}
 		>
 			<div

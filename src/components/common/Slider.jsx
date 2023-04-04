@@ -29,7 +29,7 @@ const Slider = ({ slides }) => {
 	}
 
 	return (
-		<div className="cozy-relative cozy-mx-auto cozy-flex cozy-w-full cozy-gap-4">
+		<div className="cozy-relative cozy-mx-auto cozy-flex cozy-w-full">
 			<button
 				className="cozy-self-stretch disabled:cozy-cursor-not-allowed disabled:cozy-opacity-40"
 				onClick={throttle(() => moveToLeft(), 200)}

@@ -37,7 +37,7 @@ const Carousel = ({ slides }) => {
 	}
 
 	return (
-		<div className="cozy-relative cozy-flex cozy-gap-4">
+		<div className="cozy-relative cozy-flex">
 			<button
 				className="cozy-self-stretch disabled:cozy-cursor-not-allowed disabled:cozy-opacity-40"
 				onClick={throttle(() => moveToLeft(), 200)}
