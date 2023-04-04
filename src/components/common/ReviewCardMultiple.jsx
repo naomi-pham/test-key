@@ -10,11 +10,10 @@ dayjs.extend(relativeTime);
 const ReviewCardMultiple = ({ item, postsPerSlide }) => {
 	return (
 		<div
-			className={`cozy-relative cozy-px-2 ${
-				postsPerSlide === 2 ? 'cozy-min-w-[50%]' : 'cozy-min-w-full'
-			}`}
+			className="cozy-relative cozy-px-3"
+			style={{ minWidth: `calc(100% / ${postsPerSlide})` }}
 		>
-			<div className="cozy-mx-auto cozy-w-full cozy-rounded-md cozy-bg-light-neutral-100">
+			<div className="cozy-rounded-md cozy-bg-light-neutral-100">
 				<a>
 					<div className="cozy-flex cozy-flex-col cozy-gap-3 cozy-p-4">
 						<div className="cozy-flex cozy-flex-wrap cozy-gap-3 sm:cozy-items-center">
