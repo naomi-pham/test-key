@@ -7,13 +7,17 @@ import Check from '../icon/Check';
 import { handleNullData } from '../../helpers/Helpers';
 dayjs.extend(relativeTime);
 
-const ReviewCardMultiple = ({ item }) => {
+const ReviewCardMultiple = ({ item, postsPerSlide }) => {
 	return (
-		<div className="cozy-relative cozy-min-w-full cozy-px-2 sm:cozy-min-w-[50%]">
+		<div
+			className={`cozy-relative cozy-px-2 ${
+				postsPerSlide === 2 ? 'cozy-min-w-[50%]' : 'cozy-min-w-full'
+			}`}
+		>
 			<div className="cozy-mx-auto cozy-w-full cozy-rounded-md cozy-bg-light-neutral-100">
 				<a>
 					<div className="cozy-flex cozy-flex-col cozy-gap-3 cozy-p-4">
-						<div className="cozy-flex cozy-gap-3 sm:cozy-items-center cozy-flex-wrap">
+						<div className="cozy-flex cozy-flex-wrap cozy-gap-3 sm:cozy-items-center">
 							<RatingGroupSmall
 								withoutMessage
 								rating={handleNullData(item?.star)}

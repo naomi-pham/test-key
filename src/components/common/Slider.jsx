@@ -64,7 +64,11 @@ const Slider = ({ slides }) => {
 					}}
 				>
 					{slides?.map((item) => (
-						<ReviewCardMultiple key={item.id} item={item} />
+						<ReviewCardMultiple
+							key={item.id}
+							item={item}
+							postsPerSlide={postsPerSlide}
+						/>
 					))}
 				</div>
 			</div>
