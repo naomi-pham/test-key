@@ -27,7 +27,7 @@ const ReviewCard = ({ item, postsPerSlide, hasBackground }) => {
 						{item?.created_by?.is_verified && (
 							<div className="cozy-flex cozy-gap-0.5 cozy-opacity-60">
 								<Check className="cozy-h-5 cozy-w-5" />
-								<p>Verified</p>
+								<p className="cozy-text-body-2">Verified</p>
 							</div>
 						)}
 					</div>
@@ -37,12 +37,12 @@ const ReviewCard = ({ item, postsPerSlide, hasBackground }) => {
 						</h4>
 					</a>
 					<p className="cozy-line-clamp-5">{handleNullData(item?.content)}</p>
-					<div className="cozy-flex cozy-items-end cozy-gap-2">
-						<p className="cozy-font-graphik">
-							{handleNullData(item?.created_by?.name)},{' '}
-							<span className="cozy-text-body-1 cozy-opacity-60">
-								{dayjs(item?.created_at).fromNow()}
-							</span>
+					<div className="cozy-flex cozy-items-end cozy-gap-2 cozy-font-graphik cozy-text-light-neutral-700 cozy-text-body-2">
+						<p className="cozy-font-graphik-medium">
+							{handleNullData(item?.created_by?.name)},
+						</p>
+						<p className="cozy-opacity-80">
+							{dayjs(item?.created_at).fromNow()}
 						</p>
 					</div>
 				</div>
