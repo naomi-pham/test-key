@@ -8,7 +8,7 @@ import ReviewCard from './ReviewCard';
 const Slider = ({ slides }) => {
 	const totalSlide = slides?.length;
 	const [slidePosition, setSlidePosition] = useState(0);
-	const [postsPerSlide, setPostsPerSlide] = useState(2);
+	const [postsPerSlide, setPostsPerSlide] = useState(null);
 
 	const windowSize = useWindowResize();
 
@@ -21,19 +21,11 @@ const Slider = ({ slides }) => {
 	}, [windowSize]);
 
 	async function moveToRight() {
-		if (slidePosition === totalSlide - postsPerSlide) {
-			setSlidePosition(0);
-		} else {
-			setSlidePosition((prevSlidePosition) => prevSlidePosition + 1);
-		}
+		setSlidePosition((prevSlidePosition) => prevSlidePosition + 1);
 	}
 
 	async function moveToLeft() {
-		if (slidePosition === 0) {
-			setSlidePosition(totalSlide - postsPerSlide);
-		} else {
-			setSlidePosition((prevSlidePosition) => prevSlidePosition - 1);
-		}
+		setSlidePosition((prevSlidePosition) => prevSlidePosition - 1);
 	}
 
 	return (
@@ -67,7 +59,7 @@ const Slider = ({ slides }) => {
 			<button
 				className="cozy-self-stretch disabled:cozy-cursor-not-allowed disabled:cozy-opacity-40"
 				onClick={throttle(() => moveToRight(), 200)}
-				disabled={slidePosition === Math.ceil(totalSlide / postsPerSlide) - 1}
+				disabled={slidePosition === totalSlide - postsPerSlide}
 			>
 				<ArrowRight className="cozy-h-5 cozy-w-8 cozy-fill-light-neutral-700" />
 			</button>
