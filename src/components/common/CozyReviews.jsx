@@ -6,10 +6,10 @@ const CozyReviews = () => {
 	const { data, error } = useAxios('/api/v1/business/reviews');
 
 	return (
-		<>
+		<div>
 			{error && <p className="cozy-opacity-60"> Reviews not found</p>}
 			{data && <Carousel slides={data?.data?.items} />}
-		</>
+		</div>
 	);
 };
 
