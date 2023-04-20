@@ -1,11 +1,18 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import RatingGroupLarge from './RatingGroupLarge';
-import useAxios from '../../hooks/useAxios';
+import { useLocation } from 'react-router-dom';
 import { handleNullData } from '../../helpers/Helpers';
+import useAxios from '../../hooks/useAxios';
+import RatingGroupLarge from './RatingGroupLarge';
 
 const CozyStatsLarge = ({ intent }) => {
-	const { data, error } = useAxios('/api/v1/business/widgets/stats');
+	// Get values from query string
+	const search = useLocation().search;
+	const businessUuid = new URLSearchParams(search).get('businessUuid');
+
+	const { data, error } = useAxios(
+		`/api/v1/business/widgets/${businessUuid}/stats`,
+	);
 
 	return (
 		<>

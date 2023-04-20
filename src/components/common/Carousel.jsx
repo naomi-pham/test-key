@@ -1,16 +1,13 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import { ArrowLeft, ArrowRight } from '../icon/Arrow';
 import { throttle } from '../../helpers/Helpers.jsx';
+import { ArrowLeft, ArrowRight } from '../icon/Arrow';
 import ReviewCard from './ReviewCard';
-import { useEffect } from 'react';
-import useWindowResize from '../../hooks/useResize';
 
 const Carousel = ({ slides }) => {
 	const totalSlide = slides?.length;
-	const windowSize = useWindowResize();
 	const [slidePosition, setSlidePosition] = useState(0);
-	const [postsPerSlide, setPostsPerSlide] = useState(1);
+	const [postsPerSlide] = useState(1);
 
 	// useEffect(() => {
 	// 	if (windowSize.width > 1024) {

@@ -5,7 +5,9 @@ import useAxios from '../../hooks/useAxios';
 import RatingGroupSmall from './RatingGroupSmall';
 
 const CozyStatsSmall = ({ withScore }) => {
-	const { data } = useAxios('/api/v1/business/widgets/stats');
+	const { data, error } = useAxios(
+		`/api/v1/business/widgets/bf5a1b1d-13be-4d6c-a7d2-66deebf55555/stats`,
+	);
 
 	return (
 		<div className="cozy-flex cozy-flex-wrap cozy-items-center cozy-gap-2">

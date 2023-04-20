@@ -1,6 +1,7 @@
-import React, { useReducer } from 'react';
-import { useState } from 'react';
+import React, { useReducer, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { handleMessage } from '../../helpers/Helpers';
+import axios from '../api/axios';
 import Rating from '../common/Rating';
 
 const Evaluate = () => {
@@ -9,20 +10,22 @@ const Evaluate = () => {
 	const [isShown, setIsShown] = useState(false);
 	const [isSubmitted, setIsSubmitted] = useState(false);
 
-	const handleClick = (index) => {
-		setRating(index);
-		setIsShown(true);
-		handleMessage(index + 1, setMessage);
-	};
-
 	const initialState = {
+		star: '',
 		title: '',
 		review: '',
 		name: '',
+		email: '',
 	};
 
 	function reducer(state, action) {
 		switch (action.type) {
+			case 'INPUT_STAR': {
+				return {
+					...state,
+					star: action.payload,
+				};
+			}
 			case 'INPUT_TITLE': {
 				return {
 					...state,
@@ -41,12 +44,18 @@ const Evaluate = () => {
 					name: action.payload,
 				};
 			}
+			case 'INPUT_EMAIL': {
+				return {
+					...state,
+					email: action.payload,
+				};
+			}
 		}
 		throw Error('Unknown action: ' + action.type);
 	}
 
 	const [state, dispatch] = useReducer(reducer, initialState);
-	const { title, review, name } = state;
+	const { title, review, name, email } = state;
 
 	const formFields = [
 		{
@@ -56,7 +65,7 @@ const Evaluate = () => {
 			label: 'Give your review a title',
 			action: 'INPUT_TITLE',
 			value: title,
-			placeholder: 'Example: Awesome service!',
+			placeholder: 'e.g. This service is awesome!',
 		},
 		{
 			id: 2,
@@ -65,18 +74,49 @@ const Evaluate = () => {
 			label: 'Your name',
 			action: 'INPUT_NAME',
 			value: name,
-			placeholder: 'Example: Ben',
+			placeholder: 'e.g. John',
+		},
+		{
+			id: 3,
+			type: 'text',
+			name: 'name',
+			label: 'Your email',
+			action: 'INPUT_EMAIL',
+			value: email,
+			placeholder: 'e.g. john@gmail.com',
 		},
 	];
 
-	function handleSubmit() {
-		console.log(state);
-		setIsSubmitted(true);
-	}
+	const handleClick = (index) => {
+		setRating(index);
+		setIsShown(true);
+		handleMessage(index + 1, setMessage);
+		dispatch({ type: 'INPUT_STAR', payload: index });
+	};
 
 	const handleInput = (type) => (e) => {
 		dispatch({ type: type, payload: e.target.value });
 	};
+
+	// Get values from query string
+	const search = useLocation().search;
+	const businessUuid = new URLSearchParams(search).get('businessUuid');
+
+	async function handleSubmit() {
+		setIsSubmitted(true);
+		try {
+			const res = await axios.post(`/api/v1/business/reviews/${businessUuid}`, {
+				title: state.title,
+				content: state.review,
+				star: state.star,
+				created_by: state.name,
+				email: state.email,
+			});
+			console.log('🚀 ~ file: usePostAxios.jsx:13 ~ postData ~ res:', res);
+		} catch (error) {
+			console.log(error);
+		}
+	}
 
 	return (
 		<>
@@ -93,10 +133,7 @@ const Evaluate = () => {
 						{isSubmitted ? (
 							<p>Thank you for your feedback!</p>
 						) : (
-							<form
-								onSubmit={handleSubmit}
-								className="cozy-flex cozy-flex-col cozy-gap-4"
-							>
+							<div className="cozy-flex cozy-flex-col cozy-gap-4">
 								<label
 									htmlFor="review"
 									className="cozy-font-graphik-medium cozy-text-body-2 cozy-text-light-neutral-700"
@@ -133,12 +170,14 @@ const Evaluate = () => {
 									</label>
 								))}
 
-								<input
+								<button
+									onClick={handleSubmit}
 									type="submit"
-									value="Submit review"
 									className="cozy-rounded-xl cozy-border cozy-border-branding-primary-500 cozy-bg-branding-primary-500 cozy-p-4 cozy-font-graphik-semibold cozy-text-light-neutral-25 hover:cozy-cursor-pointer hover:cozy-border-branding-primary-600 hover:cozy-bg-branding-primary-600 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2 active:cozy-bg-branding-primary-700 disabled:cozy-border-light-neutral-300 disabled:cozy-bg-light-neutral-300 disabled:cozy-text-light-neutral-500"
-								/>
-							</form>
+								>
+									Submit review
+								</button>
+							</div>
 						)}
 					</div>
 				)}

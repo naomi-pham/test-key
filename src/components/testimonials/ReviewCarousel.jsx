@@ -5,7 +5,9 @@ import useAxios from '../../hooks/useAxios';
 import { handleNullData } from '../../helpers/Helpers';
 
 const ReviewCarousel = () => {
-	const { data, error } = useAxios('/api/v1/business/widgets/stats');
+	const { data, error } = useAxios(
+		'/api/v1/business/widgets/f61dab47-3b6a-40cb-9a79-1f799edbbc3c/stats',
+	);
 
 	return (
 		<div className="cozy-flex cozy-flex-col cozy-items-center cozy-gap-4 sm:cozy-flex-row">

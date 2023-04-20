@@ -1,6 +1,8 @@
 import React from 'react';
 import App from './App';
 import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+
 // import styles from './index.css';
 
 (() => {
@@ -11,13 +13,6 @@ import { createRoot } from 'react-dom/client';
 		if (!container[i].classList.contains('root-rendered')) {
 			let shadowDom = container[i].attachShadow({ mode: 'open' });
 			container[i].classList.add('root-rendered');
-
-			// const fontFile = new FontFace(
-			// 	'graphik-regular',
-			// 	'url(https://fonts.cozy-cost.just.engineer/GraphikRegular.otf)',
-			// );
-			// document.fonts.add(fontFile);
-			// fontFile.load();
 
 			if (
 				!document.querySelector('style[data-description="cozy-widget-fonts"]')
@@ -40,9 +35,11 @@ import { createRoot } from 'react-dom/client';
 
 			rootContent.render(
 				<React.StrictMode>
-					<div className="cozy-font-graphik cozy-leading-6 cozy-text-light-neutral-800">
-						<App intent={intent} />
-					</div>
+					<BrowserRouter>
+						<div className="cozy-font-graphik cozy-leading-6 cozy-text-light-neutral-800">
+							<App intent={intent} />
+						</div>
+					</BrowserRouter>
 				</React.StrictMode>,
 			);
 		}
