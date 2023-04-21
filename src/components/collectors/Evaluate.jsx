@@ -1,6 +1,6 @@
 import React, { useReducer, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { handleMessage } from '../../helpers/Helpers';
+import { getErrorAndDisplay, handleMessage } from '../../helpers/Helpers';
 import axios from '../api/axios';
 import Rating from '../common/Rating';
 
@@ -9,6 +9,7 @@ const Evaluate = () => {
 	const [rating, setRating] = useState(0);
 	const [isShown, setIsShown] = useState(false);
 	const [isSubmitted, setIsSubmitted] = useState(false);
+	const [postError, setPostError] = useState(false);
 
 	const initialState = {
 		star: '',
@@ -119,7 +120,7 @@ const Evaluate = () => {
 	const businessUuid = new URLSearchParams(search).get('businessUuid');
 
 	async function handleSubmit() {
-		setIsSubmitted(true);
+		// if (!businessUuid) return null;
 		try {
 			const res = await axios.post(`/api/v1/business/reviews/${businessUuid}`, {
 				title: state.title,
@@ -129,9 +130,11 @@ const Evaluate = () => {
 				email: state.email,
 				date: state.date,
 			});
+			// setIsSubmitted(true);
 			console.log('🚀 ~ file: usePostAxios.jsx:13 ~ postData ~ res:', res);
 		} catch (error) {
-			console.log(error);
+			console.log(111, error?.response?.data?.message);
+			setPostError(error.response.data.message);
 		}
 	}
 
@@ -147,6 +150,15 @@ const Evaluate = () => {
 					</h4>
 					<Rating rating={rating} handleClick={handleClick} message={message} />
 				</div>
+
+				{postError ? (
+					<p
+						className="cozy-rounded-md"
+						style={{ background: '#FBECEC', color: '#C43C3C' }}
+					>
+						{getErrorAndDisplay(postError)}
+					</p>
+				) : null}
 
 				{isShown && (
 					<div className="cozy-mt-5">

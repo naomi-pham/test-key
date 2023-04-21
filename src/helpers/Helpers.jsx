@@ -1,3 +1,5 @@
+import errorCodes from "../components/common/errorCodes";
+
 export const stars = [1, 2, 3, 4, 5];
 
 export const colors = [
@@ -45,4 +47,10 @@ export function throttle(fn, delay = 300) {
 			fn.id = null;
 		}, delay);
 	};
+}
+
+export function getErrorAndDisplay(code) {
+	if (errorCodes[code]) return errorCodes[code].setMessage
+	return (errorCodes.SERVER_ERROR.message)
+
 }
