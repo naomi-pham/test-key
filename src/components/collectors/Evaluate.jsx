@@ -16,6 +16,7 @@ const Evaluate = () => {
 		review: '',
 		name: '',
 		email: '',
+		date: '',
 	};
 
 	function reducer(state, action) {
@@ -50,14 +51,29 @@ const Evaluate = () => {
 					email: action.payload,
 				};
 			}
+			case 'INPUT_EXPERIENCE_DATE': {
+				return {
+					...state,
+					date: action.payload,
+				};
+			}
 		}
 		throw Error('Unknown action: ' + action.type);
 	}
 
 	const [state, dispatch] = useReducer(reducer, initialState);
-	const { title, review, name, email } = state;
+	const { title, review, name, email, date } = state;
 
 	const formFields = [
+		{
+			id: 0,
+			type: 'date',
+			name: 'date',
+			label: 'Date of experience',
+			action: 'INPUT_EXPERIENCE_DATE',
+			value: date,
+			placeholder: '',
+		},
 		{
 			id: 1,
 			type: 'text',
@@ -111,6 +127,7 @@ const Evaluate = () => {
 				star: state.star,
 				created_by: state.name,
 				email: state.email,
+				date: state.date,
 			});
 			console.log('🚀 ~ file: usePostAxios.jsx:13 ~ postData ~ res:', res);
 		} catch (error) {
@@ -120,7 +137,10 @@ const Evaluate = () => {
 
 	return (
 		<>
-			<div className="cozy-bg-white cozy-rounded-xl cozy-p-6 cozy-shadow-md">
+			<div
+				className="cozy-bg-white cozy-rounded-xl cozy-p-6 cozy-shadow-md"
+				style={{ maxWidth: '400px' }}
+			>
 				<div className="cozy-space-y-2">
 					<h4 className="cozy-font-graphik-medium cozy-text-title-2 cozy-text-light-neutral-800">
 						Rate your recent experience
