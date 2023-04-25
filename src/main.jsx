@@ -39,7 +39,7 @@ import { BrowserRouter } from 'react-router-dom';
 				<React.StrictMode>
 					<BrowserRouter>
 						<div className="cozy-font-graphik cozy-leading-6 cozy-text-light-neutral-800">
-							<App intent={intent} />
+							<App intent={intent} id={id} />
 						</div>
 					</BrowserRouter>
 				</React.StrictMode>,
