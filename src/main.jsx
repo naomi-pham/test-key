@@ -10,7 +10,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 	for (let i = 0; i < container.length; i++) {
 		let intent = container[i].dataset.review;
-		let id = container[i].dataset.businessId;
+		let id = container[i].dataset.businessid;
 
 		if (!container[i].classList.contains('root-rendered')) {
 			let shadowDom = container[i].attachShadow({ mode: 'open' });
