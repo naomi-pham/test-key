@@ -3,6 +3,7 @@ import React, { useReducer, useState } from 'react';
 import { getErrorAndDisplay, handleMessage } from '../../helpers/Helpers';
 import axios from '../api/axios';
 import Rating from '../common/Rating';
+import { useLocation } from 'react-router-dom';
 
 const Evaluate = ({ id }) => {
 	const [message, setMessage] = useState('');
@@ -116,13 +117,13 @@ const Evaluate = ({ id }) => {
 	};
 
 	// Get values from query string
-	// const search = useLocation().search;
-	// const businessUuid = new URLSearchParams(search).get('businessUuid');
+	const search = useLocation().search;
+	const businessUuid = new URLSearchParams(search).get('businessUuid');
 
 	async function handleSubmit() {
 		// if (!businessUuid) return null;
 		try {
-			const res = await axios.post(`/api/v1/business/reviews/${id}`, {
+			const res = await axios.post(`/api/v1/business/reviews/${businessUuid}`, {
 				title: state.title,
 				content: state.review,
 				star: state.star,

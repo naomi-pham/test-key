@@ -9,6 +9,7 @@ const CozyReviews = ({ id }) => {
 
 	const { data, error } = useAxios(`${id}`);
 
+	console.log("🚀 ~ file: CozyReviews.jsx:12 ~ CozyReviews ~ data:", data)
 	return (
 		<div>
 			{error && <p className="cozy-opacity-60"> Reviews not found</p>}
