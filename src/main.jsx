@@ -10,6 +10,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 	for (let i = 0; i < container.length; i++) {
 		let intent = container[i].dataset.review;
+		let id = container[i].dataset.businessId;
+
 		if (!container[i].classList.contains('root-rendered')) {
 			let shadowDom = container[i].attachShadow({ mode: 'open' });
 			container[i].classList.add('root-rendered');
@@ -32,8 +34,6 @@ import { BrowserRouter } from 'react-router-dom';
 			}
 
 			const rootContent = createRoot(shadowDom);
-
-			let id = container[i].dataset.businessId;
 
 			rootContent.render(
 				<React.StrictMode>
