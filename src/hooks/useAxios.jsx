@@ -1,19 +1,23 @@
 import { useEffect, useState } from 'react';
 import axios from '../components/api/axios';
 
-const useAxios = (url) => {
+const useAxios = (businessUuid) => {
 	const [data, setData] = useState('');
 	const [error, setError] = useState('');
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		getData();
-	}, [url]);
+		if (businessUuid) {
+			getData();
+		}
+	}, [businessUuid]);
 
 	async function getData() {
 		try {
 			setIsLoading(true);
-			const res = await axios.get(url);
+			const res = await axios.get(
+				`/api/v1/business/widgets/${businessUuid}/stats`,
+			);
 			setData(res.data);
 		} catch (error) {
 			console.log(error);

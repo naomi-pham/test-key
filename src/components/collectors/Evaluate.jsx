@@ -1,10 +1,10 @@
+/* eslint-disable react/prop-types */
 import React, { useReducer, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import { getErrorAndDisplay, handleMessage } from '../../helpers/Helpers';
 import axios from '../api/axios';
 import Rating from '../common/Rating';
 
-const Evaluate = () => {
+const Evaluate = ({ id }) => {
 	const [message, setMessage] = useState('');
 	const [rating, setRating] = useState(0);
 	const [isShown, setIsShown] = useState(false);
@@ -116,13 +116,13 @@ const Evaluate = () => {
 	};
 
 	// Get values from query string
-	const search = useLocation().search;
-	const businessUuid = new URLSearchParams(search).get('businessUuid');
+	// const search = useLocation().search;
+	// const businessUuid = new URLSearchParams(search).get('businessUuid');
 
 	async function handleSubmit() {
 		// if (!businessUuid) return null;
 		try {
-			const res = await axios.post(`/api/v1/business/reviews/${businessUuid}`, {
+			const res = await axios.post(`/api/v1/business/reviews/${id}`, {
 				title: state.title,
 				content: state.review,
 				star: state.star,
@@ -130,7 +130,7 @@ const Evaluate = () => {
 				email: state.email,
 				date: state.date,
 			});
-			// setIsSubmitted(true);
+			setIsSubmitted(true);
 			console.log('🚀 ~ file: usePostAxios.jsx:13 ~ postData ~ res:', res);
 		} catch (error) {
 			console.log(111, error?.response?.data?.message);

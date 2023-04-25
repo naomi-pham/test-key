@@ -40,7 +40,7 @@ const Slider = ({ slides }) => {
 
 			<div className="cozy-overflow-hidden">
 				<div
-					className="cozy-flex cozy-transition-transform cozy-duration-500 cozy-ease-in-out"
+					className="cozy-flex cozy-items-center cozy-transition-transform cozy-duration-500 cozy-ease-in-out"
 					style={{
 						transform: `translateX(-${slidePosition * (100 / postsPerSlide)}%)`,
 					}}

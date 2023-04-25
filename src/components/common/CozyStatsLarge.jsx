@@ -1,18 +1,15 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 import { handleNullData } from '../../helpers/Helpers';
 import useAxios from '../../hooks/useAxios';
 import RatingGroupLarge from './RatingGroupLarge';
 
-const CozyStatsLarge = ({ intent }) => {
+const CozyStatsLarge = ({ intent, id }) => {
 	// Get values from query string
-	const search = useLocation().search;
-	const businessUuid = new URLSearchParams(search).get('businessUuid');
+	// const search = useLocation().search;
+	// const businessUuid = new URLSearchParams(search).get('businessUuid');
 
-	const { data, error } = useAxios(
-		`/api/v1/business/widgets/${businessUuid}/stats`,
-	);
+	const { data, error } = useAxios(`${id}`);
 
 	return (
 		<>
@@ -32,20 +29,23 @@ const CozyStatsLarge = ({ intent }) => {
 				<>
 					<RatingGroupLarge
 						withoutMessage
-						rating={handleNullData(data?.data?.total_trust_score)}
-						numberOfReviews={handleNullData(data?.data?.total_review, 0)}
+						rating={handleNullData(data?.data?.trust_score)}
+						numberOfReviews={handleNullData(
+							data?.data?.review_overview.total,
+							0,
+						)}
 					/>
 					<div className="cozy-flex cozy-gap-1.5 cozy-text-body-2">
 						<p>
 							Cozy score:{' '}
 							<span className="cozy-font-graphik-medium">
-								{handleNullData(data?.data?.total_trust_score)}
+								{handleNullData(data?.data?.trust_score)}
 							</span>
 						</p>
 						•
 						<a href="/" className="cozy-underline cozy-underline-offset-2">
 							<span className="cozy-font-graphik-medium">
-								{handleNullData(data?.data?.total_review, 0)}
+								{handleNullData(data?.data?.review_overview.total, 0)}
 							</span>{' '}
 							reviews
 						</a>

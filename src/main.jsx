@@ -33,6 +33,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 			const rootContent = createRoot(shadowDom);
 
+			let id = container[i].dataset.businessId;
+
 			rootContent.render(
 				<React.StrictMode>
 					<BrowserRouter>

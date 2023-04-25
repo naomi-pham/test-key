@@ -1,10 +1,10 @@
 import React from 'react';
 import CozyStatsSmall from '../common/CozyStatsSmall';
 
-const MicroStar = () => {
+const MicroStar = ({ id }) => {
 	return (
 		<div className="cozy-flex cozy-items-center cozy-gap-2 cozy-p-2 cozy-py-4">
-			<CozyStatsSmall />
+			<CozyStatsSmall id={id} />
 			<div>
 				<a
 					href="/"

@@ -45,7 +45,7 @@ const Carousel = ({ slides }) => {
 
 			<div className="cozy-overflow-hidden">
 				<div
-					className="cozy-flex cozy-transition-transform cozy-duration-500 cozy-ease-in-out"
+					className="cozy-flex cozy-transition-transform cozy-duration-500 cozy-ease-in-out cozy-items-center"
 					style={{
 						transform: `translateX(-${slidePosition * (100 / postsPerSlide)}%)`,
 					}}

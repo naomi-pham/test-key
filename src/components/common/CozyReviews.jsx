@@ -1,16 +1,18 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import Carousel from '../common/Carousel';
 import useAxios from '../../hooks/useAxios';
+import Carousel from '../common/Carousel';
 
-const CozyReviews = () => {
-	const { data, error } = useAxios(
-		'/api/v1/business/reviews/f61dab47-3b6a-40cb-9a79-1f799edbbc3c',
-	);
+const CozyReviews = ({ id }) => {
+	// const search = useLocation().search;
+	// const businessUuid = new URLSearchParams(search).get('businessUuid');
+
+	const { data, error } = useAxios(`${id}`);
 
 	return (
 		<div>
 			{error && <p className="cozy-opacity-60"> Reviews not found</p>}
-			{data && <Carousel slides={data?.data?.items} />}
+			{data && <Carousel slides={data?.data?.reviews} />}
 		</div>
 	);
 };

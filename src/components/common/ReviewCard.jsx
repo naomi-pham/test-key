@@ -39,7 +39,7 @@ const ReviewCard = ({ item, postsPerSlide, hasBackground }) => {
 					<p className="cozy-line-clamp-5">{handleNullData(item?.content)}</p>
 					<div className="cozy-flex cozy-items-end cozy-gap-2 cozy-font-graphik cozy-text-light-neutral-700 cozy-text-body-2">
 						<p className="cozy-font-graphik-medium">
-							{handleNullData(item?.created_by?.name)},
+							{handleNullData(item?.created_by)},
 						</p>
 						<p className="cozy-opacity-80">
 							{dayjs(item?.created_at).fromNow()}

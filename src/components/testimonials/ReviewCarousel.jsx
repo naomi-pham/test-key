@@ -1,13 +1,15 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import RatingGroupLarge from '../common/RatingGroupLarge';
-import CozyReviews from '../common/CozyReviews';
-import useAxios from '../../hooks/useAxios';
 import { handleNullData } from '../../helpers/Helpers';
+import useAxios from '../../hooks/useAxios';
+import CozyReviews from '../common/CozyReviews';
+import RatingGroupLarge from '../common/RatingGroupLarge';
 
-const ReviewCarousel = () => {
-	const { data, error } = useAxios(
-		'/api/v1/business/widgets/f61dab47-3b6a-40cb-9a79-1f799edbbc3c/stats',
-	);
+const ReviewCarousel = ({ id }) => {
+	// const search = useLocation().search;
+	// const businessUuid = new URLSearchParams(search).get('businessUuid');
+
+	const { data, error } = useAxios(`${id}`);
 
 	return (
 		<div className="cozy-flex cozy-flex-col cozy-items-center cozy-gap-4 sm:cozy-flex-row">
@@ -15,8 +17,11 @@ const ReviewCarousel = () => {
 				{error && <p className="cozy-opacity-60"> Stats not found</p>}
 				<RatingGroupLarge
 					messageLarge
-					rating={handleNullData(data?.data?.total_trust_score)}
-					numberOfReviews={handleNullData(data?.data?.total_review, 0)}
+					rating={handleNullData(data?.data?.trust_score, 0)}
+					numberOfReviews={handleNullData(
+						data?.data?.review_overview?.total,
+						0,
+					)}
 				/>
 				<h3 className="cozy-text-xl cozy-font-graphik-semibold cozy-text-heading-3 cozy-text-branding-primary-500">
 					CozyCot
