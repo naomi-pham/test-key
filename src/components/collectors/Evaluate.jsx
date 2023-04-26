@@ -121,7 +121,7 @@ const Evaluate = ({ id }) => {
 	const businessUuid = new URLSearchParams(search).get('businessUuid');
 
 	async function handleSubmit() {
-		// if (!businessUuid) return null;
+		if (!businessUuid) return null;
 		try {
 			const res = await axios.post(`/api/v1/business/reviews/${businessUuid}`, {
 				title: state.title,
