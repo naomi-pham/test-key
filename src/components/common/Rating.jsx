@@ -63,9 +63,9 @@ const Rating = ({ rating, handleClick, message }) => {
 				return (
 					<button
 						key={index}
-						onClick={handleSetStar(index)}
-						onMouseOver={handleMouseOver(index)}
-						onMouseOut={handleMouseOut(index)}
+						onClick={handleSetStar(index + 1)}
+						onMouseOver={handleMouseOver(index + 1)}
+						onMouseOut={handleMouseOut(index + 1)}
 						className="cozy-cozy-pr-1.5 last-of-type:cozy-pr-0"
 					>
 						<div
