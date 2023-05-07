@@ -43,8 +43,9 @@ const Rating = ({ rating, handleClick, message }) => {
 	);
 
 	const handleSetStar = (index) => () => {
+		console.log("🚀 ~ file: Rating.jsx:47 ~ handleSetStar ~ index:", index)
 		firstTimeRef.current = false;
-		handleClick(index);
+		handleClick(index + 1);
 	};
 
 	const handleMouseOver = (index) => () => {
@@ -63,9 +64,9 @@ const Rating = ({ rating, handleClick, message }) => {
 				return (
 					<button
 						key={index}
-						onClick={handleSetStar(index + 1)}
-						onMouseOver={handleMouseOver(index + 1)}
-						onMouseOut={handleMouseOut(index + 1)}
+						onClick={handleSetStar(index)}
+						onMouseOver={handleMouseOver(index)}
+						onMouseOut={handleMouseOut(index)}
 						className="cozy-cozy-pr-1.5 last-of-type:cozy-pr-0"
 					>
 						<div
