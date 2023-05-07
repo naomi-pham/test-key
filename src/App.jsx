@@ -11,7 +11,6 @@ import ReviewCarousel from './components/testimonials/ReviewCarousel';
 import ReviewSlider from './components/testimonials/ReviewSlider';
 
 const App = ({ intent, id }) => {
-	console.log("🚀 ~ file: App.jsx:14 ~ App ~ id:", id)
 	const ReviewData = [
 		{
 			id: 1,

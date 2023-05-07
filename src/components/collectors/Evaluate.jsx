@@ -75,6 +75,7 @@ const Evaluate = ({ id }) => {
 			action: 'INPUT_EXPERIENCE_DATE',
 			value: date,
 			placeholder: '',
+			required: false,
 		},
 		{
 			id: 1,
@@ -84,6 +85,7 @@ const Evaluate = ({ id }) => {
 			action: 'INPUT_TITLE',
 			value: title,
 			placeholder: 'e.g. This service is awesome!',
+			required: true,
 		},
 		{
 			id: 2,
@@ -93,6 +95,7 @@ const Evaluate = ({ id }) => {
 			action: 'INPUT_NAME',
 			value: name,
 			placeholder: 'e.g. John',
+			required: true,
 		},
 		{
 			id: 3,
@@ -102,6 +105,7 @@ const Evaluate = ({ id }) => {
 			action: 'INPUT_EMAIL',
 			value: email,
 			placeholder: 'e.g. john@gmail.com',
+			required: true,
 		},
 	];
 
@@ -120,19 +124,20 @@ const Evaluate = ({ id }) => {
 	const search = useLocation().search;
 	const businessUuid = new URLSearchParams(search).get('businessUuid');
 
-	async function handleSubmit() {
+	async function handleSubmit(e) {
+		e.preventDefault()
 		if (!businessUuid) return null;
 		try {
 			const res = await axios.post(`/api/v1/business/reviews/${businessUuid}`, {
-				title: state.title,
-				content: state.review,
-				star: state.star,
-				created_by: state.name,
-				email: state.email,
-				date: state.date,
+				title: state?.title,
+				content: state?.review,
+				star: state?.star + 1,
+				created_by: state?.name,
+				email: state?.email,
+				date: state?.date,
 			});
 			setIsSubmitted(true);
-			console.log('🚀 ~ file: usePostAxios.jsx:13 ~ postData ~ res:', res);
+			// console.log('🚀 ~ file: usePostAxios.jsx:13 ~ postData ~ res:', res);
 		} catch (error) {
 			console.log(111, error?.response?.data?.message);
 			setPostError(error.response.data.message);
@@ -145,12 +150,18 @@ const Evaluate = ({ id }) => {
 				className="cozy-bg-white cozy-rounded-xl cozy-p-6 cozy-shadow-md"
 				style={{ maxWidth: '400px' }}
 			>
-				<div className="cozy-space-y-2">
-					<h4 className="cozy-font-graphik-medium cozy-text-title-2 cozy-text-light-neutral-800">
-						Rate your recent experience
-					</h4>
-					<Rating rating={rating} handleClick={handleClick} message={message} />
-				</div>
+				{!isSubmitted ? (
+					<div className="cozy-space-y-2">
+						<h4 className="cozy-font-graphik-medium cozy-text-title-2 cozy-text-light-neutral-800">
+							Rate your recent experience
+						</h4>
+						<Rating
+							rating={rating}
+							handleClick={handleClick}
+							message={message}
+						/>
+					</div>
+				) : null}
 
 				{postError ? (
 					<p
@@ -162,7 +173,7 @@ const Evaluate = ({ id }) => {
 				) : null}
 
 				{isShown && (
-					<div className="cozy-mt-5">
+					<form onSubmit={handleSubmit} className="cozy-mt-5">
 						{isSubmitted ? (
 							<p>Thank you for your feedback!</p>
 						) : (
@@ -199,12 +210,12 @@ const Evaluate = ({ id }) => {
 											value={field.value}
 											placeholder={field.placeholder}
 											className="cozy-mt-1 cozy-w-full cozy-rounded cozy-border cozy-border-light-neutral-300 cozy-p-4 cozy-font-graphik cozy-text-body-2 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2"
+											required={field.required}
 										/>
 									</label>
 								))}
 
 								<button
-									onClick={handleSubmit}
 									type="submit"
 									className="cozy-rounded-xl cozy-border cozy-border-branding-primary-500 cozy-bg-branding-primary-500 cozy-p-4 cozy-font-graphik-semibold cozy-text-light-neutral-25 hover:cozy-cursor-pointer hover:cozy-border-branding-primary-600 hover:cozy-bg-branding-primary-600 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2 active:cozy-bg-branding-primary-700 disabled:cozy-border-light-neutral-300 disabled:cozy-bg-light-neutral-300 disabled:cozy-text-light-neutral-500"
 								>
@@ -212,7 +223,7 @@ const Evaluate = ({ id }) => {
 								</button>
 							</div>
 						)}
-					</div>
+					</form>
 				)}
 			</div>
 		</>

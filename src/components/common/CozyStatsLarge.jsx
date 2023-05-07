@@ -5,7 +5,6 @@ import useAxios from '../../hooks/useAxios';
 import RatingGroupLarge from './RatingGroupLarge';
 
 const CozyStatsLarge = ({ intent, id }) => {
-	console.log("🚀 ~ file: CozyStatsLarge.jsx:8 ~ CozyStatsLarge ~ id:", id)
 	// Get values from query string
 	// const search = useLocation().search;
 	// const businessUuid = new URLSearchParams(search).get('businessUuid');

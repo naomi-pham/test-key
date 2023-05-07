@@ -43,9 +43,10 @@ const Rating = ({ rating, handleClick, message }) => {
 	);
 
 	const handleSetStar = (index) => () => {
-		console.log("🚀 ~ file: Rating.jsx:47 ~ handleSetStar ~ index:", index)
+		console.log('🚀 ~ file: Rating.jsx:47 ~ handleSetStar ~ index:', index);
 		firstTimeRef.current = false;
-		handleClick(index + 1);
+		handleClick(index);
+		setSelectedStar(index);
 	};
 
 	const handleMouseOver = (index) => () => {
@@ -53,9 +54,9 @@ const Rating = ({ rating, handleClick, message }) => {
 		setSelectedStar(index);
 	};
 
-	const handleMouseOut = (rating) => () => {
+	const handleMouseOut = (index) => () => {
 		firstTimeRef.current = false;
-		setSelectedStar(rating);
+		setSelectedStar(index);
 	};
 
 	return (
