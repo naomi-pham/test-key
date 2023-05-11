@@ -17,10 +17,12 @@ module.exports = {
 				'0.875rem',
 				{ letterSpacing: '0.01em', lineHeight: '1.25rem' },
 			],
+			'title-1': ['1.5rem', { letterSpacing: '0.01em', lineHeight: '2rem' }],
 			'title-2': [
 				'1.25rem',
 				{ letterSpacing: '0.01em', lineHeight: '1.75rem' },
 			],
+			'caption-1': ['1rem', { letterSpacing: '0.01em', lineHeight: '1.5rem' }],
 		},
 		colors: {
 			light: {

@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
-import React, { useReducer, useState } from 'react';
+import React, { useId, useReducer, useState } from 'react';
 import { getErrorAndDisplay, handleMessage } from '../../helpers/Helpers';
 import axios from '../api/axios';
 import Rating from '../common/Rating';
 import { useLocation } from 'react-router-dom';
+import ImageUploader from '../common/ImageUploader';
 
-const Evaluate = ({ id }) => {
+const Evaluate = () => {
 	const [message, setMessage] = useState('');
 	const [rating, setRating] = useState(0);
 	const [isShown, setIsShown] = useState(false);
@@ -14,11 +15,12 @@ const Evaluate = ({ id }) => {
 
 	const initialState = {
 		star: '',
-		title: '',
 		review: '',
+		images: [],
+		date: '',
+		title: '',
 		name: '',
 		email: '',
-		date: '',
 	};
 
 	function reducer(state, action) {
@@ -29,16 +31,34 @@ const Evaluate = ({ id }) => {
 					star: action.payload,
 				};
 			}
-			case 'INPUT_TITLE': {
-				return {
-					...state,
-					title: action.payload,
-				};
-			}
 			case 'INPUT_REVIEW': {
 				return {
 					...state,
 					review: action.payload,
+				};
+			}
+			case 'INPUT_IMAGES': {
+				return {
+					...state,
+					images: [...state.images, action.payload],
+				};
+			}
+			case 'REMOVE_IMAGE': {
+				return {
+					...state,
+					images: state.images.filter((image) => image.id !== action.payload),
+				};
+			}
+			case 'INPUT_EXPERIENCE_DATE': {
+				return {
+					...state,
+					date: action.payload,
+				};
+			}
+			case 'INPUT_TITLE': {
+				return {
+					...state,
+					title: action.payload,
 				};
 			}
 			case 'INPUT_NAME': {
@@ -53,18 +73,12 @@ const Evaluate = ({ id }) => {
 					email: action.payload,
 				};
 			}
-			case 'INPUT_EXPERIENCE_DATE': {
-				return {
-					...state,
-					date: action.payload,
-				};
-			}
 		}
 		throw Error('Unknown action: ' + action.type);
 	}
 
 	const [state, dispatch] = useReducer(reducer, initialState);
-	const { title, review, name, email, date } = state;
+	const { title, review, name, email, date, images } = state;
 
 	const formFields = [
 		{
@@ -120,12 +134,27 @@ const Evaluate = ({ id }) => {
 		dispatch({ type: type, payload: e.target.value });
 	};
 
+	const [imageId, setImageId] = useState(0);
+
+	const handleSetImages = (e) => {
+		e.preventDefault();
+		dispatch({
+			type: 'INPUT_IMAGES',
+			payload: { image: e.target.files[0], id: imageId },
+		});
+		setImageId(imageId + 1);
+	};
+
+	const handleRemoveImage = (id) => () => {
+		dispatch({ type: 'REMOVE_IMAGE', payload: id });
+	};
+
 	// Get values from query string
 	const search = useLocation().search;
 	const businessUuid = new URLSearchParams(search).get('businessUuid');
 
 	async function handleSubmit(e) {
-		e.preventDefault()
+		e.preventDefault();
 		if (!businessUuid) return null;
 		try {
 			const res = await axios.post(`/api/v1/business/reviews/${businessUuid}`, {
@@ -137,7 +166,7 @@ const Evaluate = ({ id }) => {
 				date: state?.date,
 			});
 			setIsSubmitted(true);
-			// console.log('🚀 ~ file: usePostAxios.jsx:13 ~ postData ~ res:', res);
+			console.log('🚀 ~ file: usePostAxios.jsx:13 ~ postData ~ res:', res);
 		} catch (error) {
 			console.log(111, error?.response?.data?.message);
 			setPostError(error.response.data.message);
@@ -147,13 +176,13 @@ const Evaluate = ({ id }) => {
 	return (
 		<>
 			<div
-				className="cozy-bg-white cozy-rounded-xl cozy-p-6 cozy-shadow-md"
-				style={{ maxWidth: '400px' }}
+				className="cozy-rounded-2xl cozy-bg-light-neutral-50 cozy-p-6 cozy-shadow-md"
+				style={{ maxWidth: '954px' }}
 			>
 				{!isSubmitted ? (
-					<div className="cozy-space-y-2">
-						<h4 className="cozy-font-graphik-medium cozy-text-title-2 cozy-text-light-neutral-800">
-							Rate your recent experience
+					<div className="cozy-flex cozy-flex-col cozy-items-center cozy-justify-center cozy-space-y-3 cozy-text-center">
+						<h4 className="cozy-font-graphik-semibold cozy-text-title-1 cozy-text-light-neutral-800">
+							Write a review
 						</h4>
 						<Rating
 							rating={rating}
@@ -173,27 +202,35 @@ const Evaluate = ({ id }) => {
 				) : null}
 
 				{isShown && (
-					<form onSubmit={handleSubmit} className="cozy-mt-5">
+					<form onSubmit={handleSubmit} style={{ marginTop: '3.25rem' }}>
 						{isSubmitted ? (
 							<p>Thank you for your feedback!</p>
 						) : (
-							<div className="cozy-flex cozy-flex-col cozy-gap-4">
+							<div className="cozy-flex cozy-flex-col cozy-gap-8">
 								<label
 									htmlFor="review"
-									className="cozy-font-graphik-medium cozy-text-body-2 cozy-text-light-neutral-700"
+									className="cozy-font-graphik-medium cozy-text-caption-1 cozy-text-light-neutral-700"
 								>
-									Share your review
+									Tell us more about your experience
 									<textarea
 										id="review"
 										type="text"
 										onChange={handleInput('INPUT_REVIEW')}
 										value={review}
-										className="cozy-mt-1 cozy-w-full cozy-rounded cozy-border cozy-border-light-neutral-300 cozy-p-4 cozy-font-graphik cozy-text-body-2 placeholder:cozy-text-light-neutral-600 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2"
+										className="cozy-mt-1 cozy-w-full cozy-rounded cozy-border cozy-border-light-neutral-400 cozy-p-4 cozy-font-graphik placeholder:cozy-text-light-neutral-600 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2"
 										rows={5}
-										placeholder="This is where you write your reviews."
+										placeholder="What made your experience great? What is this company doing well? Remember to be honest, helpful and constructive!"
 										required
 									/>
 								</label>
+
+								{/* Image loader */}
+
+								<ImageUploader
+									images={images}
+									handleSetImages={handleSetImages}
+									handleRemoveImage={handleRemoveImage}
+								/>
 
 								{formFields.map((field) => (
 									<label
@@ -209,7 +246,7 @@ const Evaluate = ({ id }) => {
 											onChange={handleInput(field.action)}
 											value={field.value}
 											placeholder={field.placeholder}
-											className="cozy-mt-1 cozy-w-full cozy-rounded cozy-border cozy-border-light-neutral-300 cozy-p-4 cozy-font-graphik cozy-text-body-2 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2"
+											className="cozy-mt-1 cozy-w-full cozy-rounded cozy-border cozy-border-light-neutral-300 cozy-p-3 cozy-font-graphik cozy-text-body-2 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2"
 											required={field.required}
 										/>
 									</label>
@@ -217,7 +254,14 @@ const Evaluate = ({ id }) => {
 
 								<button
 									type="submit"
-									className="cozy-rounded-xl cozy-border cozy-border-branding-primary-500 cozy-bg-branding-primary-500 cozy-p-4 cozy-font-graphik-semibold cozy-text-light-neutral-25 hover:cozy-cursor-pointer hover:cozy-border-branding-primary-600 hover:cozy-bg-branding-primary-600 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2 active:cozy-bg-branding-primary-700 disabled:cozy-border-light-neutral-300 disabled:cozy-bg-light-neutral-300 disabled:cozy-text-light-neutral-500"
+									className="cozy-flex cozy-border cozy-border-branding-primary-500 cozy-bg-branding-primary-500 cozy-font-graphik-semibold cozy-text-light-neutral-25 hover:cozy-cursor-pointer hover:cozy-border-branding-primary-600 hover:cozy-bg-branding-primary-600 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2 active:cozy-bg-branding-primary-700 disabled:cozy-border-light-neutral-300 disabled:cozy-bg-light-neutral-300 disabled:cozy-text-light-neutral-500"
+									style={{
+										padding: '0.75rem 1.5rem',
+										minWidth: '150px',
+										alignSelf: 'center',
+										borderRadius: '8px',
+										marginTop: '1.25rem',
+									}}
 								>
 									Submit review
 								</button>

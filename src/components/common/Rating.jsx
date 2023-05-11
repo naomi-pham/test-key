@@ -71,18 +71,18 @@ const Rating = ({ rating, handleClick, message }) => {
 						className="cozy-cozy-pr-1.5 last-of-type:cozy-pr-0"
 					>
 						<div
-							className={`cozy-h-8 cozy-w-8 cozy-rounded-md ${defaultBackgroundColor(
+							className={`cozy-h-10 cozy-w-10 cozy-rounded-[2px] ${defaultBackgroundColor(
 								index,
 							)} cozy-duration-75 hover:cozy-scale-105 ${hoverBackgroundColor(
 								index,
 							)}`}
 						>
-							<Star className="cozy-h-8 cozy-w-8 cozy-fill-none" />
+							<Star className="cozy-h-10 cozy-w-10 cozy-fill-none" />
 						</div>
 					</button>
 				);
 			})}
-			<p className="cozy-ml-2 cozy-opacity-80">{message}</p>
+			{/* <p className="cozy-ml-2 cozy-opacity-80">{message}</p> */}
 		</div>
 	);
 };
