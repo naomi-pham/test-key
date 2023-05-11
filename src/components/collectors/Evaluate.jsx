@@ -180,7 +180,7 @@ const Evaluate = () => {
 				style={{ maxWidth: '954px' }}
 			>
 				{!isSubmitted ? (
-					<div className="cozy-flex cozy-flex-col cozy-items-center cozy-justify-center cozy-space-y-3 cozy-text-center">
+					<div className="cozy-flex cozy-flex-col cozy-items-center cozy-justify-center cozy-space-y-3 cozy-text-center" style={{marginBottom: "1.25rem"}}>
 						<h4 className="cozy-font-graphik-semibold cozy-text-title-1 cozy-text-light-neutral-800">
 							Write a review
 						</h4>
