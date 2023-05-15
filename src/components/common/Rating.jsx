@@ -1,15 +1,11 @@
 /* eslint-disable react/prop-types */
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import Star from '../icon/Star';
+import React, { useCallback, useRef, useState } from 'react';
 import { colors, stars } from '../../helpers/Helpers';
+import Star from '../icon/Star';
 
-const Rating = ({ rating, handleClick }) => {
+const Rating = ({ handleClick }) => {
 	const [selectedStar, setSelectedStar] = useState(null);
 	const firstTimeRef = useRef(true);
-
-	useEffect(() => {
-		setSelectedStar(rating);
-	}, [rating]);
 
 	const defaultBackgroundColor = useCallback(
 		(index) => {
@@ -19,6 +15,7 @@ const Rating = ({ rating, handleClick }) => {
 			if (index <= selectedStar) {
 				return colors[selectedStar];
 			}
+
 			return 'cozy-bg-white cozy-text-light-neutral-300';
 		},
 		[selectedStar, firstTimeRef],

@@ -20,7 +20,7 @@ export function handleMessage(rating, setMessage) {
 }
 
 export function renderReviewPlaceholderText(star) {
-	if (star > 0 && star <= 1)
+	if (star <= 1)
 		return 'What went wrong? How can this company improve? Remember to be honest, helpful and constructive.';
 	if (star <= 2)
 		return 'What do like or dislike? What is this company doing well, or how can they improve? Remember to be honest, helpful and constructive.';
