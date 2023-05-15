@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useReducer, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import React, { useReducer, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import {
 	getErrorAndDisplay,
 	handleMessage,
@@ -10,7 +10,7 @@ import axios from '../api/axios';
 import ImageUploader from '../common/ImageUploader';
 import Rating from '../common/Rating';
 
-const Evaluate = () => {
+const Evaluate = ({ id }) => {
 	const [message, setMessage] = useState('');
 	const [rating, setRating] = useState(0);
 	const [isShown, setIsShown] = useState(false);
@@ -166,10 +166,10 @@ const Evaluate = () => {
 
 	let businessUuid;
 
-	if (params && params.search) {
-		businessUuid = new URLSearchParams(params?.search).get('businessUuid');
-	} else {
-		businessUuid = params.pathname.replace('/profile/', '');
+	if (id) {
+		businessUuid = id;
+	} else if (params) {
+		businessUuid = new URLSearchParams(params.search).get('businessUuid');
 	}
 
 	async function handleSubmit(e) {
