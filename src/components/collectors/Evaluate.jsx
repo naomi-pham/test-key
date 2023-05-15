@@ -157,7 +157,7 @@ const Evaluate = () => {
 	};
 
 	const handleResetForm = () => {
-		setIsSubmitted(false);
+		window.location.reload(false);
 		dispatch({ type: 'RESET' });
 	};
 
