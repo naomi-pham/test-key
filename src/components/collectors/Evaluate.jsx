@@ -196,13 +196,10 @@ const Evaluate = () => {
 		<>
 			<div
 				className="cozy-rounded-2xl cozy-bg-light-neutral-50 cozy-p-6"
-				// style={{ maxWidth: '954px' }}
+				// style={{ paddingBottom: '' }}
 			>
 				{!isSubmitted ? (
-					<div
-						className="cozy-flex cozy-flex-col cozy-items-center cozy-justify-center cozy-space-y-3 cozy-text-center"
-						style={{ marginBottom: '1.25rem' }}
-					>
+					<div className="cozy-flex cozy-flex-col cozy-items-center cozy-justify-center cozy-space-y-3 cozy-text-center">
 						<h4 className="cozy-font-graphik-semibold cozy-text-title-1 cozy-text-light-neutral-800">
 							Write a review
 						</h4>
