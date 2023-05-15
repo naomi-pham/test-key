@@ -77,6 +77,9 @@ const Evaluate = () => {
 					email: action.payload,
 				};
 			}
+			case 'RESET': {
+				return initialState;
+			}
 		}
 		throw Error('Unknown action: ' + action.type);
 	}
@@ -153,6 +156,11 @@ const Evaluate = () => {
 		dispatch({ type: 'REMOVE_IMAGE', payload: id });
 	};
 
+	const handleResetForm = () => {
+		setIsSubmitted(false);
+		dispatch({ type: 'RESET' });
+	};
+
 	// Get values from query string
 	const params = useLocation();
 
@@ -216,11 +224,26 @@ const Evaluate = () => {
 				) : null}
 
 				{isShown && (
-					<form onSubmit={handleSubmit} style={{ marginTop: '3.25rem' }}>
+					<form onSubmit={handleSubmit}>
 						{isSubmitted ? (
-							<p>Thank you for your feedback!</p>
+							<div>
+								<p>Thank you for your feedback!</p>
+								<button
+									onClick={handleResetForm}
+									style={{
+										color: '#4F3CC8',
+										fontWeight: 600,
+										marginTop: '0.5rem',
+									}}
+								>
+									Submit another review
+								</button>
+							</div>
 						) : (
-							<div className="cozy-flex cozy-flex-col cozy-gap-8">
+							<div
+								className="cozy-flex cozy-flex-col cozy-gap-8"
+								style={{ marginTop: '3.25rem' }}
+							>
 								<label
 									htmlFor="review"
 									className="cozy-font-graphik-medium cozy-text-caption-1 cozy-text-light-neutral-700"
