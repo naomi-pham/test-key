@@ -1,13 +1,13 @@
-import errorCodes from "../components/common/errorCodes";
+import errorCodes from '../components/common/errorCodes';
 
 export const stars = [1, 2, 3, 4, 5];
 
 export const colors = [
-	'cozy-bg-red-500',
-	'cozy-bg-orange-500',
-	'cozy-bg-yellow-500',
-	'cozy-bg-green-500',
-	'cozy-bg-branding-primary-500',
+	'cozy-bg-red-500 cozy-text-light-neutral-25',
+	'cozy-bg-orange-500 cozy-text-light-neutral-25',
+	'cozy-bg-yellow-500 cozy-text-light-neutral-25',
+	'cozy-bg-green-500 cozy-text-light-neutral-25',
+	'cozy-bg-branding-primary-500 cozy-text-light-neutral-25',
 ];
 
 export function handleMessage(rating, setMessage) {
@@ -17,6 +17,16 @@ export function handleMessage(rating, setMessage) {
 	if (rating <= 3) return setMessage('Okay');
 	if (rating <= 4) return setMessage('Good');
 	return setMessage('Excellent');
+}
+
+export function renderReviewPlaceholderText(star) {
+	if (star > 0 && star <= 1)
+		return 'What went wrong? How can this company improve? Remember to be honest, helpful and constructive.';
+	if (star <= 2)
+		return 'What do like or dislike? What is this company doing well, or how can they improve? Remember to be honest, helpful and constructive.';
+	if (star <= 5)
+		return 'What made your experience great? What is this company doing well? Remember to be honest, helpful and constructive.';
+	return null;
 }
 
 export function handleNullData(data, display) {
@@ -50,7 +60,6 @@ export function throttle(fn, delay = 300) {
 }
 
 export function getErrorAndDisplay(code) {
-	if (errorCodes[code]) return errorCodes[code].setMessage
-	return (errorCodes.SERVER_ERROR.message)
-
+	if (errorCodes[code]) return errorCodes[code].setMessage;
+	return errorCodes.SERVER_ERROR.message;
 }

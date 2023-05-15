@@ -4,11 +4,11 @@ import { IconRemoveImage, IconVideo } from './Icons';
 
 const ImageUploader = ({ images, handleSetImages, handleRemoveImage }) => {
 	return (
-		<div>
-			<p className="cozy-font-graphik-medium cozy-text-caption-1 cozy-text-light-neutral-700">
+		<div style={{ color: '#6B778C' }}>
+			<p className="cozy-font-graphik-medium cozy-text-caption-1">
 				Would you like to add photos or videos
 			</p>
-			<div className="cozy-mt-2 cozy-flex cozy-gap-4 cozy-flex-wrap">
+			<div className="cozy-mt-2 cozy-flex cozy-flex-wrap cozy-gap-4">
 				{images?.length > 0 ? (
 					<>
 						{images.map((image) => (
@@ -43,22 +43,29 @@ const ImageUploader = ({ images, handleSetImages, handleRemoveImage }) => {
 						))}
 					</>
 				) : null}
-				<div className={`${images.length === 5 && 'cozy-hidden'}`}>
+				<div className={`cozy-w-full ${images.length === 5 && 'cozy-hidden'}`}>
 					<label htmlFor="avatar">
 						<div
-							className="cozy-flex cozy-items-center cozy-justify-center cozy-text-center"
+							className="cozy-flex cozy-w-full cozy-items-center cozy-justify-center cozy-p-6 cozy-text-center"
 							style={{
-								width: 106,
-								aspectRatio: 1,
+								// width: 106,
+								// aspectRatio: 1,
 								outline: '1px dashed #C1C7D0',
 								borderRadius: '.5rem',
 							}}
 						>
-							<div className="cozy-relative cozy-flex cozy-flex-col cozy-items-center cozy-gap-2 cozy-font-graphik-semibold">
+							<div className="cozy-relative cozy-flex cozy-flex-col cozy-items-center cozy-gap-2">
 								<i>
 									<IconVideo />
 								</i>
-								<span>Add image</span>
+								<div>
+									<p className="cozy-font-graphik-semibold">
+										Drag file here or browse.
+									</p>
+									<p className="cozy-text-body-2">
+										Supported files: jpg, png, mp4
+									</p>
+								</div>
 							</div>
 						</div>
 						<input

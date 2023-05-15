@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-import React, { useId, useReducer, useState } from 'react';
-import { getErrorAndDisplay, handleMessage } from '../../helpers/Helpers';
-import axios from '../api/axios';
-import Rating from '../common/Rating';
+import React, { useReducer, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { getErrorAndDisplay, handleMessage, renderReviewPlaceholderText } from '../../helpers/Helpers';
+import axios from '../api/axios';
 import ImageUploader from '../common/ImageUploader';
+import Rating from '../common/Rating';
 
 const Evaluate = () => {
 	const [message, setMessage] = useState('');
@@ -78,7 +78,7 @@ const Evaluate = () => {
 	}
 
 	const [state, dispatch] = useReducer(reducer, initialState);
-	const { title, review, name, email, date, images } = state;
+	const { title, review, name, email, date, images, star } = state;
 
 	const formFields = [
 		{
@@ -176,11 +176,14 @@ const Evaluate = () => {
 	return (
 		<>
 			<div
-				className="cozy-rounded-2xl cozy-bg-light-neutral-50 cozy-p-6 cozy-shadow-md"
-				style={{ maxWidth: '954px' }}
+				className="cozy-rounded-2xl cozy-bg-light-neutral-50 cozy-p-6"
+				// style={{ maxWidth: '954px' }}
 			>
 				{!isSubmitted ? (
-					<div className="cozy-flex cozy-flex-col cozy-items-center cozy-justify-center cozy-space-y-3 cozy-text-center" style={{marginBottom: "1.25rem"}}>
+					<div
+						className="cozy-flex cozy-flex-col cozy-items-center cozy-justify-center cozy-space-y-3 cozy-text-center"
+						style={{ marginBottom: '1.25rem' }}
+					>
 						<h4 className="cozy-font-graphik-semibold cozy-text-title-1 cozy-text-light-neutral-800">
 							Write a review
 						</h4>
@@ -219,13 +222,12 @@ const Evaluate = () => {
 										value={review}
 										className="cozy-mt-1 cozy-w-full cozy-rounded cozy-border cozy-border-light-neutral-400 cozy-p-4 cozy-font-graphik placeholder:cozy-text-light-neutral-600 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2"
 										rows={5}
-										placeholder="What made your experience great? What is this company doing well? Remember to be honest, helpful and constructive!"
+										placeholder={renderReviewPlaceholderText(star)}
 										required
 									/>
 								</label>
 
 								{/* Image loader */}
-
 								<ImageUploader
 									images={images}
 									handleSetImages={handleSetImages}
@@ -235,7 +237,7 @@ const Evaluate = () => {
 								{formFields.map((field) => (
 									<label
 										key={field.id}
-										className="cozy-font-graphik-medium cozy-text-body-2 cozy-text-light-neutral-700"
+										className="cozy-font-graphik-medium cozy-text-caption-1 cozy-text-light-neutral-700"
 										htmlFor={field.name}
 									>
 										{field.label}

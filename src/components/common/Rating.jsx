@@ -1,18 +1,10 @@
 /* eslint-disable react/prop-types */
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Star from '../icon/Star';
+import { colors, stars } from '../../helpers/Helpers';
 
-const stars = [1, 2, 3, 4, 5];
-const colors = [
-	'cozy-bg-red-500',
-	'cozy-bg-orange-500',
-	'cozy-bg-yellow-500',
-	'cozy-bg-green-500',
-	'cozy-bg-branding-primary-500',
-];
-
-const Rating = ({ rating, handleClick, message }) => {
-	const [selectedStar, setSelectedStar] = useState(0);
+const Rating = ({ rating, handleClick }) => {
+	const [selectedStar, setSelectedStar] = useState(null);
 	const firstTimeRef = useRef(true);
 
 	useEffect(() => {
@@ -22,12 +14,12 @@ const Rating = ({ rating, handleClick, message }) => {
 	const defaultBackgroundColor = useCallback(
 		(index) => {
 			if (firstTimeRef.current) {
-				return 'cozy-bg-zinc-200';
+				return 'cozy-bg-white cozy-text-light-neutral-300';
 			}
 			if (index <= selectedStar) {
 				return colors[selectedStar];
 			}
-			return 'cozy-bg-zinc-200';
+			return 'cozy-bg-white cozy-text-light-neutral-300';
 		},
 		[selectedStar, firstTimeRef],
 	);
@@ -43,7 +35,6 @@ const Rating = ({ rating, handleClick, message }) => {
 	);
 
 	const handleSetStar = (index) => () => {
-		console.log('🚀 ~ file: Rating.jsx:47 ~ handleSetStar ~ index:', index);
 		firstTimeRef.current = false;
 		handleClick(index);
 		setSelectedStar(index);
@@ -71,18 +62,19 @@ const Rating = ({ rating, handleClick, message }) => {
 						className="cozy-cozy-pr-1.5 last-of-type:cozy-pr-0"
 					>
 						<div
-							className={`cozy-h-10 cozy-w-10 cozy-rounded-[2px] ${defaultBackgroundColor(
+							className={`cozy-h-10 cozy-w-10 cozy-rounded-[2px] cozy-border ${defaultBackgroundColor(
 								index,
 							)} cozy-duration-75 hover:cozy-scale-105 ${hoverBackgroundColor(
 								index,
 							)}`}
 						>
-							<Star className="cozy-h-10 cozy-w-10 cozy-fill-none" />
+							<i className="">
+								<Star />
+							</i>
 						</div>
 					</button>
 				);
 			})}
-			{/* <p className="cozy-ml-2 cozy-opacity-80">{message}</p> */}
 		</div>
 	);
 };
