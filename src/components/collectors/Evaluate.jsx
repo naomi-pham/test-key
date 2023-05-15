@@ -230,9 +230,9 @@ const Evaluate = () => {
 								<p>Thank you for your feedback!</p>
 								<button
 									onClick={handleResetForm}
+									className="cozy-font-graphik-semibold cozy-text-title-2"
 									style={{
 										color: '#4F3CC8',
-										fontWeight: 600,
 										marginTop: '0.5rem',
 									}}
 								>
