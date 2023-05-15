@@ -1,7 +1,11 @@
 /* eslint-disable react/prop-types */
-import React, { useReducer, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { getErrorAndDisplay, handleMessage, renderReviewPlaceholderText } from '../../helpers/Helpers';
+import React, { useEffect, useReducer, useState } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
+import {
+	getErrorAndDisplay,
+	handleMessage,
+	renderReviewPlaceholderText,
+} from '../../helpers/Helpers';
 import axios from '../api/axios';
 import ImageUploader from '../common/ImageUploader';
 import Rating from '../common/Rating';
@@ -150,8 +154,15 @@ const Evaluate = () => {
 	};
 
 	// Get values from query string
-	const search = useLocation().search;
-	const businessUuid = new URLSearchParams(search).get('businessUuid');
+	const params = useLocation();
+
+	let businessUuid;
+
+	if (params && params.search) {
+		businessUuid = new URLSearchParams(params?.search).get('businessUuid');
+	} else {
+		businessUuid = params.pathname.replace('/', '');
+	}
 
 	async function handleSubmit(e) {
 		e.preventDefault();
