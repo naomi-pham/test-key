@@ -16,15 +16,15 @@ import { BrowserRouter } from 'react-router-dom';
 			let shadowDom = container[i].attachShadow({ mode: 'open' });
 			container[i].classList.add('root-rendered');
 
-			if (
-				!document.querySelector('style[data-description="cozy-widget-fonts"]')
-			) {
-				const cozyFonts = `@font-face{font-family:"graphik-bold";src:url("https://fonts.cozy-cost.just.engineer/GraphikBlack.otf")}@font-face{font-family:"graphik-semibold";src:url("https://fonts.cozy-cost.just.engineer/GraphikSemibold.otf")}@font-face{font-family:"graphik-medium";src:url("https://fonts.cozy-cost.just.engineer/GraphikMedium.otf")}@font-face{font-family:"graphik-regular";src:url("https://fonts.cozy-cost.just.engineer/GraphikRegular.otf")}`;
-				const el = document.createElement('style');
-				el.dataset.description = 'cozy-widget-fonts';
-				el.appendChild(document.createTextNode(cozyFonts));
-				document.head.appendChild(el);
-			}
+			// if (
+			// 	!document.querySelector('style[data-description="cozy-widget-fonts"]')
+			// ) {
+			// 	const cozyFonts = `@font-face{font-family:"graphik-bold";src:url("https://fonts.cozy-cost.just.engineer/GraphikBlack.otf")}@font-face{font-family:"graphik-semibold";src:url("https://fonts.cozy-cost.just.engineer/GraphikSemibold.otf")}@font-face{font-family:"graphik-medium";src:url("https://fonts.cozy-cost.just.engineer/GraphikMedium.otf")}@font-face{font-family:"graphik-regular";src:url("https://fonts.cozy-cost.just.engineer/GraphikRegular.otf")}`;
+			// 	const el = document.createElement('style');
+			// 	el.dataset.description = 'cozy-widget-fonts';
+			// 	el.appendChild(document.createTextNode(cozyFonts));
+			// 	document.head.appendChild(el);
+			// }
 
 			if (!document.getElementById('cozy-widget-style')) {
 				let styleTag = document.createElement('style');
