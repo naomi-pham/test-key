@@ -16,7 +16,9 @@ const useAxios = (id) => {
 		if (!id) return null;
 		try {
 			setIsLoading(true);
-			const res = await axios.get(`/api/v1/business/widgets/${id}/stats`);
+			const res = await axios.get(
+				`/api/v1/business/widgets/${id}/stats?type=review`,
+			);
 			setData(res.data);
 		} catch (error) {
 			console.log(error);

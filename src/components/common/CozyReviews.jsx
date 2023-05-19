@@ -9,10 +9,18 @@ const CozyReviews = ({ id }) => {
 
 	const { data, error } = useAxios(`${id}`);
 
+	let filteredReview;
+
+	if (data?.data?.reviews?.length > 0) {
+		filteredReview = data?.data?.reviews?.filter((item) => item.reply_id === 0);
+	} else {
+		filteredReview = data?.data?.reviews;
+	}
+
 	return (
 		<div>
 			{error && <p className="cozy-opacity-60"> Reviews not found</p>}
-			{data && <Carousel slides={data?.data?.reviews} />}
+			{data && <Carousel slides={filteredReview} />}
 		</div>
 	);
 };

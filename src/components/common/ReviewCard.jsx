@@ -37,8 +37,11 @@ const ReviewCard = ({ item, postsPerSlide, hasBackground }) => {
 						</h4>
 					</a>
 					<p className="cozy-line-clamp-5">{handleNullData(item?.content)}</p>
-					<div className="cozy-flex cozy-items-end cozy-gap-2 cozy-font-graphik cozy-text-light-neutral-700 cozy-text-body-2">
-						<p className="cozy-font-graphik-medium">
+					<div className="cozy-flex cozy-items-end cozy-gap-2 cozy-font-graphik cozy-text-body-2 cozy-text-light-neutral-700">
+						<p
+							className="cozy-font-graphik-medium"
+							style={{ textTransform: 'capitalize' }}
+						>
 							{handleNullData(item?.created_by)},
 						</p>
 						<p className="cozy-opacity-80">

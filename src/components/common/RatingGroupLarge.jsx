@@ -67,11 +67,11 @@ export const RatingFixed = ({ rating, small }) => {
 						<div
 							className={`${defaultBackgroundColor(
 								index,
-							)} cozy-rounded-sm cozy-duration-75 hover:cozy-scale-105`}
-							style={{ color: 'white' }}
+							)} cozy-duration-75 hover:cozy-scale-105`}
+							style={{ color: 'white', borderRadius: small ? '2px' : '4px' }}
 						>
 							<i>
-								<Star size={small ? 20 : 40} />
+								<Star size={small ? 20 : 28} />
 							</i>
 						</div>
 					</button>

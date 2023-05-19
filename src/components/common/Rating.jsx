@@ -66,7 +66,7 @@ const Rating = ({ handleClick }) => {
 							)}`}
 						>
 							<i>
-								<Star />
+								<Star size={40} />
 							</i>
 						</div>
 					</button>
