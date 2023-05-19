@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { throttle } from '../../helpers/Helpers.jsx';
-import { ArrowLeft, ArrowRight } from '../icon/Arrow';
+import { IconArrow } from './Icons.jsx';
 import ReviewCard from './ReviewCard';
 
 const Carousel = ({ slides }) => {
@@ -37,15 +37,18 @@ const Carousel = ({ slides }) => {
 		<div className="cozy-relative cozy-flex">
 			<button
 				className="cozy-self-stretch disabled:cozy-cursor-not-allowed disabled:cozy-opacity-40"
+				style={{ transform: 'rotate(180deg)' }}
 				onClick={throttle(() => moveToLeft(), 200)}
 				disabled={slidePosition === 0}
 			>
-				<ArrowLeft className="cozy-h-5 cozy-w-8 cozy-fill-light-neutral-700" />
+				<i>
+					<IconArrow />
+				</i>
 			</button>
 
 			<div className="cozy-overflow-hidden">
 				<div
-					className="cozy-flex cozy-transition-transform cozy-duration-500 cozy-ease-in-out cozy-items-center"
+					className="cozy-flex cozy-items-center cozy-transition-transform cozy-duration-500 cozy-ease-in-out"
 					style={{
 						transform: `translateX(-${slidePosition * (100 / postsPerSlide)}%)`,
 					}}
@@ -65,7 +68,9 @@ const Carousel = ({ slides }) => {
 				onClick={throttle(() => moveToRight(), 200)}
 				disabled={slidePosition === Math.ceil(totalSlide / postsPerSlide) - 1}
 			>
-				<ArrowRight className="cozy-h-5 cozy-w-8 cozy-fill-light-neutral-700" />
+				<i>
+					<IconArrow />
+				</i>
 			</button>
 		</div>
 	);

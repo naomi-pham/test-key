@@ -4,6 +4,7 @@ import { handleNullData } from '../../helpers/Helpers';
 import useAxios from '../../hooks/useAxios';
 import CozyReviews from '../common/CozyReviews';
 import RatingGroupLarge from '../common/RatingGroupLarge';
+import { IconLogo } from '../common/Icons';
 
 const ReviewCarousel = ({ id }) => {
 	// const search = useLocation().search;
@@ -23,13 +24,14 @@ const ReviewCarousel = ({ id }) => {
 						0,
 					)}
 				/>
-				<h3 className="cozy-text-xl cozy-font-graphik-semibold cozy-text-heading-3 cozy-text-branding-primary-500">
-					CozyCot
-				</h3>
+
+				<i>
+					<IconLogo width={100} height={40} />
+				</i>
 			</div>
 
 			<div className="cozy-w-full sm:cozy-max-w-sm">
-				<CozyReviews />
+				<CozyReviews id={id} />
 			</div>
 		</div>
 	);

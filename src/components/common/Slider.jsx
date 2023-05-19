@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight } from '../icon/Arrow';
 import { throttle } from '../../helpers/Helpers.jsx';
 import useWindowResize from '../../hooks/useResize';
 import ReviewCard from './ReviewCard';
+import { IconArrow } from './Icons';
 
 const Slider = ({ slides }) => {
 	const totalSlide = slides?.length;
@@ -32,10 +33,13 @@ const Slider = ({ slides }) => {
 		<div className="cozy-relative cozy-mx-auto cozy-flex cozy-w-full">
 			<button
 				className="cozy-self-stretch disabled:cozy-cursor-not-allowed disabled:cozy-opacity-40"
+				style={{ transform: 'rotate(180deg)' }}
 				onClick={throttle(() => moveToLeft(), 200)}
 				disabled={slidePosition === 0}
 			>
-				<ArrowLeft className="cozy-h-5 cozy-w-8 cozy-fill-light-neutral-700" />
+				<i>
+					<IconArrow />
+				</i>
 			</button>
 
 			<div className="cozy-overflow-hidden">
@@ -61,7 +65,9 @@ const Slider = ({ slides }) => {
 				onClick={throttle(() => moveToRight(), 200)}
 				disabled={slidePosition === totalSlide - postsPerSlide}
 			>
-				<ArrowRight className="cozy-h-5 cozy-w-8 cozy-fill-light-neutral-700" />
+				<i>
+					<IconArrow />
+				</i>
 			</button>
 		</div>
 	);

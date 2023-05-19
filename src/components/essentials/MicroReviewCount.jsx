@@ -1,16 +1,19 @@
 import React from 'react';
+import { IconLogo } from '../common/Icons';
 
 const MicroReviewCount = () => {
 	return (
-		<a
-			href="/"
-			className="cozy-py-4 cozy-font-graphik-medium cozy-text-light-neutral-800"
+		<p
+			className="cozy-flex cozy-justify-center cozy-gap-2 cozy-font-graphik-medium cozy-text-light-neutral-800"
+			style={{ alignItems: 'end' }}
 		>
-			<span className="cozy-pr-1">See our reviews on</span>
-			<span className="cozy-font-graphik-semibold cozy-text-heading-3 cozy-text-branding-primary-500">
-				CozyCot
+			See our reviews on
+			<span>
+				<i>
+					<IconLogo width={50} height={20} />
+				</i>
 			</span>
-		</a>
+		</p>
 	);
 };
 

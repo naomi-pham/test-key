@@ -59,13 +59,13 @@ const Rating = ({ handleClick }) => {
 						className="cozy-cozy-pr-1.5 last-of-type:cozy-pr-0"
 					>
 						<div
-							className={`cozy-h-10 cozy-w-10 cozy-rounded-[2px] cozy-border ${defaultBackgroundColor(
+							className={`cozy-h-10 cozy-w-10 cozy-rounded-sm cozy-border ${defaultBackgroundColor(
 								index,
 							)} cozy-duration-75 hover:cozy-scale-105 ${hoverBackgroundColor(
 								index,
 							)}`}
 						>
-							<i className="">
+							<i>
 								<Star />
 							</i>
 						</div>

@@ -3,6 +3,7 @@ import React from 'react';
 import { handleNullData } from '../../helpers/Helpers';
 import useAxios from '../../hooks/useAxios';
 import RatingGroupLarge from './RatingGroupLarge';
+import { IconLogo } from './Icons';
 
 const CozyStatsLarge = ({ intent, id }) => {
 	// Get values from query string
@@ -20,9 +21,9 @@ const CozyStatsLarge = ({ intent, id }) => {
 						: ''
 				} cozy-p-3 `}
 			>
-				<h4 className="cozy-text-2xl cozy-font-graphik-semibold cozy-text-heading-3 cozy-text-branding-primary-500">
-					CozyCot
-				</h4>
+				<i>
+					<IconLogo width={100} height={40} />
+				</i>
 
 				{error && <p className="cozy-opacity-60 "> Rating not found</p>}
 

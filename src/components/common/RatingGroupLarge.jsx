@@ -50,9 +50,10 @@ export const RatingFixed = ({ rating, small }) => {
 
 	const defaultBackgroundColor = useCallback(
 		(index) => {
-			if (index < selectedStar) {
+			if (index <= selectedStar) {
 				return colors[Math.round(selectedStar) - 1];
 			}
+
 			return 'cozy-bg-zinc-200';
 		},
 		[selectedStar],
@@ -64,15 +65,14 @@ export const RatingFixed = ({ rating, small }) => {
 				return (
 					<button key={index}>
 						<div
-							className={`cozy-rounded-md ${defaultBackgroundColor(
+							className={`${defaultBackgroundColor(
 								index,
-							)} cozy-duration-75 hover:cozy-scale-105`}
+							)} cozy-rounded-sm cozy-duration-75 hover:cozy-scale-105`}
+							style={{ color: 'white' }}
 						>
-							<Star
-								className={`${
-									small ? 'cozy-cozy-w-5 cozy-h-5' : 'cozy-h-8 cozy-w-8'
-								} cozy-fill-none`}
-							/>
+							<i>
+								<Star size={small ? 20 : 40} />
+							</i>
 						</div>
 					</button>
 				);

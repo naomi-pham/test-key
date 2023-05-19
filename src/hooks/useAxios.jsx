@@ -13,7 +13,7 @@ const useAxios = (id) => {
 	}, [id]);
 
 	async function getData() {
-		// if (!id) return null;
+		if (!id) return null;
 		try {
 			setIsLoading(true);
 			const res = await axios.get(`/api/v1/business/widgets/${id}/stats`);
