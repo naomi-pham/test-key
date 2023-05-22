@@ -16,15 +16,15 @@ import { BrowserRouter } from 'react-router-dom';
 			let shadowDom = container[i].attachShadow({ mode: 'open' });
 			container[i].classList.add('root-rendered');
 
-			if (
-				!document.querySelector('style[data-description="cozy-widget-fonts"]')
-			) {
-				const cozyFonts = `@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');body{font-family: "Poppins"}`;
-				const el = document.createElement('style');
-				el.dataset.description = 'cozy-widget-fonts';
-				el.appendChild(document.createTextNode(cozyFonts));
-				document.head.appendChild(el);
-			}
+			// if (
+			// 	!document.querySelector('style[data-description="cozy-widget-fonts"]')
+			// ) {
+			// 	const cozyFonts = `@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');body{font-family: "Poppins"}`;
+			// 	const el = document.createElement('style');
+			// 	el.dataset.description = 'cozy-widget-fonts';
+			// 	el.appendChild(document.createTextNode(cozyFonts));
+			// 	document.head.appendChild(el);
+			// }
 
 			if (!document.getElementById('cozy-widget-style')) {
 				let styleTag = document.createElement('style');
