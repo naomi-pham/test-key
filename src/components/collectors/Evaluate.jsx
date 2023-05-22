@@ -228,13 +228,18 @@ const Evaluate = () => {
 								<p>Thank you for your feedback!</p>
 								<button
 									onClick={handleResetForm}
-									className="cozy-text-title-2 cozy-font-semibold"
+									className="cozy-flex cozy-items-center cozy-gap-2 cozy-text-title-2 cozy-font-semibold"
 									style={{
 										color: '#4F3CC8',
 										marginTop: '0.5rem',
 									}}
 								>
 									Submit another review
+									<span>
+										<i>
+											<IconArrowLink />
+										</i>
+									</span>
 								</button>
 							</div>
 						) : (
@@ -288,7 +293,7 @@ const Evaluate = () => {
 
 								<button
 									type="submit"
-									className="cozy-flex cozy-gap-2 cozy-border cozy-border-branding-primary-500 cozy-bg-branding-primary-500 cozy-font-medium cozy-text-light-neutral-25 hover:cozy-cursor-pointer hover:cozy-border-branding-primary-600 hover:cozy-bg-branding-primary-600 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2 active:cozy-bg-branding-primary-700 disabled:cozy-border-light-neutral-300 disabled:cozy-bg-light-neutral-300 disabled:cozy-text-light-neutral-500"
+									className="cozy-flex cozy-border cozy-border-branding-primary-500 cozy-bg-branding-primary-500 cozy-font-medium cozy-text-light-neutral-25 hover:cozy-cursor-pointer hover:cozy-border-branding-primary-600 hover:cozy-bg-branding-primary-600 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2 active:cozy-bg-branding-primary-700 disabled:cozy-border-light-neutral-300 disabled:cozy-bg-light-neutral-300 disabled:cozy-text-light-neutral-500"
 									style={{
 										padding: '0.75rem 1.5rem',
 										minWidth: '150px',
@@ -298,11 +303,6 @@ const Evaluate = () => {
 									}}
 								>
 									Submit review
-									<span>
-										<i>
-											<IconArrowLink />
-										</i>
-									</span>
 								</button>
 							</div>
 						)}
