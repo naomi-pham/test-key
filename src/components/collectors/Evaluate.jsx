@@ -251,7 +251,7 @@ const Evaluate = () => {
 										type="text"
 										onChange={handleInput('INPUT_REVIEW')}
 										value={review}
-										className="cozy-font-regular cozy-mt-1 cozy-w-full cozy-rounded cozy-border cozy-border-light-neutral-400 cozy-p-4 placeholder:cozy-text-light-neutral-600 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2"
+										className="cozy-font-regular cozy-mt-1 cozy-w-full cozy-rounded cozy-border cozy-text-body-2 cozy-border-light-neutral-400 cozy-p-4 placeholder:cozy-text-light-neutral-600 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2"
 										rows={5}
 										placeholder={renderReviewPlaceholderText(star)}
 										required
