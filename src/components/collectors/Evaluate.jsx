@@ -9,6 +9,7 @@ import {
 import axios from '../api/axios';
 import ImageUploader from '../common/ImageUploader';
 import Rating from '../common/Rating';
+import { IconArrowLink } from '../common/Icons';
 
 const Evaluate = () => {
 	const [message, setMessage] = useState('');
@@ -157,7 +158,6 @@ const Evaluate = () => {
 	};
 
 	const handleResetForm = () => {
-		window.location.reload(false);
 		dispatch({ type: 'RESET' });
 	};
 
@@ -185,6 +185,7 @@ const Evaluate = () => {
 				date: state?.date,
 			});
 			setIsSubmitted(true);
+			window.location.reload(false);
 			console.log('🚀 ~ file: usePostAxios.jsx:13 ~ postData ~ res:', res);
 		} catch (error) {
 			console.log(111, error?.response?.data?.message);
@@ -251,7 +252,7 @@ const Evaluate = () => {
 										type="text"
 										onChange={handleInput('INPUT_REVIEW')}
 										value={review}
-										className="cozy-font-regular cozy-mt-1 cozy-w-full cozy-rounded cozy-border cozy-text-body-2 cozy-border-light-neutral-400 cozy-p-4 placeholder:cozy-text-light-neutral-600 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2"
+										className="cozy-font-regular cozy-mt-1 cozy-w-full cozy-rounded cozy-border cozy-border-light-neutral-400 cozy-p-4 cozy-text-body-2 placeholder:cozy-text-light-neutral-600 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2"
 										rows={5}
 										placeholder={renderReviewPlaceholderText(star)}
 										required
@@ -287,7 +288,7 @@ const Evaluate = () => {
 
 								<button
 									type="submit"
-									className="cozy-flex cozy-border cozy-border-branding-primary-500 cozy-bg-branding-primary-500 cozy-font-semibold cozy-text-light-neutral-25 hover:cozy-cursor-pointer hover:cozy-border-branding-primary-600 hover:cozy-bg-branding-primary-600 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2 active:cozy-bg-branding-primary-700 disabled:cozy-border-light-neutral-300 disabled:cozy-bg-light-neutral-300 disabled:cozy-text-light-neutral-500"
+									className="cozy-flex cozy-gap-2 cozy-border cozy-border-branding-primary-500 cozy-bg-branding-primary-500 cozy-font-medium cozy-text-light-neutral-25 hover:cozy-cursor-pointer hover:cozy-border-branding-primary-600 hover:cozy-bg-branding-primary-600 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2 active:cozy-bg-branding-primary-700 disabled:cozy-border-light-neutral-300 disabled:cozy-bg-light-neutral-300 disabled:cozy-text-light-neutral-500"
 									style={{
 										padding: '0.75rem 1.5rem',
 										minWidth: '150px',
@@ -297,6 +298,11 @@ const Evaluate = () => {
 									}}
 								>
 									Submit review
+									<span>
+										<i>
+											<IconArrowLink />
+										</i>
+									</span>
 								</button>
 							</div>
 						)}
