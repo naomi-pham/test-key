@@ -5,7 +5,7 @@ import { IconRemoveImage, IconVideo } from './Icons';
 const ImageUploader = ({ images, handleSetImages, handleRemoveImage }) => {
 	return (
 		<div style={{ color: '#6B778C' }}>
-			<p className="cozy-font-graphik-medium cozy-text-caption-1">
+			<p className="cozy-text-caption-1 cozy-font-medium">
 				Would you like to add photos or videos
 			</p>
 			<div className="cozy-mt-2 cozy-flex cozy-flex-wrap cozy-gap-4">
@@ -59,7 +59,7 @@ const ImageUploader = ({ images, handleSetImages, handleRemoveImage }) => {
 									<IconVideo />
 								</i>
 								<div>
-									<p className="cozy-font-graphik-semibold">
+									<p className="cozy-font-semibold">
 										Drag file here or browse.
 									</p>
 									<p className="cozy-text-body-2">

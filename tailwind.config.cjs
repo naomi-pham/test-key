@@ -2,14 +2,11 @@ module.exports = {
 	prefix: 'cozy-',
 	content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
 	theme: {
-		extend: {
-			fontFamily: {
-				graphik: ['"graphik-regular"'],
-				'graphik-medium': ['"graphik-medium"'],
-				'graphik-semibold': ['"graphik-semibold"'],
-				'graphik-bold': ['"graphik-bold"'],
-			},
-		},
+		// extend: {
+		// 	fontFamily: {
+		// 		sans: ['var(--font-poppins)'],
+		// 	},
+		// },
 		fontSize: {
 			'heading-3': ['2rem', { letterSpacing: '0.01em', lineHeight: '2.5rem' }],
 			'body-1': ['1rem', { letterSpacing: '0.01em', lineHeight: '1.5rem' }],

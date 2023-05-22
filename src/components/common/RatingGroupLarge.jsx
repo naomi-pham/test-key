@@ -21,7 +21,7 @@ const RatingGroupLarge = ({
 				<p
 					className={`${
 						messageLarge ? 'cozy-text-heading-3' : ''
-					} text-light-neutral-800 cozy-font-graphik-medium`}
+					} text-light-neutral-800 cozy-font-medium`}
 				>
 					{message}
 				</p>

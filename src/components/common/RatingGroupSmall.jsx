@@ -13,7 +13,7 @@ const RatingGroupSmall = ({ withoutMessage, rating }) => {
 	return (
 		<div className="cozy-flex cozy-w-full cozy-items-center cozy-gap-2 md:cozy-w-auto">
 			{!withoutMessage && (
-				<p className="cozy-hidden cozy-font-graphik-medium cozy-text-light-neutral-800 md:cozy-block">
+				<p className="cozy-hidden cozy-font-medium cozy-text-light-neutral-800 md:cozy-block">
 					{message}
 				</p>
 			)}

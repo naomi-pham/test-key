@@ -2,12 +2,13 @@
 import React from 'react';
 import useAxios from '../../hooks/useAxios';
 import Slider from '../common/Slider';
+import { IconLoading } from '../common/Icons';
 
 const ReviewSlider = ({ id }) => {
 	// const search = useLocation().search;
 	// const businessUuid = new URLSearchParams(search).get('businessUuid');
 
-	const { data, error } = useAxios(`${id}`);
+	const { data, error, isLoading } = useAxios(`${id}`);
 
 	let filteredReview;
 
@@ -20,6 +21,11 @@ const ReviewSlider = ({ id }) => {
 	return (
 		<div>
 			{error && <p className="cozy-opacity-60"> Reviews not found</p>}
+			{isLoading && (
+				<i className="cozy-text-branding-primary-500">
+					<IconLoading />
+				</i>
+			)}
 			{data && <Slider slides={filteredReview} />}
 		</div>
 	);

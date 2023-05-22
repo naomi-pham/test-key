@@ -200,7 +200,7 @@ const Evaluate = () => {
 			>
 				{!isSubmitted ? (
 					<div className="cozy-flex cozy-flex-col cozy-items-center cozy-justify-center cozy-space-y-3 cozy-text-center">
-						<h4 className="cozy-font-graphik-semibold cozy-text-title-1 cozy-text-light-neutral-800">
+						<h4 className="cozy-text-title-1 cozy-font-semibold cozy-text-light-neutral-800">
 							Write a review
 						</h4>
 						<Rating
@@ -227,7 +227,7 @@ const Evaluate = () => {
 								<p>Thank you for your feedback!</p>
 								<button
 									onClick={handleResetForm}
-									className="cozy-font-graphik-semibold cozy-text-title-2"
+									className="cozy-text-title-2 cozy-font-semibold"
 									style={{
 										color: '#4F3CC8',
 										marginTop: '0.5rem',
@@ -243,7 +243,7 @@ const Evaluate = () => {
 							>
 								<label
 									htmlFor="review"
-									className="cozy-font-graphik-medium cozy-text-caption-1 cozy-text-light-neutral-700"
+									className="cozy-text-caption-1 cozy-font-medium cozy-text-light-neutral-700"
 								>
 									Tell us more about your experience
 									<textarea
@@ -251,7 +251,7 @@ const Evaluate = () => {
 										type="text"
 										onChange={handleInput('INPUT_REVIEW')}
 										value={review}
-										className="cozy-mt-1 cozy-w-full cozy-rounded cozy-border cozy-border-light-neutral-400 cozy-p-4 cozy-font-graphik placeholder:cozy-text-light-neutral-600 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2"
+										className="cozy-font cozy-mt-1 cozy-w-full cozy-rounded cozy-border cozy-border-light-neutral-400 cozy-p-4 placeholder:cozy-text-light-neutral-600 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2"
 										rows={5}
 										placeholder={renderReviewPlaceholderText(star)}
 										required
@@ -268,7 +268,7 @@ const Evaluate = () => {
 								{formFields.map((field) => (
 									<label
 										key={field.id}
-										className="cozy-font-graphik-medium cozy-text-caption-1 cozy-text-light-neutral-700"
+										className="cozy-text-caption-1 cozy-font-medium cozy-text-light-neutral-700"
 										htmlFor={field.name}
 									>
 										{field.label}
@@ -279,7 +279,7 @@ const Evaluate = () => {
 											onChange={handleInput(field.action)}
 											value={field.value}
 											placeholder={field.placeholder}
-											className="cozy-mt-1 cozy-w-full cozy-rounded cozy-border cozy-border-light-neutral-300 cozy-p-3 cozy-font-graphik cozy-text-body-2 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2"
+											className="cozy-font cozy-mt-1 cozy-w-full cozy-rounded cozy-border cozy-border-light-neutral-300 cozy-p-3 cozy-text-body-2 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2"
 											required={field.required}
 										/>
 									</label>
@@ -287,7 +287,7 @@ const Evaluate = () => {
 
 								<button
 									type="submit"
-									className="cozy-flex cozy-border cozy-border-branding-primary-500 cozy-bg-branding-primary-500 cozy-font-graphik-semibold cozy-text-light-neutral-25 hover:cozy-cursor-pointer hover:cozy-border-branding-primary-600 hover:cozy-bg-branding-primary-600 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2 active:cozy-bg-branding-primary-700 disabled:cozy-border-light-neutral-300 disabled:cozy-bg-light-neutral-300 disabled:cozy-text-light-neutral-500"
+									className="cozy-flex cozy-border cozy-border-branding-primary-500 cozy-bg-branding-primary-500 cozy-font-semibold cozy-text-light-neutral-25 hover:cozy-cursor-pointer hover:cozy-border-branding-primary-600 hover:cozy-bg-branding-primary-600 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2 active:cozy-bg-branding-primary-700 disabled:cozy-border-light-neutral-300 disabled:cozy-bg-light-neutral-300 disabled:cozy-text-light-neutral-500"
 									style={{
 										padding: '0.75rem 1.5rem',
 										minWidth: '150px',
