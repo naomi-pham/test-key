@@ -44,7 +44,7 @@ const CozyStatsLarge = ({ intent, id }) => {
 						<p>
 							Cozy score:{' '}
 							<span className="cozy-font-medium">
-								{handleNullData(data?.data?.trust_score)}
+								{handleNullData(data?.data?.trust_score?.toFixed(1))}
 							</span>
 						</p>
 						•

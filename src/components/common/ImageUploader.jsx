@@ -48,8 +48,8 @@ const ImageUploader = ({ images, handleSetImages, handleRemoveImage }) => {
 						<div
 							className="cozy-flex cozy-w-full cozy-items-center cozy-justify-center cozy-p-6 cozy-text-center"
 							style={{
-								// width: 106,
-								// aspectRatio: 1,
+								width: images?.length > 0 ? 106 : '100%',
+								aspectRatio: images?.length > 0 ? 1 : 'auto',
 								outline: '1px dashed #C1C7D0',
 								borderRadius: '.5rem',
 							}}
@@ -58,14 +58,18 @@ const ImageUploader = ({ images, handleSetImages, handleRemoveImage }) => {
 								<i>
 									<IconVideo />
 								</i>
-								<div>
-									<p className="cozy-font-semibold">
-										Drag file here or browse.
-									</p>
-									<p className="cozy-text-body-2">
-										Supported files: jpg, png, mp4
-									</p>
-								</div>
+								{images?.length > 0 ? (
+									<p>Add images</p>
+								) : (
+									<div>
+										<p className="cozy-font-semibold">
+											Drag file here or browse.
+										</p>
+										<p className="cozy-text-body-2">
+											Supported files: jpg, png, mp4
+										</p>
+									</div>
+								)}{' '}
 							</div>
 						</div>
 						<input

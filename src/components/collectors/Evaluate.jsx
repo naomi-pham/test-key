@@ -265,11 +265,11 @@ const Evaluate = () => {
 								</label>
 
 								{/* Image loader */}
-								<ImageUploader
+								{/* <ImageUploader
 									images={images}
 									handleSetImages={handleSetImages}
 									handleRemoveImage={handleRemoveImage}
-								/>
+								/> */}
 
 								{formFields.map((field) => (
 									<label
