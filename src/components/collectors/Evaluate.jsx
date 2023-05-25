@@ -221,7 +221,7 @@ const Evaluate = () => {
 					</p>
 				) : null}
 
-				{isShown && (
+				{/* {isShown && ( */}
 					<form onSubmit={handleSubmit}>
 						{isSubmitted ? (
 							<div>
@@ -308,7 +308,7 @@ const Evaluate = () => {
 							</div>
 						)}
 					</form>
-				)}
+				{/* )} */}
 			</div>
 		</>
 	);
