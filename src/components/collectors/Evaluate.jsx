@@ -185,7 +185,7 @@ const Evaluate = () => {
 				date: state?.date,
 			});
 			setIsSubmitted(true);
-			window.location.reload(false);
+			// window.location.reload(false);
 			console.log('🚀 ~ file: usePostAxios.jsx:13 ~ postData ~ res:', res);
 		} catch (error) {
 			console.log(111, error?.response?.data?.message);
@@ -232,6 +232,7 @@ const Evaluate = () => {
 									style={{
 										color: '#4F3CC8',
 										marginTop: '0.5rem',
+										fontSize: 14,
 									}}
 								>
 									Submit another review
