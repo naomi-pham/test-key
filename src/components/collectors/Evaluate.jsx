@@ -166,7 +166,7 @@ const Evaluate = () => {
 
 	let businessUuid;
 
-	if (params && params.search) {
+	if (params && params?.search) {
 		businessUuid = new URLSearchParams(params?.search).get('businessUuid');
 	} else {
 		businessUuid = params.pathname.replace('/profile/', '');
@@ -190,6 +190,9 @@ const Evaluate = () => {
 		} catch (error) {
 			console.log(111, error?.response?.data?.message);
 			setPostError(error.response.data.message);
+		} finally {
+			setIsSubmitted(false);
+			dispatch({ type: 'RESET' });
 		}
 	}
 
@@ -222,92 +225,92 @@ const Evaluate = () => {
 				) : null}
 
 				{/* {isShown && ( */}
-					<form onSubmit={handleSubmit}>
-						{isSubmitted ? (
-							<div>
-								<p>Thank you for your feedback!</p>
-								<button
-									onClick={handleResetForm}
-									className="cozy-flex cozy-items-center cozy-gap-2 cozy-text-title-2 cozy-font-semibold"
-									style={{
-										color: '#4F3CC8',
-										marginTop: '0.5rem',
-										fontSize: 14,
-									}}
-								>
-									Submit another review
-									<span>
-										<i>
-											<IconArrowLink />
-										</i>
-									</span>
-								</button>
-							</div>
-						) : (
-							<div
-								className="cozy-flex cozy-flex-col cozy-gap-8"
-								style={{ marginTop: '3.25rem' }}
+				<form onSubmit={handleSubmit}>
+					{/* {isSubmitted ? (
+						<div>
+							<p>Thank you for your feedback!</p>
+							<button
+								onClick={handleResetForm}
+								className="cozy-flex cozy-items-center cozy-gap-2 cozy-text-title-2 cozy-font-semibold"
+								style={{
+									color: '#4F3CC8',
+									marginTop: '0.5rem',
+									fontSize: 14,
+								}}
 							>
-								<label
-									htmlFor="review"
-									className="cozy-text-caption-1 cozy-font-medium cozy-text-light-neutral-700"
-								>
-									Tell us more about your experience
-									<textarea
-										id="review"
-										type="text"
-										onChange={handleInput('INPUT_REVIEW')}
-										value={review}
-										className="cozy-font-regular cozy-mt-1 cozy-w-full cozy-rounded cozy-border cozy-border-light-neutral-400 cozy-p-4 cozy-text-body-2 placeholder:cozy-text-light-neutral-600 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2"
-										rows={5}
-										placeholder={renderReviewPlaceholderText(star)}
-										required
-									/>
-								</label>
+								Submit another review
+								<span>
+									<i>
+										<IconArrowLink />
+									</i>
+								</span>
+							</button>
+						</div>
+					) : ( */}
+						<div
+							className="cozy-flex cozy-flex-col cozy-gap-8"
+							style={{ marginTop: '3.25rem' }}
+						>
+							<label
+								htmlFor="review"
+								className="cozy-text-caption-1 cozy-font-medium cozy-text-light-neutral-700"
+							>
+								Tell us more about your experience
+								<textarea
+									id="review"
+									type="text"
+									onChange={handleInput('INPUT_REVIEW')}
+									value={review}
+									className="cozy-font-regular cozy-mt-1 cozy-w-full cozy-rounded cozy-border cozy-border-light-neutral-400 cozy-p-4 cozy-text-body-2 placeholder:cozy-text-light-neutral-600 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2"
+									rows={5}
+									placeholder={renderReviewPlaceholderText(star)}
+									required
+								/>
+							</label>
 
-								{/* Image loader */}
-								{/* <ImageUploader
+							{/* Image loader */}
+							{/* <ImageUploader
 									images={images}
 									handleSetImages={handleSetImages}
 									handleRemoveImage={handleRemoveImage}
 								/> */}
 
-								{formFields.map((field) => (
-									<label
-										key={field.id}
-										className="cozy-text-caption-1 cozy-font-medium cozy-text-light-neutral-700"
-										htmlFor={field.name}
-									>
-										{field.label}
-										<input
-											type={field.type}
-											id={field.name}
-											name={field.name}
-											onChange={handleInput(field.action)}
-											value={field.value}
-											placeholder={field.placeholder}
-											className="cozy-font-regular cozy-mt-1 cozy-w-full cozy-rounded cozy-border cozy-border-light-neutral-300 cozy-p-3 cozy-text-body-2 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2"
-											required={field.required}
-										/>
-									</label>
-								))}
-
-								<button
-									type="submit"
-									className="cozy-flex cozy-border cozy-border-branding-primary-500 cozy-bg-branding-primary-500 cozy-font-medium cozy-text-light-neutral-25 hover:cozy-cursor-pointer hover:cozy-border-branding-primary-600 hover:cozy-bg-branding-primary-600 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2 active:cozy-bg-branding-primary-700 disabled:cozy-border-light-neutral-300 disabled:cozy-bg-light-neutral-300 disabled:cozy-text-light-neutral-500"
-									style={{
-										padding: '0.75rem 1.5rem',
-										minWidth: '150px',
-										alignSelf: 'center',
-										borderRadius: '8px',
-										marginTop: '1.25rem',
-									}}
+							{formFields.map((field) => (
+								<label
+									key={field.id}
+									className="cozy-text-caption-1 cozy-font-medium cozy-text-light-neutral-700"
+									htmlFor={field.name}
 								>
-									Submit review
-								</button>
-							</div>
-						)}
-					</form>
+									{field.label}
+									<input
+										type={field.type}
+										id={field.name}
+										name={field.name}
+										onChange={handleInput(field.action)}
+										value={field.value}
+										placeholder={field.placeholder}
+										className="cozy-font-regular cozy-mt-1 cozy-w-full cozy-rounded cozy-border cozy-border-light-neutral-300 cozy-p-3 cozy-text-body-2 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2"
+										required={field.required}
+									/>
+								</label>
+							))}
+
+							<button
+								type="submit"
+								className="cozy-flex cozy-border cozy-border-branding-primary-500 cozy-bg-branding-primary-500 cozy-font-medium cozy-text-light-neutral-25 hover:cozy-cursor-pointer hover:cozy-border-branding-primary-600 hover:cozy-bg-branding-primary-600 focus:cozy-outline-none focus:cozy-ring-2 focus:cozy-ring-branding-primary-400 focus:cozy-ring-offset-2 active:cozy-bg-branding-primary-700 disabled:cozy-border-light-neutral-300 disabled:cozy-bg-light-neutral-300 disabled:cozy-text-light-neutral-500"
+								style={{
+									padding: '0.75rem 1.5rem',
+									minWidth: '150px',
+									alignSelf: 'center',
+									borderRadius: '8px',
+									marginTop: '1.25rem',
+								}}
+							>
+								Submit review
+							</button>
+						</div>
+					{/* )} */}
+				</form>
 				{/* )} */}
 			</div>
 		</>
