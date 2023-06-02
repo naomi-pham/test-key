@@ -19,7 +19,7 @@ const Evaluate = () => {
 	const [postError, setPostError] = useState(false);
 
 	const initialState = {
-		star: '',
+		star: 0,
 		review: '',
 		images: [],
 		date: '',
@@ -226,7 +226,7 @@ const Evaluate = () => {
 
 				{/* {isShown && ( */}
 				<form onSubmit={handleSubmit}>
-					{/* {isSubmitted ? (
+					{isSubmitted ? (
 						<div>
 							<p>Thank you for your feedback!</p>
 							<button
@@ -246,7 +246,7 @@ const Evaluate = () => {
 								</span>
 							</button>
 						</div>
-					) : ( */}
+					) : (
 						<div
 							className="cozy-flex cozy-flex-col cozy-gap-8"
 							style={{ marginTop: '3.25rem' }}
@@ -309,7 +309,7 @@ const Evaluate = () => {
 								Submit review
 							</button>
 						</div>
-					{/* )} */}
+					)}
 				</form>
 				{/* )} */}
 			</div>
