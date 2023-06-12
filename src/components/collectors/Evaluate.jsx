@@ -185,12 +185,12 @@ const Evaluate = ({ id }) => {
 			});
 			setIsSubmitted(true);
 			// window.location.reload(false);
-			console.log('🚀 ~ file: usePostAxios.jsx:13 ~ postData ~ res:', res);
+			// console.log('🚀 ~ file: usePostAxios.jsx:13 ~ postData ~ res:', res);
 		} catch (error) {
-			console.log(111, error?.response?.data?.message);
+			console.log(error?.response?.data?.message);
 			setPostError(error.response.data.message);
 		} finally {
-			setIsSubmitted(false);
+			setIsSubmitted(true);
 			dispatch({ type: 'RESET' });
 		}
 	}
@@ -224,26 +224,24 @@ const Evaluate = ({ id }) => {
 					{isSubmitted ? (
 						<div>
 							<p>Thank you for your feedback!</p>
+
 							<a
 								href={`https://cozycot.just.engineer/profile/${id}?utm_source=Widget`}
 								target="_blank"
 								rel="noreferrer"
+								className="cozy-flex cozy-items-center cozy-gap-2 cozy-text-title-2 cozy-font-semibold"
+								style={{
+									color: '#4F3CC8',
+									marginTop: '0.5rem',
+									fontSize: 14,
+								}}
 							>
-								<button
-									className="cozy-flex cozy-items-center cozy-gap-2 cozy-text-title-2 cozy-font-semibold"
-									style={{
-										color: '#4F3CC8',
-										marginTop: '0.5rem',
-										fontSize: 14,
-									}}
-								>
-									Go to website
-									<span>
-										<i>
-											<IconArrowLink />
-										</i>
-									</span>
-								</button>
+								Go to website
+								<span>
+									<i>
+										<IconArrowLink />
+									</i>
+								</span>
 							</a>
 						</div>
 					) : (
