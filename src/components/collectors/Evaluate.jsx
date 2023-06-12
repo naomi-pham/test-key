@@ -10,7 +10,7 @@ import axios from '../api/axios';
 import { IconArrowLink } from '../common/Icons';
 import Rating from '../common/Rating';
 
-const Evaluate = () => {
+const Evaluate = ({ id }) => {
 	const [rating, setRating] = useState(0);
 	const [isShown, setIsShown] = useState(false);
 	const [isSubmitted, setIsSubmitted] = useState(false);
@@ -223,22 +223,27 @@ const Evaluate = () => {
 					{isSubmitted ? (
 						<div>
 							<p>Thank you for your feedback!</p>
-							<button
-								onClick={handleResetForm}
-								className="cozy-flex cozy-items-center cozy-gap-2 cozy-text-title-2 cozy-font-semibold"
-								style={{
-									color: '#4F3CC8',
-									marginTop: '0.5rem',
-									fontSize: 14,
-								}}
+							<a
+								href={`https://cozycot.just.engineer/profile/${id}?utm_source=Widget`}
+								target="_blank"
+								rel="noreferrer"
 							>
-								Submit another review
-								<span>
-									<i>
-										<IconArrowLink />
-									</i>
-								</span>
-							</button>
+								<button
+									className="cozy-flex cozy-items-center cozy-gap-2 cozy-text-title-2 cozy-font-semibold"
+									style={{
+										color: '#4F3CC8',
+										marginTop: '0.5rem',
+										fontSize: 14,
+									}}
+								>
+									Go to website
+									<span>
+										<i>
+											<IconArrowLink />
+										</i>
+									</span>
+								</button>
+							</a>
 						</div>
 					) : (
 						<div
