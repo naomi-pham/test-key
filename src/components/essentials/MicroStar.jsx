@@ -14,7 +14,7 @@ const MicroStar = ({ id }) => {
 					rel="noreferrer"
 				>
 					<i>
-						<IconLogo width={50} height={20} />
+						<IconLogo width={60} height={24} />
 					</i>
 				</a>
 			</div>

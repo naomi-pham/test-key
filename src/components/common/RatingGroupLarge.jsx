@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { handleMessage } from '../../helpers/Helpers';
 import StarRatingGroup from './StarRatingGroup';
 
@@ -10,12 +10,6 @@ const RatingGroupLarge = ({
 	numberOfReviews,
 	id,
 }) => {
-	const [message, setMessage] = useState('');
-
-	useEffect(() => {
-		handleMessage(rating, setMessage);
-	}, [rating]);
-
 	return (
 		<>
 			{!withoutMessage && (
@@ -24,7 +18,7 @@ const RatingGroupLarge = ({
 						messageLarge ? 'cozy-text-heading-3' : ''
 					} text-light-neutral-800 cozy-font-medium`}
 				>
-					{message}
+					{handleMessage(rating)}
 				</p>
 			)}
 			<StarRatingGroup star={rating} size={28} spacing={6} />

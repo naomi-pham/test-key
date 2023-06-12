@@ -15,7 +15,7 @@ const ReviewCard = ({ item, postsPerSlide, hasBackground, id }) => {
 		>
 			<div
 				className={`${
-					hasBackground ? 'cozy-rounded-xl cozy-bg-light-neutral-50 cozy-p-6' : ''
+					hasBackground ? 'cozy-rounded-xl cozy-bg-light-neutral-50 cozy-p-6' : 'cozy-px-4'
 				}`}
 			>
 				<div className="cozy-flex cozy-flex-col cozy-gap-3">

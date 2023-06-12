@@ -10,13 +10,14 @@ export const colors = [
 	'cozy-bg-branding-primary-500 cozy-text-light-neutral-25',
 ];
 
-export function handleMessage(rating, setMessage) {
-	if (rating === 0) return setMessage('');
-	if (rating > 0 && rating <= 1) return setMessage('Terrible');
-	if (rating <= 2) return setMessage('Bad');
-	if (rating <= 3) return setMessage('Okay');
-	if (rating <= 4) return setMessage('Good');
-	return setMessage('Excellent');
+export function handleMessage(rating) {
+	if (rating === 0) return null;
+	if (rating > 0 && rating <= 1) return 'Terrible';
+	if (rating <= 2) return 'Bad';
+	if (rating <= 3) return 'Good';
+	if (rating <= 4) return 'Great';
+	if (rating <= 5) return 'Excellent';
+	return null;
 }
 
 export function renderReviewPlaceholderText(star) {

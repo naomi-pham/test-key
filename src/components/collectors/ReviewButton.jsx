@@ -15,7 +15,7 @@ const ReviewButton = ({ id }) => {
 			>
 				<span>Review us on</span>
 				<i>
-					<IconLogo width={50} height={20} />
+					<IconLogo width={60} height={24} />
 				</i>
 			</button>
 		</a>

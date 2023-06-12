@@ -7,12 +7,10 @@ import {
 	renderReviewPlaceholderText,
 } from '../../helpers/Helpers';
 import axios from '../api/axios';
-import ImageUploader from '../common/ImageUploader';
-import Rating from '../common/Rating';
 import { IconArrowLink } from '../common/Icons';
+import Rating from '../common/Rating';
 
 const Evaluate = () => {
-	const [message, setMessage] = useState('');
 	const [rating, setRating] = useState(0);
 	const [isShown, setIsShown] = useState(false);
 	const [isSubmitted, setIsSubmitted] = useState(false);
@@ -134,7 +132,7 @@ const Evaluate = () => {
 	const handleClick = (index) => {
 		setRating(index);
 		setIsShown(true);
-		handleMessage(index + 1, setMessage);
+		handleMessage(index + 1);
 		dispatch({ type: 'INPUT_STAR', payload: index });
 	};
 
@@ -207,11 +205,7 @@ const Evaluate = () => {
 						<h4 className="cozy-text-title-1 cozy-font-semibold cozy-text-light-neutral-800">
 							Rate your recent experience
 						</h4>
-						<Rating
-							rating={rating}
-							handleClick={handleClick}
-							message={message}
-						/>
+						<Rating rating={rating} handleClick={handleClick} />
 					</div>
 				) : null}
 
