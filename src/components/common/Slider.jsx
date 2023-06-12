@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
-import { ArrowLeft, ArrowRight } from '../icon/Arrow';
 import { throttle } from '../../helpers/Helpers.jsx';
 import useWindowResize from '../../hooks/useResize';
-import ReviewCard from './ReviewCard';
 import { IconArrow } from './Icons';
+import ReviewCard from './ReviewCard';
 
 const Slider = ({ slides }) => {
 	const totalSlide = slides?.length;

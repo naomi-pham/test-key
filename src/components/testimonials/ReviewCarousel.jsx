@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { handleNullData } from '../../helpers/Helpers';
-import useAxios from '../../hooks/useAxios';
+import useStats from '../../hooks/useStats';
 import CozyReviews from '../common/CozyReviews';
 import { IconLoading, IconLogo } from '../common/Icons';
 import RatingGroupLarge from '../common/RatingGroupLarge';
@@ -10,7 +10,7 @@ const ReviewCarousel = ({ id }) => {
 	// const search = useLocation().search;
 	// const businessUuid = new URLSearchParams(search).get('businessUuid');
 
-	const { data, error, isLoading } = useAxios(`${id}`);
+	const { data: stats, error, isLoading } = useStats(`${id}`);
 
 	if (error) return <p className="cozy-opacity-60"> Stats not found</p>;
 	if (isLoading)
@@ -25,11 +25,9 @@ const ReviewCarousel = ({ id }) => {
 			<div className="cozy-flex cozy-flex-col cozy-items-center cozy-justify-center cozy-gap-3 cozy-self-stretch cozy-p-3 cozy-px-3">
 				<RatingGroupLarge
 					messageLarge
-					rating={handleNullData(data?.data?.trust_score, 0)}
-					numberOfReviews={handleNullData(
-						data?.data?.review_overview?.total,
-						0,
-					)}
+					rating={handleNullData(stats?.cozy_score, 0)}
+					numberOfReviews={handleNullData(stats?.review_overview?.total, 0)}
+					id={id}
 				/>
 				<IconLogo width={100} height={40} />
 			</div>

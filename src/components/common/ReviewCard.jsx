@@ -7,7 +7,7 @@ import Check from '../icon/Check';
 import { handleNullData } from '../../helpers/Helpers';
 dayjs.extend(relativeTime);
 
-const ReviewCard = ({ item, postsPerSlide, hasBackground }) => {
+const ReviewCard = ({ item, postsPerSlide, hasBackground, id }) => {
 	return (
 		<div
 			className="cozy-relative cozy-px-2"
@@ -15,10 +15,10 @@ const ReviewCard = ({ item, postsPerSlide, hasBackground }) => {
 		>
 			<div
 				className={`${
-					hasBackground ? 'cozy-rounded-xl cozy-bg-light-neutral-100' : ''
+					hasBackground ? 'cozy-rounded-xl cozy-bg-light-neutral-50 cozy-p-6' : ''
 				}`}
 			>
-				<div className="cozy-flex cozy-flex-col cozy-gap-3 cozy-p-4">
+				<div className="cozy-flex cozy-flex-col cozy-gap-3">
 					<div className="cozy-flex cozy-flex-wrap cozy-gap-3 sm:cozy-items-center">
 						<RatingGroupSmall
 							withoutMessage
@@ -31,7 +31,11 @@ const ReviewCard = ({ item, postsPerSlide, hasBackground }) => {
 							</div>
 						)}
 					</div>
-					<a href="/">
+					<a
+						href={`https://cozycot.just.engineer/profile/${id}?utm_source=Widget`}
+						target="_blank"
+						rel="noreferrer"
+					>
 						<h4
 							className="cozy-text-title-2 cozy-font-medium cozy-text-light-neutral-800 cozy-line-clamp-2"
 							style={{ fontWeight: 600 }}

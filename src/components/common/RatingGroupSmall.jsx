@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 import { handleMessage } from '../../helpers/Helpers';
-import { RatingFixed } from './RatingGroupLarge';
+import StarRatingGroup from './StarRatingGroup';
 
 const RatingGroupSmall = ({ withoutMessage, rating }) => {
 	const [message, setMessage] = useState('');
@@ -18,7 +18,7 @@ const RatingGroupSmall = ({ withoutMessage, rating }) => {
 				</p>
 			)}
 			<div className="cozy-flex cozy-gap-1">
-				<RatingFixed rating={rating} small />
+				<StarRatingGroup star={rating} spacing={4} />
 			</div>
 		</div>
 	);

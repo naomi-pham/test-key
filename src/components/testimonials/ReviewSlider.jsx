@@ -1,22 +1,14 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import useAxios from '../../hooks/useAxios';
-import Slider from '../common/Slider';
+import useReview from '../../hooks/useReview';
 import { IconLoading } from '../common/Icons';
+import Slider from '../common/Slider';
 
 const ReviewSlider = ({ id }) => {
 	// const search = useLocation().search;
 	// const businessUuid = new URLSearchParams(search).get('businessUuid');
 
-	const { data, error, isLoading } = useAxios(`${id}`);
-
-	let filteredReview;
-
-	if (data?.data?.reviews?.length > 0) {
-		filteredReview = data?.data?.reviews?.filter((item) => item.reply_id === 0);
-	} else {
-		filteredReview = data?.data?.reviews;
-	}
+	const { data: reviews, error, isLoading } = useReview(`${id}`);
 
 	return (
 		<div>
@@ -26,7 +18,7 @@ const ReviewSlider = ({ id }) => {
 					<IconLoading />
 				</i>
 			)}
-			{data && <Slider slides={filteredReview} />}
+			{reviews && <Slider slides={reviews?.items} />}
 		</div>
 	);
 };

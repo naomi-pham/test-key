@@ -4,7 +4,7 @@ import { throttle } from '../../helpers/Helpers.jsx';
 import { IconArrow } from './Icons.jsx';
 import ReviewCard from './ReviewCard';
 
-const Carousel = ({ slides }) => {
+const Carousel = ({ slides, id }) => {
 	const totalSlide = slides?.length;
 	const [slidePosition, setSlidePosition] = useState(0);
 	const [postsPerSlide] = useState(1);
@@ -58,6 +58,7 @@ const Carousel = ({ slides }) => {
 							key={item.id}
 							item={item}
 							postsPerSlide={postsPerSlide}
+							id={id}
 						/>
 					))}
 				</div>

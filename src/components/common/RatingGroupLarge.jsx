@@ -1,13 +1,14 @@
 /* eslint-disable react/prop-types */
-import React, { useCallback, useEffect, useState } from 'react';
-import { colors, handleMessage, stars } from '../../helpers/Helpers';
-import Star from '../icon/Star';
+import React, { useEffect, useState } from 'react';
+import { handleMessage } from '../../helpers/Helpers';
+import StarRatingGroup from './StarRatingGroup';
 
 const RatingGroupLarge = ({
 	withoutMessage,
 	messageLarge,
 	rating,
 	numberOfReviews,
+	id,
 }) => {
 	const [message, setMessage] = useState('');
 
@@ -26,57 +27,17 @@ const RatingGroupLarge = ({
 					{message}
 				</p>
 			)}
-			<div className="cozy-flex cozy-gap-1.5">
-				<RatingFixed rating={rating} />
-			</div>
+			<StarRatingGroup star={rating} size={28} spacing={6} />
 			{messageLarge && (
 				<a
-					href="/"
+					href={`https://cozycot.just.engineer/profile/${id}?utm_source=Widget`}
+					target="_blank"
+					rel="noreferrer"
 					className="cozy-text-body-2 cozy-underline cozy-underline-offset-2"
 				>
 					{numberOfReviews} reviews
 				</a>
 			)}
-		</>
-	);
-};
-
-export const RatingFixed = ({ rating, small }) => {
-	const [selectedStar, setSelectedStar] = useState(0);
-
-	useEffect(() => {
-		setSelectedStar(rating);
-	}, [rating]);
-
-	const defaultBackgroundColor = useCallback(
-		(index) => {
-			if (index <= selectedStar) {
-				return colors[Math.round(selectedStar) - 1];
-			}
-
-			return 'cozy-bg-zinc-200';
-		},
-		[selectedStar],
-	);
-
-	return (
-		<>
-			{stars.map((arr, index) => {
-				return (
-					<button key={index}>
-						<div
-							className={`${defaultBackgroundColor(
-								index,
-							)} cozy-duration-75 hover:cozy-scale-105`}
-							style={{ color: 'white', borderRadius: small ? '2px' : '4px' }}
-						>
-							<i>
-								<Star size={small ? 20 : 28} />
-							</i>
-						</div>
-					</button>
-				);
-			})}
 		</>
 	);
 };

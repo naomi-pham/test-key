@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from '../components/api/axios';
 
-const useAxios = (id) => {
+const useReview = (id) => {
 	const [data, setData] = useState('');
 	const [error, setError] = useState('');
 	const [isLoading, setIsLoading] = useState(true);
@@ -17,9 +17,9 @@ const useAxios = (id) => {
 		try {
 			setIsLoading(true);
 			const res = await axios.get(
-				`/api/v1/business/widgets/${id}/stats?type=review`,
+				`/api/v1/business/reviews/${id}?type=review&limit=10`,
 			);
-			setData(res.data);
+			setData(res.data.data);
 		} catch (error) {
 			console.log(error);
 			setError(error);
@@ -31,4 +31,4 @@ const useAxios = (id) => {
 	return { data, error, isLoading };
 };
 
-export default useAxios;
+export default useReview;

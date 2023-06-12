@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { handleNullData } from '../../helpers/Helpers';
-import useAxios from '../../hooks/useAxios';
+import useStats from '../../hooks/useStats';
 import RatingGroupLarge from './RatingGroupLarge';
 import { IconLoading, IconLogo } from './Icons';
 
@@ -10,7 +10,7 @@ const CozyStatsLarge = ({ intent, id }) => {
 	// const search = useLocation().search;
 	// const businessUuid = new URLSearchParams(search).get('businessUuid');
 
-	const { data, error, isLoading } = useAxios(`${id}`);
+	const { data: stats, error, isLoading } = useStats(`${id}`);
 
 	return (
 		<>
@@ -21,7 +21,7 @@ const CozyStatsLarge = ({ intent, id }) => {
 				</i>
 			)}
 
-			{data && (
+			{stats && (
 				<div
 					className={`cozy-flex cozy-flex-col cozy-gap-3 cozy-p-3 ${
 						intent === 'center'
@@ -34,23 +34,26 @@ const CozyStatsLarge = ({ intent, id }) => {
 					</i>
 					<RatingGroupLarge
 						withoutMessage
-						rating={handleNullData(data?.data?.trust_score)}
-						numberOfReviews={handleNullData(
-							data?.data?.review_overview.total,
-							0,
-						)}
+						rating={handleNullData(stats?.cozy_score)}
+						numberOfReviews={handleNullData(stats?.review_overview.total, 0)}
+						id={id}
 					/>
 					<div className="cozy-flex cozy-gap-1.5 cozy-text-body-2">
 						<p>
 							Cozy score:{' '}
 							<span className="cozy-font-medium">
-								{handleNullData(data?.data?.trust_score?.toFixed(1))}
+								{handleNullData(stats?.cozy_score?.toFixed(1))}
 							</span>
 						</p>
 						•
-						<a href="/" className="cozy-underline cozy-underline-offset-2">
+						<a
+							href={`https://cozycot.just.engineer/profile/${id}?utm_source=Widget`}
+							target="_blank"
+							rel="noreferrer"
+							className="cozy-underline cozy-underline-offset-2"
+						>
 							<span className="cozy-font-medium">
-								{handleNullData(data?.data?.review_overview.total, 0)}
+								{handleNullData(stats?.review_overview.total, 0)}
 							</span>{' '}
 							reviews
 						</a>
