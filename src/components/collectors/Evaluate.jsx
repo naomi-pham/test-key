@@ -167,7 +167,7 @@ const Evaluate = ({ id }) => {
 	if (params && params?.search) {
 		businessUuid = new URLSearchParams(params?.search).get('businessUuid');
 	} else {
-		businessUuid = params.pathname.replace('/profile/', '');
+		businessUuid = id
 	}
 
 	async function handleSubmit(e) {
