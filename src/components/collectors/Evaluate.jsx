@@ -167,7 +167,7 @@ const Evaluate = ({ id }) => {
 	if (params && params?.search) {
 		businessUuid = new URLSearchParams(params?.search).get('businessUuid');
 	} else {
-		businessUuid = id
+		businessUuid = id;
 	}
 
 	async function handleSubmit(e) {
@@ -181,6 +181,7 @@ const Evaluate = ({ id }) => {
 				created_by: state?.name,
 				email: state?.email,
 				date: state?.date,
+				source: 'Widget',
 			});
 			setIsSubmitted(true);
 			// window.location.reload(false);
