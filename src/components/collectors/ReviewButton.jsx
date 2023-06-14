@@ -2,10 +2,10 @@
 import React from 'react';
 import { IconLogo } from '../common/Icons';
 
-const ReviewButton = ({ id }) => {
+const ReviewButton = ({ website }) => {
 	return (
 		<a
-			href={`https://cozycot.just.engineer/profile/${id}?utm_source=Widget`}
+			href={`https://cozycot.just.engineer/profile/${website}?utm_source=Widget`}
 			target="_blank"
 			rel="noreferrer"
 		>

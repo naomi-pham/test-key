@@ -6,11 +6,11 @@ import CozyReviews from '../common/CozyReviews';
 import { IconLoading, IconLogo } from '../common/Icons';
 import RatingGroupLarge from '../common/RatingGroupLarge';
 
-const ReviewCarousel = ({ id }) => {
+const ReviewCarousel = ({ id, website }) => {
 	// const search = useLocation().search;
 	// const businessUuid = new URLSearchParams(search).get('businessUuid');
 
-	const { data: stats, error, isLoading } = useStats(`${id}`);
+	const { data: stats, error, isLoading } = useStats(`${website}`);
 
 	if (error) return <p className="cozy-opacity-60"> Stats not found</p>;
 	if (isLoading)
@@ -27,13 +27,13 @@ const ReviewCarousel = ({ id }) => {
 					messageLarge
 					rating={handleNullData(stats?.cozy_score, 0)}
 					numberOfReviews={handleNullData(stats?.review_overview?.total, 0)}
-					id={id}
+					website={website}
 				/>
 				<IconLogo width={100} height={40} />
 			</div>
 
 			<div className="cozy-w-full sm:cozy-max-w-sm">
-				<CozyReviews id={id} />
+				<CozyReviews id={id} website={website} />
 			</div>
 		</div>
 	);

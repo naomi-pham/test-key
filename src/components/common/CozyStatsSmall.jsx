@@ -5,11 +5,11 @@ import useStats from '../../hooks/useStats';
 import RatingGroupSmall from './RatingGroupSmall';
 import { IconLoading } from './Icons';
 
-const CozyStatsSmall = ({ withScore, id }) => {
+const CozyStatsSmall = ({ withScore, website }) => {
 	// const search = useLocation().search;
 	// const businessUuid = new URLSearchParams(search).get('businessUuid');
 
-	const { data: stats, error, isLoading } = useStats(`${id}`);
+	const { data: stats, error, isLoading } = useStats(`${website}`);
 
 	return (
 		<>

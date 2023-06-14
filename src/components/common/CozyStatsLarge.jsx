@@ -5,12 +5,12 @@ import useStats from '../../hooks/useStats';
 import RatingGroupLarge from './RatingGroupLarge';
 import { IconLoading, IconLogo } from './Icons';
 
-const CozyStatsLarge = ({ intent, id }) => {
+const CozyStatsLarge = ({ intent, id, website }) => {
 	// Get values from query string
 	// const search = useLocation().search;
 	// const businessUuid = new URLSearchParams(search).get('businessUuid');
 
-	const { data: stats, error, isLoading } = useStats(`${id}`);
+	const { data: stats, error, isLoading } = useStats(`${website}`);
 
 	return (
 		<>
@@ -36,7 +36,7 @@ const CozyStatsLarge = ({ intent, id }) => {
 						withoutMessage
 						rating={handleNullData(stats?.cozy_score)}
 						numberOfReviews={handleNullData(stats?.review_overview.total, 0)}
-						id={id}
+						website={website}
 					/>
 					<div className="cozy-flex cozy-gap-1.5 cozy-text-body-2">
 						<p>
@@ -47,7 +47,7 @@ const CozyStatsLarge = ({ intent, id }) => {
 						</p>
 						•
 						<a
-							href={`https://cozycot.just.engineer/profile/${id}?utm_source=Widget`}
+							href={`https://cozycot.just.engineer/profile/${website}?utm_source=Widget`}
 							target="_blank"
 							rel="noreferrer"
 							className="cozy-underline cozy-underline-offset-2"

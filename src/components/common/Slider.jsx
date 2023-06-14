@@ -5,7 +5,7 @@ import useWindowResize from '../../hooks/useResize';
 import { IconArrow } from './Icons';
 import ReviewCard from './ReviewCard';
 
-const Slider = ({ slides }) => {
+const Slider = ({ slides, website }) => {
 	const totalSlide = slides?.length;
 	const [slidePosition, setSlidePosition] = useState(0);
 	const [postsPerSlide, setPostsPerSlide] = useState(null);
@@ -54,6 +54,7 @@ const Slider = ({ slides }) => {
 							item={item}
 							postsPerSlide={postsPerSlide}
 							hasBackground
+							website={website}
 						/>
 					))}
 				</div>

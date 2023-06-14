@@ -9,8 +9,9 @@ import {
 import axios from '../api/axios';
 import { IconArrowLink } from '../common/Icons';
 import Rating from '../common/Rating';
+import ImageUploader from '../common/ImageUploader';
 
-const Evaluate = ({ id }) => {
+const Evaluate = ({ id, website }) => {
 	const [rating, setRating] = useState(0);
 	const [isShown, setIsShown] = useState(false);
 	const [isSubmitted, setIsSubmitted] = useState(false);
@@ -155,10 +156,6 @@ const Evaluate = ({ id }) => {
 		dispatch({ type: 'REMOVE_IMAGE', payload: id });
 	};
 
-	const handleResetForm = () => {
-		dispatch({ type: 'RESET' });
-	};
-
 	// Get values from query string
 	const params = useLocation();
 
@@ -173,19 +170,34 @@ const Evaluate = ({ id }) => {
 	async function handleSubmit(e) {
 		e.preventDefault();
 		if (!businessUuid) return null;
+
 		try {
-			const res = await axios.post(`/api/v1/business/reviews/${businessUuid}`, {
-				title: state?.title,
-				content: state?.review,
-				star: state?.star + 1,
-				created_by: state?.name,
-				email: state?.email,
-				date: state?.date,
-				source: 'Widget',
-			});
+			let formData = new FormData();
+
+			formData.append('title', title);
+			formData.append('content', review);
+			formData.append('star', star + 1);
+			formData.append('created_by', name);
+			formData.append('email', email);
+			formData.append('experienced_at', date);
+			formData.append('source', 'Widget');
+
+			for (let i = 0; i < images.length; i++) {
+				formData.append('images[]', images[i].image, images[i].image.name);
+			}
+
+			const res = await axios.post(
+				`/api/v1/business/reviews/${businessUuid}`,
+				formData,
+			);
+
+			if (!res.ok) {
+				throw 'Error while uploading file';
+			}
+
+			const submitReview = await res.json();
 			setIsSubmitted(true);
-			// window.location.reload(false);
-			// console.log('🚀 ~ file: usePostAxios.jsx:13 ~ postData ~ res:', res);
+			return submitReview.data;
 		} catch (error) {
 			console.log(error?.response?.data?.message);
 			setPostError(error.response.data.message);
@@ -226,7 +238,7 @@ const Evaluate = ({ id }) => {
 							<p>Thank you for your feedback!</p>
 
 							<a
-								href={`https://cozycot.just.engineer/profile/${id}?utm_source=Widget`}
+								href={`https://cozycot.just.engineer/profile/${website}?utm_source=Widget`}
 								target="_blank"
 								rel="noreferrer"
 								className="cozy-flex cozy-items-center cozy-gap-2 cozy-text-title-2 cozy-font-semibold"
@@ -267,11 +279,11 @@ const Evaluate = ({ id }) => {
 							</label>
 
 							{/* Image loader */}
-							{/* <ImageUploader
-									images={images}
-									handleSetImages={handleSetImages}
-									handleRemoveImage={handleRemoveImage}
-								/> */}
+							<ImageUploader
+								images={images}
+								handleSetImages={handleSetImages}
+								handleRemoveImage={handleRemoveImage}
+							/>
 
 							{formFields.map((field) => (
 								<label

@@ -1,23 +1,23 @@
 import { useEffect, useState } from 'react';
 import axios from '../components/api/axios';
 
-const useStats = (id) => {
+const useStats = (website) => {
 	const [data, setData] = useState('');
 	const [error, setError] = useState('');
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		if (id) {
+		if (website) {
 			getData();
 		}
-	}, [id]);
+	}, [website]);
 
 	async function getData() {
-		if (!id) return null;
+		if (!website) return null;
 		try {
 			setIsLoading(true);
 			const res = await axios.get(
-				`/api/v1/business/widgets/${id}/stats`,
+				`/api/v1/business/widgets/${website}/stats`,
 			);
 			setData(res.data.data);
 		} catch (error) {

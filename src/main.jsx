@@ -11,6 +11,7 @@ import { BrowserRouter } from 'react-router-dom';
 	for (let i = 0; i < container.length; i++) {
 		let intent = container[i].dataset.review;
 		let id = container[i].dataset.businessid;
+		let website = container[i].dataset.website;
 
 		if (!container[i].classList.contains('root-rendered')) {
 			let shadowDom = container[i].attachShadow({ mode: 'open' });
@@ -39,7 +40,7 @@ import { BrowserRouter } from 'react-router-dom';
 				<React.StrictMode>
 					<BrowserRouter>
 						<div className="cozy-font cozy-leading-6 cozy-text-light-neutral-800">
-							<App intent={intent} id={id} />
+							<App intent={intent} id={id} website={website} />
 						</div>
 					</BrowserRouter>
 				</React.StrictMode>,

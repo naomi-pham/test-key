@@ -2,8 +2,8 @@
 import React from 'react';
 import CozyStatsLarge from '../common/CozyStatsLarge';
 
-const Mini = ({ id }) => {
-	return <CozyStatsLarge id={id} />;
+const Mini = ({ id, website }) => {
+	return <CozyStatsLarge id={id} website={website} />;
 };
 
 export default Mini;

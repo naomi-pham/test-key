@@ -4,7 +4,7 @@ import useReview from '../../hooks/useReview';
 import { IconLoading } from '../common/Icons';
 import Slider from '../common/Slider';
 
-const ReviewSlider = ({ id }) => {
+const ReviewSlider = ({ id, website }) => {
 	// const search = useLocation().search;
 	// const businessUuid = new URLSearchParams(search).get('businessUuid');
 
@@ -18,7 +18,7 @@ const ReviewSlider = ({ id }) => {
 					<IconLoading />
 				</i>
 			)}
-			{reviews && <Slider slides={reviews?.items} />}
+			{reviews && <Slider slides={reviews?.items} website={website} />}
 		</div>
 	);
 };

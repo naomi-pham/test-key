@@ -7,7 +7,7 @@ import Check from '../icon/Check';
 import { handleNullData } from '../../helpers/Helpers';
 dayjs.extend(relativeTime);
 
-const ReviewCard = ({ item, postsPerSlide, hasBackground, id }) => {
+const ReviewCard = ({ item, postsPerSlide, hasBackground, website }) => {
 	return (
 		<div
 			className="cozy-relative cozy-px-2"
@@ -15,7 +15,9 @@ const ReviewCard = ({ item, postsPerSlide, hasBackground, id }) => {
 		>
 			<div
 				className={`${
-					hasBackground ? 'cozy-rounded-xl cozy-bg-light-neutral-50 cozy-p-6' : 'cozy-px-4'
+					hasBackground
+						? 'cozy-rounded-xl cozy-bg-light-neutral-50 cozy-p-6'
+						: 'cozy-px-4'
 				}`}
 			>
 				<div className="cozy-flex cozy-flex-col cozy-gap-3">
@@ -32,7 +34,7 @@ const ReviewCard = ({ item, postsPerSlide, hasBackground, id }) => {
 						)}
 					</div>
 					<a
-						href={`https://cozycot.just.engineer/profile/${id}?utm_source=Widget`}
+						href={`https://cozycot.just.engineer/profile/${website}?utm_source=Widget`}
 						target="_blank"
 						rel="noreferrer"
 					>

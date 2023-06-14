@@ -9,6 +9,7 @@ const RatingGroupLarge = ({
 	rating,
 	numberOfReviews,
 	id,
+	website
 }) => {
 	return (
 		<>
@@ -24,7 +25,7 @@ const RatingGroupLarge = ({
 			<StarRatingGroup star={rating} size={28} spacing={6} />
 			{messageLarge && (
 				<a
-					href={`https://cozycot.just.engineer/profile/${id}?utm_source=Widget`}
+					href={`https://cozycot.just.engineer/profile/${website}?utm_source=Widget`}
 					target="_blank"
 					rel="noreferrer"
 					className="cozy-text-body-2 cozy-underline cozy-underline-offset-2"

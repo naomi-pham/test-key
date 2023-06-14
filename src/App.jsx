@@ -10,52 +10,52 @@ import MiniCarousel from './components/testimonials/MiniCarousel';
 import ReviewCarousel from './components/testimonials/ReviewCarousel';
 import ReviewSlider from './components/testimonials/ReviewSlider';
 
-const App = ({ intent, id }) => {
+const App = ({ intent, id, website }) => {
 	const ReviewData = [
 		{
 			id: 1,
 			intent: 'evaluate',
-			component: <Evaluate id={id} />,
+			component: <Evaluate id={id} website={website} />,
 		},
 		{
 			id: 2,
 			intent: 'review-button',
-			component: <ReviewButton id={id} />,
+			component: <ReviewButton id={id} website={website} />,
 		},
 		{
 			id: 3,
 			intent: 'horizontal',
-			component: <Horizontal id={id} />,
+			component: <Horizontal id={id} website={website} />,
 		},
 		{
 			id: 4,
 			intent: 'micro-review-count',
-			component: <MicroReviewCount id={id} />,
+			component: <MicroReviewCount id={id} website={website} />,
 		},
 		{
 			id: 5,
 			intent: 'micro-star',
-			component: <MicroStar id={id} />,
+			component: <MicroStar id={id} website={website} />,
 		},
 		{
 			id: 6,
 			intent: 'mini',
-			component: <Mini id={id} />,
+			component: <Mini id={id} website={website} />,
 		},
 		{
 			id: 7,
 			intent: 'review-carousel',
-			component: <ReviewCarousel id={id} />,
+			component: <ReviewCarousel id={id} website={website} />,
 		},
 		{
 			id: 8,
 			intent: 'mini-carousel',
-			component: <MiniCarousel id={id} />,
+			component: <MiniCarousel id={id} website={website} />,
 		},
 		{
 			id: 9,
 			intent: 'review-slider',
-			component: <ReviewSlider id={id} />,
+			component: <ReviewSlider id={id} website={website} />,
 		},
 	];
 

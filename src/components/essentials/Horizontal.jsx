@@ -5,8 +5,8 @@ import useStats from '../../hooks/useStats';
 import { IconLoading, IconLogo } from '../common/Icons';
 import StarRatingGroup from '../common/StarRatingGroup';
 
-const Horizontal = ({ id }) => {
-	const { data: stats, error, isLoading } = useStats(`${id}`);
+const Horizontal = ({ website }) => {
+	const { data: stats, error, isLoading } = useStats(`${website}`);
 
 	if (error) return <p className="cozy-opacity-60"> Stats not found</p>;
 
@@ -27,7 +27,7 @@ const Horizontal = ({ id }) => {
 			</div>
 
 			<a
-				href={`https://cozycot.just.engineer/profile/${id}?utm_source=Widget`}
+				href={`https://cozycot.just.engineer/profile/${website}?utm_source=Widget`}
 				target="_blank"
 				rel="noreferrer"
 			>
