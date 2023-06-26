@@ -30,6 +30,7 @@ const Horizontal = ({ website }) => {
 				href={`https://cozycot.just.engineer/profile/${website}?utm_source=Widget`}
 				target="_blank"
 				rel="noreferrer"
+				style={{ marginBottom: -4 }}
 			>
 				<i>
 					<IconLogo width={60} height={24} />

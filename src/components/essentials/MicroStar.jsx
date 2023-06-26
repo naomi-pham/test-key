@@ -7,17 +7,16 @@ const MicroStar = ({ website, id }) => {
 	return (
 		<div className="cozy-flex cozy-items-center cozy-gap-2 cozy-p-2 cozy-py-4">
 			<CozyStatsSmall id={id} website={website} />
-			<div>
-				<a
-					href={`https://cozycot.just.engineer/profile/${website}?utm_source=Widget`}
-					target="_blank"
-					rel="noreferrer"
-				>
-					<i>
-						<IconLogo width={60} height={24} />
-					</i>
-				</a>
-			</div>
+			<a
+				href={`https://cozycot.just.engineer/profile/${website}?utm_source=Widget`}
+				target="_blank"
+				rel="noreferrer"
+				style={{ marginBottom: -4 }}
+			>
+				<i>
+					<IconLogo width={60} height={24} />
+				</i>
+			</a>
 		</div>
 	);
 };

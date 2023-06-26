@@ -29,7 +29,7 @@ const CozyStatsLarge = ({ intent, id, website }) => {
 							: ''
 					}`}
 				>
-					<i>
+					<i style={{ marginBottom: -4 }}>
 						<IconLogo width={100} height={40} />
 					</i>
 					<RatingGroupLarge
