@@ -7,6 +7,8 @@ import Check from '../icon/Check';
 import { handleNullData } from '../../helpers/Helpers';
 dayjs.extend(relativeTime);
 
+const CLIENT_URL = import.meta.env.VITE_PUBLIC_CLIENT_URL;
+
 const ReviewCard = ({ item, postsPerSlide, hasBackground, website }) => {
 	return (
 		<div
@@ -34,7 +36,7 @@ const ReviewCard = ({ item, postsPerSlide, hasBackground, website }) => {
 						)}
 					</div>
 					<a
-						href={`https://cozycot.just.engineer/profile/${website}?utm_source=Widget`}
+						href={`${CLIENT_URL}/profile/${website}?utm_source=Widget`}
 						target="_blank"
 						rel="noreferrer"
 					>

@@ -5,6 +5,8 @@ import useStats from '../../hooks/useStats';
 import { IconLoading, IconLogo } from '../common/Icons';
 import StarRatingGroup from '../common/StarRatingGroup';
 
+const CLIENT_URL = import.meta.env.VITE_PUBLIC_CLIENT_URL;
+
 const Horizontal = ({ website }) => {
 	const { data: stats, error, isLoading } = useStats(`${website}`);
 
@@ -27,7 +29,7 @@ const Horizontal = ({ website }) => {
 			</div>
 
 			<a
-				href={`https://cozycot.just.engineer/profile/${website}?utm_source=Widget`}
+				href={`${CLIENT_URL}/profile/${website}?utm_source=Widget`}
 				target="_blank"
 				rel="noreferrer"
 				style={{ marginBottom: -4 }}

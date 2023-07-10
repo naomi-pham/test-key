@@ -11,6 +11,8 @@ import { IconArrowLink } from '../common/Icons';
 import Rating from '../common/Rating';
 import ImageUploader from '../common/ImageUploader';
 
+const CLIENT_URL = import.meta.env.VITE_PUBLIC_CLIENT_URL;
+
 const Evaluate = ({ id, website }) => {
 	const [rating, setRating] = useState(0);
 	const [isShown, setIsShown] = useState(false);
@@ -238,7 +240,7 @@ const Evaluate = ({ id, website }) => {
 							<p>Thank you for your feedback!</p>
 
 							<a
-								href={`https://cozycot.just.engineer/profile/${website}?utm_source=Widget`}
+								href={`${CLIENT_URL}/profile/${website}?utm_source=Widget`}
 								target="_blank"
 								rel="noreferrer"
 								className="cozy-flex cozy-items-center cozy-gap-2 cozy-text-title-2 cozy-font-semibold"

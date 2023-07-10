@@ -2,6 +2,8 @@
 import React from 'react';
 import { IconLogo } from '../common/Icons';
 
+const CLIENT_URL = import.meta.env.VITE_PUBLIC_CLIENT_URL;
+
 const MicroReviewCount = ({ website }) => {
 	return (
 		<p
@@ -11,7 +13,7 @@ const MicroReviewCount = ({ website }) => {
 			See our reviews on
 			<span style={{ marginBottom: -2 }}>
 				<a
-					href={`https://cozycot.just.engineer/profile/${website}?utm_source=Widget`}
+					href={`${CLIENT_URL}/profile/${website}?utm_source=Widget`}
 					target="_blank"
 					rel="noreferrer"
 				>

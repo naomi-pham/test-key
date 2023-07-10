@@ -5,11 +5,9 @@ import useStats from '../../hooks/useStats';
 import RatingGroupLarge from './RatingGroupLarge';
 import { IconLoading, IconLogo } from './Icons';
 
-const CozyStatsLarge = ({ intent, id, website }) => {
-	// Get values from query string
-	// const search = useLocation().search;
-	// const businessUuid = new URLSearchParams(search).get('businessUuid');
+const CLIENT_URL = import.meta.env.VITE_PUBLIC_CLIENT_URL;
 
+const CozyStatsLarge = ({ intent, website }) => {
 	const { data: stats, error, isLoading } = useStats(`${website}`);
 
 	return (
@@ -47,7 +45,7 @@ const CozyStatsLarge = ({ intent, id, website }) => {
 						</p>
 						•
 						<a
-							href={`https://cozycot.just.engineer/profile/${website}?utm_source=Widget`}
+							href={`${CLIENT_URL}/profile/${website}?utm_source=Widget`}
 							target="_blank"
 							rel="noreferrer"
 							className="cozy-underline cozy-underline-offset-2"
