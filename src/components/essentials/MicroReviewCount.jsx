@@ -9,7 +9,7 @@ const MicroReviewCount = ({ website }) => {
 			style={{ alignItems: 'end' }}
 		>
 			See our reviews on
-			<span style={{ marginBottom: -4 }}>
+			<span style={{ marginBottom: -2 }}>
 				<a
 					href={`https://cozycot.just.engineer/profile/${website}?utm_source=Widget`}
 					target="_blank"

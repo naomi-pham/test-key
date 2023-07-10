@@ -14,7 +14,7 @@ const ReviewButton = ({ website }) => {
 				style={{ borderRadius: '8px', alignItems: 'end' }}
 			>
 				<span>Review us on</span>
-				<i style={{ marginBottom: -4 }}>
+				<i style={{ marginBottom: -2 }}>
 					<IconLogo width={60} height={24} />
 				</i>
 			</button>
